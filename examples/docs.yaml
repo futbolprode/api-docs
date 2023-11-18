@@ -9,40 +9,40 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateCountryDto'
+              $ref: "#/components/schemas/CreateCountryDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Country'
+                $ref: "#/components/schemas/Country"
       tags: &ref_0
         - countries
     get:
       operationId: CountriesController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CountriesList'
+                $ref: "#/components/schemas/CountriesList"
       tags: *ref_0
   /countries/external/import:
     post:
       operationId: CountriesController_importExternalCountries
       parameters: []
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Country'
+                  $ref: "#/components/schemas/Country"
       tags: *ref_0
   /countries/{id}:
     get:
@@ -54,14 +54,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Country'
-        '404':
-          description: ''
+                $ref: "#/components/schemas/Country"
+        "404":
+          description: ""
       tags: *ref_0
     patch:
       operationId: CountriesController_update
@@ -76,10 +76,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateCountryDto'
+              $ref: "#/components/schemas/UpdateCountryDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_0
     delete:
       operationId: CountriesController_remove
@@ -90,8 +90,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_0
   /matches:
     post:
@@ -102,18 +102,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateMatchDto'
+              $ref: "#/components/schemas/CreateMatchDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: &ref_1
         - matches
     get:
       operationId: MatchesController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_1
   /matches/me:
     get:
@@ -125,14 +125,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Match'
+                  $ref: "#/components/schemas/Match"
       tags: *ref_1
   /matches/dates:
     get:
@@ -144,12 +144,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MatchDatesList'
+                $ref: "#/components/schemas/MatchDatesList"
       tags: *ref_1
   /matches/{id}:
     get:
@@ -161,12 +161,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Match'
+                $ref: "#/components/schemas/Match"
       tags: *ref_1
     patch:
       operationId: MatchesController_update
@@ -181,10 +181,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateMatchDto'
+              $ref: "#/components/schemas/UpdateMatchDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_1
     delete:
       operationId: MatchesController_remove
@@ -195,8 +195,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_1
   /matches/{id}/events:
     get:
@@ -213,14 +213,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MatchEvent'
+                  $ref: "#/components/schemas/MatchEvent"
       tags: *ref_1
   /matches/results/teams/{teamId}/tournaments/{tournamentId}:
     get:
@@ -237,14 +237,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MatchResult'
+                  $ref: "#/components/schemas/MatchResult"
       tags: *ref_1
   /predictions/points/{matchId}:
     post:
@@ -256,8 +256,8 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: &ref_2
         - predictions
   /predictions/{id}/explain:
@@ -270,20 +270,20 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Explanation'
+                $ref: "#/components/schemas/Explanation"
       tags: *ref_2
   /predictions:
     get:
       operationId: PredictionsController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_2
     post:
       operationId: PredictionsController_create
@@ -293,10 +293,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreatePredictionDto'
+              $ref: "#/components/schemas/CreatePredictionDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_2
   /predictions/{id}:
     get:
@@ -308,8 +308,8 @@ paths:
           schema:
             type: number
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_2
     put:
       operationId: PredictionsController_update
@@ -324,10 +324,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdatePredictionDto'
+              $ref: "#/components/schemas/UpdatePredictionDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_2
   /rounds:
     post:
@@ -338,18 +338,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateRoundDto'
+              $ref: "#/components/schemas/CreateRoundDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: &ref_3
         - rounds
     get:
       operationId: RoundsController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_3
   /rounds/summary:
     get:
@@ -366,26 +366,26 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Match'
+                  $ref: "#/components/schemas/Match"
       tags: *ref_3
   /rounds/recent:
     get:
       operationId: RoundsController_findRecentRoundsFor
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrderedRoundsList'
+                $ref: "#/components/schemas/OrderedRoundsList"
       tags: *ref_3
   /rounds/recent/{tournamentId}:
     get:
@@ -397,12 +397,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrderedRoundsList'
+                $ref: "#/components/schemas/OrderedRoundsList"
       tags: *ref_3
   /rounds/{id}:
     get:
@@ -414,12 +414,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Round'
+                $ref: "#/components/schemas/Round"
       tags: *ref_3
     patch:
       operationId: RoundsController_update
@@ -434,10 +434,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateRoundDto'
+              $ref: "#/components/schemas/UpdateRoundDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_3
     delete:
       operationId: RoundsController_remove
@@ -448,8 +448,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_3
   /rounds/{id}/matches:
     get:
@@ -461,14 +461,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Match'
+                  $ref: "#/components/schemas/Match"
       tags: *ref_3
   /rounds/{id}/summary:
     get:
@@ -480,14 +480,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Match'
+                  $ref: "#/components/schemas/Match"
       tags: *ref_3
   /teams:
     post:
@@ -498,26 +498,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTeamDto'
+              $ref: "#/components/schemas/CreateTeamDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Team'
+                $ref: "#/components/schemas/Team"
       tags: &ref_4
         - teams
     get:
       operationId: TeamsController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TeamsList'
+                $ref: "#/components/schemas/TeamsList"
       tags: *ref_4
   /teams/{id}:
     get:
@@ -529,14 +529,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Team'
-        '404':
-          description: ''
+                $ref: "#/components/schemas/Team"
+        "404":
+          description: ""
       tags: *ref_4
     patch:
       operationId: TeamsController_update
@@ -551,10 +551,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateTeamDto'
+              $ref: "#/components/schemas/UpdateTeamDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_4
     delete:
       operationId: TeamsController_remove
@@ -565,8 +565,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_4
   /teams/tournament/{tournamentId}:
     get:
@@ -578,28 +578,28 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Team'
-        '404':
-          description: ''
+                  $ref: "#/components/schemas/Team"
+        "404":
+          description: ""
       tags: *ref_4
   /tournaments:
     get:
       operationId: TournamentsController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TournamentsList'
+                $ref: "#/components/schemas/TournamentsList"
       tags: &ref_5
         - tournaments
     post:
@@ -610,28 +610,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTournamentDto'
+              $ref: "#/components/schemas/CreateTournamentDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tournament'
+                $ref: "#/components/schemas/Tournament"
       tags: *ref_5
   /tournaments/me:
     get:
       operationId: TournamentsController_findAllByCompany
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Tournament'
+                  $ref: "#/components/schemas/Tournament"
       tags: *ref_5
   /tournaments/{id}/winners:
     get:
@@ -643,26 +643,26 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Team'
+                  $ref: "#/components/schemas/Team"
       tags: *ref_5
   /tournaments/summary:
     get:
       operationId: TournamentsController_getSummary
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TournamentsList'
+                $ref: "#/components/schemas/TournamentsList"
       tags: *ref_5
   /tournaments/{id}:
     get:
@@ -674,14 +674,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TournamentDetails'
-        '404':
-          description: ''
+                $ref: "#/components/schemas/TournamentDetails"
+        "404":
+          description: ""
       tags: *ref_5
     patch:
       operationId: TournamentsController_update
@@ -696,10 +696,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateTournamentDto'
+              $ref: "#/components/schemas/UpdateTournamentDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_5
     delete:
       operationId: TournamentsController_remove
@@ -710,8 +710,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_5
   /tournaments/{id}/external/import:
     post:
@@ -723,12 +723,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tournament'
+                $ref: "#/components/schemas/Tournament"
       tags: &ref_6
         - tournaments
   /tournaments/external/import/{externalLeagueId}:
@@ -746,12 +746,12 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tournament'
+                $ref: "#/components/schemas/Tournament"
       tags: *ref_6
   /tournaments/external/{countryCode}:
     get:
@@ -763,14 +763,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ImportableTournament'
+                  $ref: "#/components/schemas/ImportableTournament"
       tags: *ref_6
   /tournaments/matches/{matchId}/result:
     post:
@@ -782,8 +782,8 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_6
   /tournaments/rounds/{roundId}/result:
     post:
@@ -795,8 +795,8 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_6
   /tournaments/matches/{matchId}/result/manual:
     post:
@@ -812,10 +812,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MatchResultBody'
+              $ref: "#/components/schemas/MatchResultBody"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_6
   /tournaments/{id}/standings/teams/{teamId}:
     get:
@@ -832,12 +832,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TeamStanding'
+                $ref: "#/components/schemas/TeamStanding"
       tags: *ref_6
   /users/proxy/images/{url}:
     get:
@@ -849,8 +849,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: &ref_7
         - users
   /users:
@@ -862,41 +862,41 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateUserDto'
+              $ref: "#/components/schemas/CreateUserDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
       tags: *ref_7
     get:
       operationId: UsersController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
       tags: *ref_7
   /users/resellers:
     get:
       operationId: UsersController_findAllResellerUsers
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
       tags: *ref_7
   /users/search:
     get:
@@ -918,8 +918,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -938,19 +938,19 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/User'
+                      $ref: "#/components/schemas/User"
       tags: *ref_7
   /users/me:
     get:
       operationId: UsersController_findMe
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
       tags: *ref_7
   /users/{id}:
     get:
@@ -962,12 +962,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
       tags: *ref_7
     patch:
       operationId: UsersController_update
@@ -982,14 +982,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateUserDto'
+              $ref: "#/components/schemas/UpdateUserDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
       tags: *ref_7
     delete:
       operationId: UsersController_remove
@@ -1000,8 +1000,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_7
   /users/multi:
     delete:
@@ -1013,8 +1013,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_7
   /users/import/excel:
     post:
@@ -1030,29 +1030,29 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ImportFromExcelBody'
+              $ref: "#/components/schemas/ImportFromExcelBody"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ImportReport'
+                $ref: "#/components/schemas/ImportReport"
       tags: *ref_7
     get:
       operationId: UsersController_downloadSampleExcel
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_7
   /users/download/csv:
     post:
       operationId: UsersController_downloadCSV
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_7
   /areas:
     get:
@@ -1064,14 +1064,14 @@ paths:
           schema:
             type: number
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Area'
+                  $ref: "#/components/schemas/Area"
       tags:
         - areas
   /rankings/rounds/{roundId}:
@@ -1084,8 +1084,8 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: &ref_8
         - rankings
     get:
@@ -1122,8 +1122,8 @@ paths:
           schema:
             type: number
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1142,7 +1142,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Ranking'
+                      $ref: "#/components/schemas/Ranking"
       tags: *ref_8
   /rankings/tournaments/{tournamentId}:
     post:
@@ -1154,8 +1154,8 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_8
     get:
       operationId: RankingsController_tournamentRanking
@@ -1191,8 +1191,8 @@ paths:
           schema:
             type: number
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1211,7 +1211,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Ranking'
+                      $ref: "#/components/schemas/Ranking"
       tags: *ref_8
   /rankings/tournaments/{tournamentId}/dreamfinal:
     post:
@@ -1223,8 +1223,8 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_8
   /rankings/tournaments/{tournamentId}/areas:
     get:
@@ -1261,8 +1261,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1281,15 +1281,15 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/AreaRanking'
+                      $ref: "#/components/schemas/AreaRanking"
       tags: *ref_8
   /rankings/global:
     post:
       operationId: RankingsController_calculateGlobalRanking
       parameters: []
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_8
     get:
       operationId: RankingsController_globalRanking
@@ -1320,8 +1320,8 @@ paths:
           schema:
             type: number
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1340,7 +1340,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Ranking'
+                      $ref: "#/components/schemas/Ranking"
       tags: *ref_8
   /rankings/rounds/{roundId}/areas:
     get:
@@ -1377,8 +1377,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1397,7 +1397,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/AreaRanking'
+                      $ref: "#/components/schemas/AreaRanking"
       tags: *ref_8
   /rankings/rounds/{roundId}/me:
     get:
@@ -1409,24 +1409,24 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ranking'
+                $ref: "#/components/schemas/Ranking"
       tags: *ref_8
   /rankings/me:
     get:
       operationId: RankingsController_latestRankingsMe
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LatestRankingsDto'
+                $ref: "#/components/schemas/LatestRankingsDto"
       tags: *ref_8
   /rankings/global/areas:
     get:
@@ -1458,8 +1458,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1478,7 +1478,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/AreaRanking'
+                      $ref: "#/components/schemas/AreaRanking"
       tags: *ref_8
   /rankings/combinedrounds/{combinedRoundsRankingDefinitionId}:
     post:
@@ -1490,8 +1490,8 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_8
     get:
       operationId: RankingsController_combinedRoundsRanking
@@ -1522,8 +1522,8 @@ paths:
           schema:
             type: number
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1542,7 +1542,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Ranking'
+                      $ref: "#/components/schemas/Ranking"
       tags: *ref_8
   /rankings/combinedrounds/{combinedRoundsRankingDefinitionId}/areas:
     get:
@@ -1579,8 +1579,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1599,7 +1599,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/AreaRanking'
+                      $ref: "#/components/schemas/AreaRanking"
       tags: *ref_8
   /combinedroundsrankingdefinitions:
     post:
@@ -1610,28 +1610,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateCombinedRoundsRankingDefinitionDto'
+              $ref: "#/components/schemas/CreateCombinedRoundsRankingDefinitionDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CombinedRoundsRankingDefinition'
+                $ref: "#/components/schemas/CombinedRoundsRankingDefinition"
       tags: &ref_9
         - combinedroundsrankingdefinitions
     get:
       operationId: CombinedRoundsRankingDefinitionsController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/CombinedRoundsRankingDefinition'
+                  $ref: "#/components/schemas/CombinedRoundsRankingDefinition"
       tags: *ref_9
   /combinedroundsrankingdefinitions/{id}:
     get:
@@ -1643,12 +1643,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CombinedRoundsRankingDefinition'
+                $ref: "#/components/schemas/CombinedRoundsRankingDefinition"
       tags: *ref_9
     patch:
       operationId: CombinedRoundsRankingDefinitionsController_update
@@ -1663,14 +1663,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateCombinedRoundsRankingDefinitionDto'
+              $ref: "#/components/schemas/UpdateCombinedRoundsRankingDefinitionDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CombinedRoundsRankingDefinition'
+                $ref: "#/components/schemas/CombinedRoundsRankingDefinition"
       tags: *ref_9
     delete:
       operationId: CombinedRoundsRankingDefinitionsController_remove
@@ -1681,8 +1681,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_9
   /news:
     post:
@@ -1693,42 +1693,42 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateNewsDto'
+              $ref: "#/components/schemas/CreateNewsDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/News'
+                $ref: "#/components/schemas/News"
       tags: &ref_10
         - news
     get:
       operationId: NewsController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/News'
+                  $ref: "#/components/schemas/News"
       tags: *ref_10
   /news/all:
     get:
       operationId: NewsController_combinedNews
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/NewsDetails'
+                  $ref: "#/components/schemas/NewsDetails"
       tags: *ref_10
   /news/rss/{externalId}:
     get:
@@ -1745,12 +1745,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NewsDetails'
+                $ref: "#/components/schemas/NewsDetails"
       tags: *ref_10
   /news/{id}:
     get:
@@ -1762,12 +1762,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/News'
+                $ref: "#/components/schemas/News"
       tags: *ref_10
     patch:
       operationId: NewsController_update
@@ -1782,10 +1782,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateNewsDto'
+              $ref: "#/components/schemas/UpdateNewsDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_10
     delete:
       operationId: NewsController_remove
@@ -1796,8 +1796,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_10
   /news/rss/feeds/download:
     get:
@@ -1809,28 +1809,28 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RssFeedDownload'
+                  $ref: "#/components/schemas/RssFeedDownload"
       tags: *ref_10
   /news/rss/feeds/available:
     get:
       operationId: NewsController_availableRssFeeds
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AvailableRssFeedSource'
+                  $ref: "#/components/schemas/AvailableRssFeedSource"
       tags: *ref_10
   /companies:
     post:
@@ -1841,14 +1841,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateCompanyDto'
+              $ref: "#/components/schemas/CreateCompanyDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Company'
+                $ref: "#/components/schemas/Company"
       tags: &ref_11
         - companies
     get:
@@ -1870,8 +1870,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1890,15 +1890,15 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Company'
+                      $ref: "#/components/schemas/Company"
       tags: *ref_11
   /companies/fonts:
     get:
       operationId: CompaniesController_findAvailableFonts
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1926,8 +1926,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -1946,19 +1946,19 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Company'
+                      $ref: "#/components/schemas/Company"
       tags: *ref_11
   /companies/me:
     get:
       operationId: CompaniesController_findMe
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Company'
+                $ref: "#/components/schemas/Company"
       tags: *ref_11
     patch:
       operationId: CompaniesController_updateMe
@@ -1968,26 +1968,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateCompanyDto'
+              $ref: "#/components/schemas/UpdateCompanyDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Company'
+                $ref: "#/components/schemas/Company"
       tags: *ref_11
   /companies/me/withAreas:
     get:
       operationId: CompaniesController_findMeWithAreas
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Company'
+                $ref: "#/components/schemas/Company"
       tags: *ref_11
   /companies/search:
     get:
@@ -2009,14 +2009,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Company'
+                  $ref: "#/components/schemas/Company"
       tags: *ref_11
   /companies/{id}:
     get:
@@ -2028,12 +2028,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Company'
+                $ref: "#/components/schemas/Company"
       tags: *ref_11
     patch:
       operationId: CompaniesController_update
@@ -2048,10 +2048,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateCompanyDto'
+              $ref: "#/components/schemas/UpdateCompanyDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_11
     delete:
       operationId: CompaniesController_remove
@@ -2062,20 +2062,20 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_11
   /companies/me/tournaments:
     get:
       operationId: CompaniesController_myTournaments
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Company'
+                $ref: "#/components/schemas/Company"
       tags: *ref_11
   /companies/{id}/tournaments:
     get:
@@ -2087,38 +2087,13 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Company'
+                $ref: "#/components/schemas/Company"
       tags: *ref_11
-  /files/upload:
-    post:
-      operationId: FilesController_upload
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FileUploadResponse'
-      tags: &ref_12
-        - files
-  /files/uploadByUrl:
-    post:
-      operationId: FilesController_uploadByUrl
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FileUploadResponse'
-      tags: *ref_12
   /invitations:
     post:
       operationId: InvitationsController_create
@@ -2128,14 +2103,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateInvitationDto'
+              $ref: "#/components/schemas/CreateInvitationDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Invitation'
+                $ref: "#/components/schemas/Invitation"
       tags: &ref_13
         - invitations
     get:
@@ -2152,8 +2127,8 @@ paths:
           schema:
             type: number
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -2172,7 +2147,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Invitation'
+                      $ref: "#/components/schemas/Invitation"
       tags: *ref_13
   /invitations/{companyId}/pending/managers:
     get:
@@ -2184,14 +2159,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Invitation'
+                  $ref: "#/components/schemas/Invitation"
       tags: *ref_13
   /invitations/{id}:
     get:
@@ -2203,12 +2178,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Invitation'
+                $ref: "#/components/schemas/Invitation"
       tags: *ref_13
     patch:
       operationId: InvitationsController_update
@@ -2223,14 +2198,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateInvitationDto'
+              $ref: "#/components/schemas/UpdateInvitationDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Invitation'
+                $ref: "#/components/schemas/Invitation"
       tags: *ref_13
     delete:
       operationId: InvitationsController_remove
@@ -2241,8 +2216,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_13
   /invitations/jwt/{jwt}:
     get:
@@ -2254,12 +2229,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Invitation'
+                $ref: "#/components/schemas/Invitation"
       tags: *ref_13
   /invitations/externalId/{externalId}:
     get:
@@ -2271,12 +2246,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Invitation'
+                $ref: "#/components/schemas/Invitation"
       tags: *ref_13
   /invitations/multi:
     delete:
@@ -2288,16 +2263,16 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_13
   /invitations/download/csv:
     post:
       operationId: InvitationsController_downloadCSV
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_13
   /translations:
     post:
@@ -2308,10 +2283,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTranslationDto'
+              $ref: "#/components/schemas/CreateTranslationDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
   /translations/{locale}/company:
     get:
       operationId: TranslationsController_findOne
@@ -2322,8 +2297,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
   /translations/{locale}:
     delete:
       operationId: TranslationsController_remove
@@ -2334,8 +2309,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
   /emails/send:
     post:
       operationId: EmailsController_send
@@ -2345,10 +2320,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SendEmailDto'
+              $ref: "#/components/schemas/SendEmailDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
   /emails/send/external/support:
     post:
       operationId: EmailsController_sendExternalSupport
@@ -2358,10 +2333,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExternalSupportEmailDto'
+              $ref: "#/components/schemas/ExternalSupportEmailDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
   /emails/send/profile/support:
     post:
       operationId: EmailsController_sendProfileSupport
@@ -2371,10 +2346,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProfileSupportEmailDto'
+              $ref: "#/components/schemas/ProfileSupportEmailDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
   /dreamfinalsettings:
     post:
       operationId: DreamFinalSettingsController_create
@@ -2384,14 +2359,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateDreamFinalSettingsDto'
+              $ref: "#/components/schemas/CreateDreamFinalSettingsDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DreamFinalSettings'
+                $ref: "#/components/schemas/DreamFinalSettings"
       tags: &ref_14
         - dreamfinalsettings
   /dreamfinalsettings/tournaments/me:
@@ -2399,14 +2374,14 @@ paths:
       operationId: DreamFinalSettingsController_me
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/TournamentAndDreamFinal'
+                  $ref: "#/components/schemas/TournamentAndDreamFinal"
       tags: *ref_14
   /dreamfinalsettings/tournaments/{tournamentId}:
     get:
@@ -2418,12 +2393,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DreamFinalSettings'
+                $ref: "#/components/schemas/DreamFinalSettings"
       tags: *ref_14
   /dreamfinalsettings/{id}:
     get:
@@ -2435,14 +2410,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DreamFinalSettings'
-        '404':
-          description: ''
+                $ref: "#/components/schemas/DreamFinalSettings"
+        "404":
+          description: ""
       tags: *ref_14
     patch:
       operationId: DreamFinalSettingsController_update
@@ -2457,10 +2432,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateDreamFinalSettingsDto'
+              $ref: "#/components/schemas/UpdateDreamFinalSettingsDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_14
     delete:
       operationId: DreamFinalSettingsController_remove
@@ -2471,8 +2446,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_14
   /dreamfinalpredictions:
     post:
@@ -2483,14 +2458,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateDreamFinalPredictionDto'
+              $ref: "#/components/schemas/CreateDreamFinalPredictionDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DreamFinalPrediction'
+                $ref: "#/components/schemas/DreamFinalPrediction"
       tags: &ref_15
         - dreamfinalpredictions
   /dreamfinalpredictions/tournaments/{tournamentId}:
@@ -2503,12 +2478,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DreamFinalPrediction'
+                $ref: "#/components/schemas/DreamFinalPrediction"
       tags: *ref_15
   /dreamfinalpredictions/{id}:
     get:
@@ -2520,14 +2495,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DreamFinalPrediction'
-        '404':
-          description: ''
+                $ref: "#/components/schemas/DreamFinalPrediction"
+        "404":
+          description: ""
       tags: *ref_15
     patch:
       operationId: DreamFinalPredictionController_update
@@ -2542,10 +2517,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateDreamFinalPredictionDto'
+              $ref: "#/components/schemas/UpdateDreamFinalPredictionDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_15
     delete:
       operationId: DreamFinalPredictionController_remove
@@ -2556,8 +2531,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_15
   /gamerules:
     post:
@@ -2568,38 +2543,38 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateGameRulesDto'
+              $ref: "#/components/schemas/CreateGameRulesDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GameRules'
+                $ref: "#/components/schemas/GameRules"
       tags: &ref_16
         - gamerules
     get:
       operationId: GameRulesController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GameRules'
+                $ref: "#/components/schemas/GameRules"
       tags: *ref_16
   /gamerules/termsandconditions:
     get:
       operationId: GameRulesController_termsAndConditions
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TermsAndConditions'
+                $ref: "#/components/schemas/TermsAndConditions"
       tags: *ref_16
     post:
       operationId: GameRulesController_upsertTermsAndConditions
@@ -2609,14 +2584,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTermsAndConditionsDto'
+              $ref: "#/components/schemas/CreateTermsAndConditionsDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TermsAndConditions'
+                $ref: "#/components/schemas/TermsAndConditions"
       tags: *ref_16
   /gamerules/tournaments/{tournamentId}:
     get:
@@ -2628,26 +2603,26 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GameRules'
-        '404':
-          description: ''
+                $ref: "#/components/schemas/GameRules"
+        "404":
+          description: ""
       tags: *ref_16
   /stats:
     get:
       operationId: StatsController_stats
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Stats'
+                $ref: "#/components/schemas/Stats"
       tags:
         - stats
   /globalsettings:
@@ -2659,26 +2634,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateGlobalSettingsDto'
+              $ref: "#/components/schemas/CreateGlobalSettingsDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GlobalSettings'
+                $ref: "#/components/schemas/GlobalSettings"
       tags: &ref_17
         - globalsettings
     get:
       operationId: GlobalSettingsController_findAll
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GlobalSettings'
+                $ref: "#/components/schemas/GlobalSettings"
       tags: *ref_17
   /tournamentcustomsettings/companies/{companyId}:
     get:
@@ -2690,14 +2665,14 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/TournamentCustomSettings'
+                  $ref: "#/components/schemas/TournamentCustomSettings"
       tags: &ref_18
         - tournamentcustomsettings
   /tournamentcustomsettings/me:
@@ -2705,14 +2680,14 @@ paths:
       operationId: TournamentCustomSettingsController_findAllByMe
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/TournamentCustomSettings'
+                  $ref: "#/components/schemas/TournamentCustomSettings"
       tags: *ref_18
   /tournamentcustomsettings/tournaments/{tournamentId}:
     get:
@@ -2724,12 +2699,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TournamentCustomSettings'
+                $ref: "#/components/schemas/TournamentCustomSettings"
       tags: *ref_18
     post:
       operationId: TournamentCustomSettingsController_create
@@ -2744,14 +2719,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTournamentCustomSettingsDto'
+              $ref: "#/components/schemas/CreateTournamentCustomSettingsDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TournamentCustomSettings'
+                $ref: "#/components/schemas/TournamentCustomSettings"
       tags: *ref_18
     delete:
       operationId: TournamentCustomSettingsController_remove
@@ -2762,8 +2737,8 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_18
   /joblogs:
     get:
@@ -2789,8 +2764,8 @@ paths:
               - match:import-result
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
@@ -2809,7 +2784,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/JobLog'
+                      $ref: "#/components/schemas/JobLog"
       tags: &ref_19
         - joblogs
   /joblogs/{id}:
@@ -2822,12 +2797,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/JobLog'
+                $ref: "#/components/schemas/JobLog"
       tags: *ref_19
   /auth/register:
     post:
@@ -2838,14 +2813,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateUserDto'
+              $ref: "#/components/schemas/CreateUserDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserWithToken'
+                $ref: "#/components/schemas/UserWithToken"
       tags: &ref_20
         - auth
   /auth/login:
@@ -2857,14 +2832,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LoginUserDto'
+              $ref: "#/components/schemas/LoginUserDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserWithToken'
+                $ref: "#/components/schemas/UserWithToken"
       tags: *ref_20
   /auth/google/login:
     post:
@@ -2875,14 +2850,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GoogleSignInDto'
+              $ref: "#/components/schemas/GoogleSignInDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserWithToken'
+                $ref: "#/components/schemas/UserWithToken"
       tags: *ref_20
   /auth/verify/{verificationToken}:
     post:
@@ -2894,8 +2869,8 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_20
   /auth/invitations/{invitationId}/accept:
     post:
@@ -2911,10 +2886,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateUserDto'
+              $ref: "#/components/schemas/CreateUserDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_20
   /auth/invitations/{jwt}/acceptByJwt:
     post:
@@ -2930,10 +2905,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateUserDto'
+              $ref: "#/components/schemas/CreateUserDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_20
   /auth/email/{userId}/resend:
     post:
@@ -2945,8 +2920,8 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_20
   /auth/init-recover:
     post:
@@ -2957,10 +2932,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateUserDto'
+              $ref: "#/components/schemas/UpdateUserDto"
       responses:
-        '201':
-          description: ''
+        "201":
+          description: ""
       tags: *ref_20
   /auth/finish-recover:
     post:
@@ -2971,15 +2946,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateUserDto'
+              $ref: "#/components/schemas/UpdateUserDto"
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
       tags: *ref_20
 info:
   title: Futbol Prode
-  description: ''
-  version: '1.0'
+  description: ""
+  version: "1.0"
   contact: {}
 tags: []
 servers: []
@@ -3038,7 +3013,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Country'
+            $ref: "#/components/schemas/Country"
       required:
         - count
         - data
@@ -3072,9 +3047,9 @@ components:
         referee:
           type: string
         homeTeam:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         awayTeam:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         hasPenalties:
           type: boolean
         isTwoWaysSecondMatch:
@@ -3129,7 +3104,7 @@ components:
         logoUrl:
           type: string
         country:
-          $ref: '#/components/schemas/Country'
+          $ref: "#/components/schemas/Country"
         externalId:
           type: string
       required:
@@ -3144,11 +3119,11 @@ components:
         name:
           type: string
         company:
-          $ref: '#/components/schemas/Company'
+          $ref: "#/components/schemas/Company"
         parentArea:
-          $ref: '#/components/schemas/Area'
+          $ref: "#/components/schemas/Area"
         childrenAreas:
-          $ref: '#/components/schemas/Area'
+          $ref: "#/components/schemas/Area"
       required:
         - id
         - name
@@ -3178,11 +3153,11 @@ components:
         showNoMoreRoundsWarning:
           type: boolean
         country:
-          $ref: '#/components/schemas/Country'
+          $ref: "#/components/schemas/Country"
         rounds:
           type: array
           items:
-            $ref: '#/components/schemas/Round'
+            $ref: "#/components/schemas/Round"
         season:
           type: string
         externalId:
@@ -3208,17 +3183,17 @@ components:
         id:
           type: number
         tournament:
-          $ref: '#/components/schemas/Tournament'
+          $ref: "#/components/schemas/Tournament"
         awardedPositions:
           type: number
         awardedPoints:
           type: number
         limitRound:
-          $ref: '#/components/schemas/Round'
+          $ref: "#/components/schemas/Round"
         isEnabled:
           type: boolean
         company:
-          $ref: '#/components/schemas/Company'
+          $ref: "#/components/schemas/Company"
       required:
         - id
         - tournament
@@ -3283,15 +3258,15 @@ components:
         areas:
           type: array
           items:
-            $ref: '#/components/schemas/Area'
+            $ref: "#/components/schemas/Area"
         tournaments:
           type: array
           items:
-            $ref: '#/components/schemas/Tournament'
+            $ref: "#/components/schemas/Tournament"
         dreamFinalsSettings:
           type: array
           items:
-            $ref: '#/components/schemas/DreamFinalSettings'
+            $ref: "#/components/schemas/DreamFinalSettings"
         combinedRoundsRankingDefinitions:
           type: array
           items:
@@ -3315,11 +3290,11 @@ components:
         customFontFamily:
           type: string
         superiorBanner:
-          $ref: '#/components/schemas/Banner'
+          $ref: "#/components/schemas/Banner"
         middleBanner:
-          $ref: '#/components/schemas/Banner'
+          $ref: "#/components/schemas/Banner"
         sideBanner:
-          $ref: '#/components/schemas/Banner'
+          $ref: "#/components/schemas/Banner"
         maxUsersAmount:
           type: number
         theme:
@@ -3329,7 +3304,7 @@ components:
         managerUsers:
           type: array
           items:
-            $ref: '#/components/schemas/User'
+            $ref: "#/components/schemas/User"
         deletedAt:
           format: date-time
           type: string
@@ -3394,9 +3369,9 @@ components:
         predictions:
           type: array
           items:
-            $ref: '#/components/schemas/Prediction'
+            $ref: "#/components/schemas/Prediction"
         company:
-          $ref: '#/components/schemas/Company'
+          $ref: "#/components/schemas/Company"
         role:
           type: string
           enum:
@@ -3409,11 +3384,11 @@ components:
           items:
             type: array
         areaLevel1:
-          $ref: '#/components/schemas/Area'
+          $ref: "#/components/schemas/Area"
         areaLevel2:
-          $ref: '#/components/schemas/Area'
+          $ref: "#/components/schemas/Area"
         areaLevel3:
-          $ref: '#/components/schemas/Area'
+          $ref: "#/components/schemas/Area"
         deletedAt:
           format: date-time
           type: string
@@ -3456,9 +3431,9 @@ components:
         points:
           type: number
         match:
-          $ref: '#/components/schemas/Match'
+          $ref: "#/components/schemas/Match"
         user:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
       required:
         - id
         - homeTeamGoals
@@ -3491,16 +3466,16 @@ components:
         status:
           type: string
         homeTeam:
-          $ref: '#/components/schemas/Team'
+          $ref: "#/components/schemas/Team"
         awayTeam:
-          $ref: '#/components/schemas/Team'
+          $ref: "#/components/schemas/Team"
         penaltiesWinner:
           type: string
           enum:
             - home
             - away
         round:
-          $ref: '#/components/schemas/Round'
+          $ref: "#/components/schemas/Round"
         externalId:
           type: string
         alreadySentOpenNotification:
@@ -3514,7 +3489,7 @@ components:
         predictions:
           type: array
           items:
-            $ref: '#/components/schemas/Prediction'
+            $ref: "#/components/schemas/Prediction"
       required:
         - id
         - date
@@ -3542,9 +3517,9 @@ components:
         matches:
           type: array
           items:
-            $ref: '#/components/schemas/Match'
+            $ref: "#/components/schemas/Match"
         tournament:
-          $ref: '#/components/schemas/Tournament'
+          $ref: "#/components/schemas/Tournament"
         externalId:
           type: string
       required:
@@ -3571,9 +3546,9 @@ components:
         rounds:
           type: array
           items:
-            $ref: '#/components/schemas/MatchDate'
+            $ref: "#/components/schemas/MatchDate"
         currentRound:
-          $ref: '#/components/schemas/MatchDate'
+          $ref: "#/components/schemas/MatchDate"
       required:
         - rounds
         - currentRound
@@ -3617,11 +3592,11 @@ components:
             - subst
             - var
         team:
-          $ref: '#/components/schemas/MatchTeam'
+          $ref: "#/components/schemas/MatchTeam"
         time:
-          $ref: '#/components/schemas/MatchTime'
+          $ref: "#/components/schemas/MatchTime"
         player:
-          $ref: '#/components/schemas/MatchPlayer'
+          $ref: "#/components/schemas/MatchPlayer"
         detail:
           type: string
         comments:
@@ -3642,9 +3617,9 @@ components:
         referee:
           type: string
         homeTeam:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         awayTeam:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         hasPenalties:
           type: boolean
         isTwoWaysSecondMatch:
@@ -3666,7 +3641,7 @@ components:
         result:
           type: string
         round:
-          $ref: '#/components/schemas/Round'
+          $ref: "#/components/schemas/Round"
       required:
         - result
         - round
@@ -3689,7 +3664,7 @@ components:
         rules:
           type: array
           items:
-            $ref: '#/components/schemas/Rule'
+            $ref: "#/components/schemas/Rule"
         maxPossiblePoints:
           type: number
         matchIsNonAwardable:
@@ -3714,7 +3689,7 @@ components:
           example: &ref_22
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         homeTeamGoals:
           type: number
           example: 2
@@ -3735,7 +3710,7 @@ components:
         match:
           example: *ref_22
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         homeTeamGoals:
           type: number
           example: 2
@@ -3774,9 +3749,9 @@ components:
         rounds:
           type: array
           items:
-            $ref: '#/components/schemas/OrderedRound'
+            $ref: "#/components/schemas/OrderedRound"
         currentRound:
-          $ref: '#/components/schemas/Round'
+          $ref: "#/components/schemas/Round"
       required:
         - rounds
         - currentRound
@@ -3803,7 +3778,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Team'
+            $ref: "#/components/schemas/Team"
       required:
         - count
         - data
@@ -3824,7 +3799,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Tournament'
+            $ref: "#/components/schemas/Tournament"
       required:
         - count
         - data
@@ -3838,7 +3813,7 @@ components:
           type: string
           example: https://example.com/world-cup.png
         country:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         defaultRssFeeds:
           example: &ref_24
             - bolavip_argentina
@@ -3885,11 +3860,11 @@ components:
         showNoMoreRoundsWarning:
           type: boolean
         country:
-          $ref: '#/components/schemas/Country'
+          $ref: "#/components/schemas/Country"
         rounds:
           type: array
           items:
-            $ref: '#/components/schemas/Round'
+            $ref: "#/components/schemas/Round"
         season:
           type: string
         externalId:
@@ -3900,7 +3875,7 @@ components:
           items:
             type: string
         currentRound:
-          $ref: '#/components/schemas/Round'
+          $ref: "#/components/schemas/Round"
       required:
         - id
         - name
@@ -3920,7 +3895,7 @@ components:
           type: string
           example: https://example.com/world-cup.png
         country:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         defaultRssFeeds:
           example: *ref_24
           type: array
@@ -3958,7 +3933,7 @@ components:
       type: object
       properties:
         fixtures:
-          $ref: '#/components/schemas/ApiSportsSeasonCoverageFixtures'
+          $ref: "#/components/schemas/ApiSportsSeasonCoverageFixtures"
         standings:
           type: boolean
         players:
@@ -3999,7 +3974,7 @@ components:
         season:
           type: string
         coverage:
-          $ref: '#/components/schemas/ApiSportsSeasonCoverage'
+          $ref: "#/components/schemas/ApiSportsSeasonCoverage"
       required:
         - name
         - isImported
@@ -4057,17 +4032,17 @@ components:
           example: &ref_25
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel2:
           example: &ref_26
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel3:
           example: &ref_27
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         customFields:
           type: string
           example: >-
@@ -4112,15 +4087,15 @@ components:
         areaLevel1:
           example: *ref_25
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel2:
           example: *ref_26
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel3:
           example: *ref_27
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         customFields:
           type: string
           example: >-
@@ -4184,7 +4159,7 @@ components:
         exactMatches:
           type: number
         user:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
       required:
         - id
         - position
@@ -4225,7 +4200,7 @@ components:
         exactMatches:
           type: number
         user:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
       required:
         - id
         - position
@@ -4247,9 +4222,9 @@ components:
         exactMatches:
           type: number
         user:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
         tournament:
-          $ref: '#/components/schemas/Tournament'
+          $ref: "#/components/schemas/Tournament"
       required:
         - id
         - position
@@ -4272,9 +4247,9 @@ components:
         exactMatches:
           type: number
         user:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
         round:
-          $ref: '#/components/schemas/Round'
+          $ref: "#/components/schemas/Round"
       required:
         - id
         - position
@@ -4291,9 +4266,9 @@ components:
         name:
           type: string
         ranking:
-          $ref: '#/components/schemas/TournamentRanking'
+          $ref: "#/components/schemas/TournamentRanking"
         currentRound:
-          $ref: '#/components/schemas/RoundRanking'
+          $ref: "#/components/schemas/RoundRanking"
       required:
         - id
         - name
@@ -4302,11 +4277,11 @@ components:
       type: object
       properties:
         global:
-          $ref: '#/components/schemas/GlobalRanking'
+          $ref: "#/components/schemas/GlobalRanking"
         tournaments:
           type: array
           items:
-            $ref: '#/components/schemas/TournamentRoundRanking'
+            $ref: "#/components/schemas/TournamentRoundRanking"
       required:
         - global
         - tournaments
@@ -4317,7 +4292,7 @@ components:
           example: &ref_28
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         name:
           type: string
           example: Ranking de Mayo
@@ -4338,7 +4313,7 @@ components:
         rounds:
           type: array
           items:
-            $ref: '#/components/schemas/Round'
+            $ref: "#/components/schemas/Round"
       required:
         - id
         - name
@@ -4349,7 +4324,7 @@ components:
         company:
           example: *ref_28
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         name:
           type: string
           example: Ranking de Mayo
@@ -4377,7 +4352,7 @@ components:
           example: 0000-0000-00000
         date:
           type: string
-          example: '2023-02-24T17:23:02.265Z'
+          example: "2023-02-24T17:23:02.265Z"
         fixed:
           type: boolean
       required:
@@ -4406,7 +4381,7 @@ components:
         fixed:
           type: boolean
         company:
-          $ref: '#/components/schemas/Company'
+          $ref: "#/components/schemas/Company"
       required:
         - id
         - title
@@ -4436,7 +4411,7 @@ components:
         fixed:
           type: boolean
         company:
-          $ref: '#/components/schemas/Company'
+          $ref: "#/components/schemas/Company"
         source:
           type: string
       required:
@@ -4465,7 +4440,7 @@ components:
           example: 0000-0000-00000
         date:
           type: string
-          example: '2023-02-24T17:23:02.265Z'
+          example: "2023-02-24T17:23:02.265Z"
         fixed:
           type: boolean
     RssFeedDownload:
@@ -4551,7 +4526,7 @@ components:
             - id: 456
           type: array
           items:
-            $ref: '#/components/schemas/EntityDto'
+            $ref: "#/components/schemas/EntityDto"
         requiresEmailVerification:
           type: boolean
         isReseller:
@@ -4649,7 +4624,7 @@ components:
           example: *ref_29
           type: array
           items:
-            $ref: '#/components/schemas/EntityDto'
+            $ref: "#/components/schemas/EntityDto"
         requiresEmailVerification:
           type: boolean
         isReseller:
@@ -4714,22 +4689,22 @@ components:
           example: &ref_31
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel1:
           example: &ref_32
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel2:
           example: &ref_33
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel3:
           example: &ref_34
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         role:
           type: string
       required:
@@ -4753,13 +4728,13 @@ components:
             - reseller
             - manager
         company:
-          $ref: '#/components/schemas/Company'
+          $ref: "#/components/schemas/Company"
         areaLevel1:
-          $ref: '#/components/schemas/Area'
+          $ref: "#/components/schemas/Area"
         areaLevel2:
-          $ref: '#/components/schemas/Area'
+          $ref: "#/components/schemas/Area"
         areaLevel3:
-          $ref: '#/components/schemas/Area'
+          $ref: "#/components/schemas/Area"
       required:
         - id
         - externalId
@@ -4783,19 +4758,19 @@ components:
         company:
           example: *ref_31
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel1:
           example: *ref_32
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel2:
           example: *ref_33
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         areaLevel3:
           example: *ref_34
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         role:
           type: string
     CreateTranslationDto:
@@ -4853,11 +4828,11 @@ components:
           example: &ref_35
             id: 1
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         limitRound:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         tournament:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         awardedPositions:
           type: number
         awardedPoints:
@@ -4871,9 +4846,9 @@ components:
       type: object
       properties:
         tournament:
-          $ref: '#/components/schemas/Tournament'
+          $ref: "#/components/schemas/Tournament"
         dreamFinalSettings:
-          $ref: '#/components/schemas/DreamFinalSettings'
+          $ref: "#/components/schemas/DreamFinalSettings"
       required:
         - tournament
     UpdateDreamFinalSettingsDto:
@@ -4882,11 +4857,11 @@ components:
         company:
           example: *ref_35
           allOf:
-            - $ref: '#/components/schemas/EntityDto'
+            - $ref: "#/components/schemas/EntityDto"
         limitRound:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         tournament:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         awardedPositions:
           type: number
         awardedPoints:
@@ -4895,15 +4870,15 @@ components:
       type: object
       properties:
         tournament:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         team1:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         team2:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         team3:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         team4:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
       required:
         - tournament
         - team1
@@ -4913,17 +4888,17 @@ components:
         id:
           type: number
         user:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
         tournament:
-          $ref: '#/components/schemas/Tournament'
+          $ref: "#/components/schemas/Tournament"
         team1:
-          $ref: '#/components/schemas/Team'
+          $ref: "#/components/schemas/Team"
         team2:
-          $ref: '#/components/schemas/Team'
+          $ref: "#/components/schemas/Team"
         team3:
-          $ref: '#/components/schemas/Team'
+          $ref: "#/components/schemas/Team"
         team4:
-          $ref: '#/components/schemas/Team'
+          $ref: "#/components/schemas/Team"
       required:
         - id
         - user
@@ -4936,15 +4911,15 @@ components:
       type: object
       properties:
         tournament:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         team1:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         team2:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         team3:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         team4:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
     CreateGameRulesDto:
       type: object
       properties:
@@ -4988,7 +4963,7 @@ components:
         termsAndConditions:
           type: string
         company:
-          $ref: '#/components/schemas/Company'
+          $ref: "#/components/schemas/Company"
       required:
         - id
         - termsAndConditions
@@ -4999,7 +4974,7 @@ components:
         termsAndConditions:
           type: string
         company:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
       required:
         - termsAndConditions
     Stats:
@@ -5044,11 +5019,11 @@ components:
         id:
           type: number
         company:
-          $ref: '#/components/schemas/Company'
+          $ref: "#/components/schemas/Company"
         tournament:
-          $ref: '#/components/schemas/Tournament'
+          $ref: "#/components/schemas/Tournament"
         round:
-          $ref: '#/components/schemas/Round'
+          $ref: "#/components/schemas/Round"
       required:
         - id
         - company
@@ -5058,11 +5033,11 @@ components:
       type: object
       properties:
         company:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         tournament:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
         round:
-          $ref: '#/components/schemas/EntityDto'
+          $ref: "#/components/schemas/EntityDto"
       required:
         - company
         - tournament
@@ -5095,7 +5070,7 @@ components:
       type: object
       properties:
         user:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
         accessToken:
           type: string
       required:
