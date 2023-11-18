@@ -24,7 +24,7 @@ const sidebars = {
         type: "generated-index",
         title: "API",
         description:
-          "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+          "Aquí encontrarás todos los endpoints con los que podrás consultar y manipular la información de nuestra plataforma.",
         slug: "/category/api",
       },
       // @ts-ignore
