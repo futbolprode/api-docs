@@ -134,7 +134,7 @@ const config = {
         docsPluginId: "classic",
         config: {
           petstore: {
-            specPath: "examples/docs.yaml",
+            specPath: "http://localhost:4000/docs-yaml",
             outputDir: "docs/api",
             downloadUrl:
               "https://raw.githubusercontent.com/futbolprode/api-docs/main/examples/api.yaml",
