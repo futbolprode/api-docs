@@ -27,7 +27,6 @@ const sidebars = {
         slug: "/category/api",
       },
       // @ts-ignore
-      // items: require("./docs/api/sidebar.js"),
       items: require("./docs/api/sidebar.js")
         // Se ignoran controllers con tag private/loquesea
         .filter(
