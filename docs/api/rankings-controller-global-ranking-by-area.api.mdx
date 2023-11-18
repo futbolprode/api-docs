@@ -1,0 +1,36 @@
+---
+id: rankings-controller-global-ranking-by-area
+title: "RankingsController_globalRankingByArea"
+description: "RankingsController_globalRankingByArea"
+sidebar_label: "RankingsController_globalRankingByArea"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVMFu2zAM/RVDZ2PJdsytLdZhwzAMW4cdimCgbTZWI0uqJAczDP/7SEtJnDnFMiC5OBLJR+rxkb0wFh0EafTHSqzEN9BbqTf+zujgjFLofm2UKUAlw2134xBELiw4aDCg82L12AtNBwqnW9SBXQgtFw5fWumQgJ9AecyF1OT00qLryOrLGhsQq16EznK0bpsCnRiG/ABIePAZd6iugua30l4FKMAWr1MRgivr/4fywVE3CGrNod4a7dGz/d1yyZ8Kfemk5b6SNyGU1FBqDdvAWiXLseeLZ88O/SSBdayIICOchY3UEGEOyU3xjGVgEZz4juzOX5tHts4ZStPGkmYWynsuhKgTFYQpE+AcMEUyYOP/XSREbZ7LyaYvY1tmNBOKkTr487UaL/9i6GhsPbq7V545TNv+uC9tUsgh7STJFJKaH2RQjMkzl2aUaRp/zPyG51O4NNYccSqNiweehr02vCI2OLIKoabDYo+8iFELrp3rpRp3cTms+VC2ToZuXBUFSZ5eT4ZhYvrOAowt2jskVfLr0lWe/twb1wAxKj79fKDLRGsdgh1JlfrJjHQnbu7bUBiVfXWmYk5ns8GFxsPbN8s0K1Byx4bY3tDA2N00tHvOsiNpWXx+lkzZbZcl3k6yHSQQ8HdYWAU05SwSp+KwMaeTbuUiwiZNjO2rqRx26vsCPP5wahj4Om4K5reSHgo12SRb7OareQeq5UIEL6NXQqbL9xL/tF4vcU0L9CLU/Yo8Oq/54CR7jzoiVhCqUVR9iropS7RhEjXbeoxyEPWH9w8knT9dWGeb
+sidebar_class_name: "get api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>RankingsController_globalRankingByArea</h1>
+
+<MethodEndpoint method={"get"} path={"/rankings/global/areas"}></MethodEndpoint>
+
+
+
+RankingsController_globalRankingByArea
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"parentAreaId","required":false,"in":"query","schema":{"type":"number"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"areaLevel","required":false,"in":"query","schema":{"type":"number"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"skip","required":false,"in":"query","schema":{"type":"number"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"take","required":false,"in":"query","schema":{"type":"number"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"search","required":false,"in":"query","schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>pagination</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"skip"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"take"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"count"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"page"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>data</strong><span className={"openapi-schema__name"}> object[]</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"areaId"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"areaName"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"points"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"position"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"userCount"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"pagination\": {\n    \"skip\": 0,\n    \"take\": 0,\n    \"count\": 0,\n    \"page\": 0\n  },\n  \"data\": [\n    {\n      \"areaId\": 0,\n      \"areaName\": \"string\",\n      \"points\": 0,\n      \"position\": 0,\n      \"userCount\": 0\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

@@ -1,0 +1,36 @@
+---
+id: countries-controller-import-external-countries
+title: "CountriesController_importExternalCountries"
+description: "CountriesController_importExternalCountries"
+sidebar_label: "CountriesController_importExternalCountries"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVk01vnDAQhv8K8nlVkhz3Vq0aqb00UlL1EFXVwE4Wp8Z2xsOqCPHfO4OBsFF6yAnwfHjmeV8GEyISsA3+69HszSF0nsliOgR5BueQfts2BuIvfxnJg1szzM5EIGhRzpPZP/7aGcIUg08S2w/m5upaH0dMNdmoN0h/KaqlM3rWGMTobD3dXj4nTRhMqhtsQd+4jyglQAS91FnGNm3OQ/WMNesUpDuwzdfa4ybHd22FZMad8TLoJpBkBX/SALjYwM0hHN8PPzk4/SD3bowRLib636RLhZaEjnQUzx8qHJXtS2cJZbtH3XHeaBnisrNIwZYdroL22mNqw3BSsUSFRUZJvtToYx4Q/Zug1okhTWoAN/JVrheUOFeVuYnkJKTzapqEdUeWe/kaTIVAIpgExk3oXj2R5V0SZqPoivPRbn65DdSC2Mt8+/mgXDLKhjlOClj/FCbEM6DbjqvgijtSB7xFIQc6aP64/nQ12xdqta9206VbmIybHfZKr3jFV+TNi4VfsQV4ceMqPQu1MjqwXp3WZQdmtlvxdmahq/bJfAVco1pI4jBUkFD8O456/NIh9Zn6GchCpQQEtRQgHCfug/mDkmI+1zVG1eoMrps8+vZfVYFW8e++3z8I3n+bB3/2
+sidebar_class_name: "post api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>CountriesController_importExternalCountries</h1>
+
+<MethodEndpoint method={"post"} path={"/countries/external/import"}></MethodEndpoint>
+
+
+
+CountriesController_importExternalCountries
+
+## Request
+
+<div><div><ApiTabs><TabItem label={"201"} value={"201"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"alpha2Code"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"flagUrl"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"teams"} required={true} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={false} name={"tournaments"} required={true} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  {\n    \"id\": 0,\n    \"name\": \"string\",\n    \"alpha2Code\": \"string\",\n    \"flagUrl\": \"string\",\n    \"teams\": [\n      \"string\"\n    ],\n    \"tournaments\": [\n      \"string\"\n    ]\n  }\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

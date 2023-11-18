@@ -1,0 +1,36 @@
+---
+id: matches-controller-update
+title: "MatchesController_update"
+description: "MatchesController_update"
+sidebar_label: "MatchesController_update"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1z2jAQ/SuMTu0MLSS9cUsIadJpCROTckiZztpesFNbciU5xOPxf++uZDAEmt4Kw2Ltl6Td99a1UAVqsKmSt7EYiW9gowTNWEmrVZah/lkWMVgUfVGAhhwtaiNGj7WQtKCANCaTxt9lqpESWF1iX6SSLAXYhGyG8uUgRrWwVcERxupUrkXTLH0gGnup4oo9XueJ6BgoLZugKLI0cgcdPBklWXeUWoVPGFk+q+Zr2RQNW90Fjg/QF88oy9MWjSvUeNqWqBznCPm/N6bidD6yzEPU5IMvkBcZqc4/Nc1+8R45gKpiU8tmMZH0VF1ZxbvCBqr/v2sCZoYSsm3uNmuoVIYg2SM1841aQGUCpHbFDkCnPTdggtIUKGOMT3tAphHiKqCe35HfVNl01Tb9dMC2FZ8VZOb41ntl+7uHsWBLc9xpKhk5cX2u57S4mLCcTaYkg4dgRn+3U6cKWI4vpmP2urxiuWC5uCNxdkPinIWLv2Fx6cLo9/X2+4T+5i5oGogld2bbhwdHPFdP14zGt80UShrfjPPh0MEbTaTTwldJCJcD1sxSkXs6c3sPvd7gOXE8UbEncJQ44hORR2LQJhvUadwwsVE/+2Gw5EVUaoKNGw0hgqbakqHZMwXMVn/wrUNLYddUr+q3D9dK03ak/7LgYrWdSawt3P14Atx3s2OyxfaW610PW4p3ih2zO9U+oZk8xJBDvu2Uh3Roh91JAnjbIeS97k2Qe5dXsB4ewXjYwZbRyTSUK+Uw3KLnurShynozrWJu6iuMcF208Yuzj0PhRy1EPGq5voUyNgdHunbOt4DpdYjp7RBzkHxHI4svdlBkkDqmljpjm8dSB8y+GPnpk9CObKjrEAw+6KxpWE0t1pWH2DPoFEK+HEEsTg0/U1FXVBA8OsPuzSHe3beT7n2vA9Lh2VolyIoLA5kDDD3+wsq/4Zol95665lBdt4ax3+PDnMO7wKM3FZNgR6rZxXzM0yBsX3k592ckNGwYmyRH4gd9aaHcZRxfnL4WGch1CWv294n58wcg85te
+sidebar_class_name: "patch api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>MatchesController_update</h1>
+
+<MethodEndpoint method={"patch"} path={"/matches/{id}"}></MethodEndpoint>
+
+
+
+MatchesController_update
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","required":true,"in":"path","schema":{"type":"string"}}}></ParamsItem></ul></div></details><MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"date"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"venue"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"referee"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>homeTeam</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number","example":23}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>awayTeam</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number","example":23}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"hasPenalties"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"isTwoWaysSecondMatch"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"wasSuspended"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"alreadySentOpenNotification"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"homeTeamGoals"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"awayTeamGoals"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`FT`, `AET`, `PEN`, `SUSP`, `INT`, `PST`, `CANC`, `ABD`, `AWD`, `WO`, `1H`, `2H`, `ET`, `HT`, `BT`, `P`, `LIVE`, `TBD`, `NS`]"} schema={{"type":"string","enum":["FT","AET","PEN","SUSP","INT","PST","CANC","ABD","AWD","WO","1H","2H","ET","HT","BT","P","LIVE","TBD","NS"]}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div></div></TabItem></ApiTabs></div></div>
+      

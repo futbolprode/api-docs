@@ -1,0 +1,5126 @@
+openapi: 3.0.0
+paths:
+  /countries:
+    post:
+      operationId: CountriesController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCountryDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+      tags: &ref_0
+        - countries
+    get:
+      operationId: CountriesController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountriesList'
+      tags: *ref_0
+  /countries/external/import:
+    post:
+      operationId: CountriesController_importExternalCountries
+      parameters: []
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+      tags: *ref_0
+  /countries/{id}:
+    get:
+      operationId: CountriesController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+        '404':
+          description: ''
+      tags: *ref_0
+    patch:
+      operationId: CountriesController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCountryDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+    delete:
+      operationId: CountriesController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+  /matches:
+    post:
+      operationId: MatchesController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMatchDto'
+      responses:
+        '201':
+          description: ''
+      tags: &ref_1
+        - matches
+    get:
+      operationId: MatchesController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+  /matches/me:
+    get:
+      operationId: MatchesController_findAllByCompany
+      parameters:
+        - name: date
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Match'
+      tags: *ref_1
+  /matches/dates:
+    get:
+      operationId: MatchesController_findRecentDatesFor
+      parameters:
+        - name: timezone
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchDatesList'
+      tags: *ref_1
+  /matches/{id}:
+    get:
+      operationId: MatchesController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Match'
+      tags: *ref_1
+    patch:
+      operationId: MatchesController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMatchDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+    delete:
+      operationId: MatchesController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+  /matches/{id}/events:
+    get:
+      operationId: MatchesController_findOneEvents
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: type
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MatchEvent'
+      tags: *ref_1
+  /matches/results/teams/{teamId}/tournaments/{tournamentId}:
+    get:
+      operationId: MatchesController_findLastResults
+      parameters:
+        - name: teamId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MatchResult'
+      tags: *ref_1
+  /predictions/points/{matchId}:
+    post:
+      operationId: PredictionsController_awardPoints
+      parameters:
+        - name: matchId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags: &ref_2
+        - predictions
+  /predictions/{id}/explain:
+    get:
+      operationId: PredictionsController_explain
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Explanation'
+      tags: *ref_2
+  /predictions:
+    get:
+      operationId: PredictionsController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_2
+    post:
+      operationId: PredictionsController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePredictionDto'
+      responses:
+        '201':
+          description: ''
+      tags: *ref_2
+  /predictions/{id}:
+    get:
+      operationId: PredictionsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+      tags: *ref_2
+    put:
+      operationId: PredictionsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePredictionDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_2
+  /rounds:
+    post:
+      operationId: RoundsController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRoundDto'
+      responses:
+        '201':
+          description: ''
+      tags: &ref_3
+        - rounds
+    get:
+      operationId: RoundsController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_3
+  /rounds/summary:
+    get:
+      operationId: RoundsController_summaryByDate
+      parameters:
+        - name: date
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: timezone
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Match'
+      tags: *ref_3
+  /rounds/recent:
+    get:
+      operationId: RoundsController_findRecentRoundsFor
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderedRoundsList'
+      tags: *ref_3
+  /rounds/recent/{tournamentId}:
+    get:
+      operationId: RoundsController_findRecentRoundsInTournament
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderedRoundsList'
+      tags: *ref_3
+  /rounds/{id}:
+    get:
+      operationId: RoundsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Round'
+      tags: *ref_3
+    patch:
+      operationId: RoundsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRoundDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_3
+    delete:
+      operationId: RoundsController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_3
+  /rounds/{id}/matches:
+    get:
+      operationId: RoundsController_findMatches
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Match'
+      tags: *ref_3
+  /rounds/{id}/summary:
+    get:
+      operationId: RoundsController_summary
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Match'
+      tags: *ref_3
+  /teams:
+    post:
+      operationId: TeamsController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeamDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+      tags: &ref_4
+        - teams
+    get:
+      operationId: TeamsController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamsList'
+      tags: *ref_4
+  /teams/{id}:
+    get:
+      operationId: TeamsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '404':
+          description: ''
+      tags: *ref_4
+    patch:
+      operationId: TeamsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTeamDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_4
+    delete:
+      operationId: TeamsController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_4
+  /teams/tournament/{tournamentId}:
+    get:
+      operationId: TeamsController_byTournament
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '404':
+          description: ''
+      tags: *ref_4
+  /tournaments:
+    get:
+      operationId: TournamentsController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TournamentsList'
+      tags: &ref_5
+        - tournaments
+    post:
+      operationId: TournamentsController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTournamentDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tournament'
+      tags: *ref_5
+  /tournaments/me:
+    get:
+      operationId: TournamentsController_findAllByCompany
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tournament'
+      tags: *ref_5
+  /tournaments/{id}/winners:
+    get:
+      operationId: TournamentsController_findTournamentWinners
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+      tags: *ref_5
+  /tournaments/summary:
+    get:
+      operationId: TournamentsController_getSummary
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TournamentsList'
+      tags: *ref_5
+  /tournaments/{id}:
+    get:
+      operationId: TournamentsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TournamentDetails'
+        '404':
+          description: ''
+      tags: *ref_5
+    patch:
+      operationId: TournamentsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTournamentDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_5
+    delete:
+      operationId: TournamentsController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_5
+  /tournaments/{id}/external/import:
+    post:
+      operationId: TournamentImporterController_reimport
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tournament'
+      tags: &ref_6
+        - tournaments
+  /tournaments/external/import/{externalLeagueId}:
+    post:
+      operationId: TournamentImporterController_importExternalLeagueSeason
+      parameters:
+        - name: externalLeagueId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: season
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tournament'
+      tags: *ref_6
+  /tournaments/external/{countryCode}:
+    get:
+      operationId: TournamentImporterController_findAll
+      parameters:
+        - name: countryCode
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImportableTournament'
+      tags: *ref_6
+  /tournaments/matches/{matchId}/result:
+    post:
+      operationId: TournamentImporterController_importMatchResult
+      parameters:
+        - name: matchId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags: *ref_6
+  /tournaments/rounds/{roundId}/result:
+    post:
+      operationId: TournamentImporterController_importRoundResult
+      parameters:
+        - name: roundId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags: *ref_6
+  /tournaments/matches/{matchId}/result/manual:
+    post:
+      operationId: TournamentImporterController_importMatchResultManual
+      parameters:
+        - name: matchId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MatchResultBody'
+      responses:
+        '201':
+          description: ''
+      tags: *ref_6
+  /tournaments/{id}/standings/teams/{teamId}:
+    get:
+      operationId: TournamentImporterController_standings
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: teamId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamStanding'
+      tags: *ref_6
+  /users/proxy/images/{url}:
+    get:
+      operationId: UsersController_getProxyImage
+      parameters:
+        - name: url
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: &ref_7
+        - users
+  /users:
+    post:
+      operationId: UsersController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags: *ref_7
+    get:
+      operationId: UsersController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags: *ref_7
+  /users/resellers:
+    get:
+      operationId: UsersController_findAllResellerUsers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags: *ref_7
+  /users/search:
+    get:
+      operationId: UsersController_search
+      parameters:
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+      tags: *ref_7
+  /users/me:
+    get:
+      operationId: UsersController_findMe
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags: *ref_7
+  /users/{id}:
+    get:
+      operationId: UsersController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags: *ref_7
+    patch:
+      operationId: UsersController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags: *ref_7
+    delete:
+      operationId: UsersController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_7
+  /users/multi:
+    delete:
+      operationId: UsersController_removeMulti
+      parameters:
+        - name: ids
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_7
+  /users/import/excel:
+    post:
+      operationId: UsersController_importFromExcel
+      parameters:
+        - name: dryRun
+          required: true
+          in: query
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportFromExcelBody'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportReport'
+      tags: *ref_7
+    get:
+      operationId: UsersController_downloadSampleExcel
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_7
+  /users/download/csv:
+    post:
+      operationId: UsersController_downloadCSV
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_7
+  /areas:
+    get:
+      operationId: AreasController_findAll
+      parameters:
+        - name: areaLevel
+          required: true
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Area'
+      tags:
+        - areas
+  /rankings/rounds/{roundId}:
+    post:
+      operationId: RankingsController_calculateRoundRanking
+      parameters:
+        - name: roundId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags: &ref_8
+        - rankings
+    get:
+      operationId: RankingsController_roundRanking
+      parameters:
+        - name: roundId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+        - name: areaId
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: areaLevel
+          required: false
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Ranking'
+      tags: *ref_8
+  /rankings/tournaments/{tournamentId}:
+    post:
+      operationId: RankingsController_calculateTournamentRanking
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags: *ref_8
+    get:
+      operationId: RankingsController_tournamentRanking
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+        - name: areaId
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: areaLevel
+          required: false
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Ranking'
+      tags: *ref_8
+  /rankings/tournaments/{tournamentId}/dreamfinal:
+    post:
+      operationId: RankingsController_forceCalculateDreamFinalTournamentRanking
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags: *ref_8
+  /rankings/tournaments/{tournamentId}/areas:
+    get:
+      operationId: RankingsController_tournamentRankingByArea
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: parentAreaId
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: areaLevel
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AreaRanking'
+      tags: *ref_8
+  /rankings/global:
+    post:
+      operationId: RankingsController_calculateGlobalRanking
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags: *ref_8
+    get:
+      operationId: RankingsController_globalRanking
+      parameters:
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+        - name: areaId
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: areaLevel
+          required: false
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Ranking'
+      tags: *ref_8
+  /rankings/rounds/{roundId}/areas:
+    get:
+      operationId: RankingsController_roundRankingRankingByArea
+      parameters:
+        - name: roundId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: parentAreaId
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: areaLevel
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AreaRanking'
+      tags: *ref_8
+  /rankings/rounds/{roundId}/me:
+    get:
+      operationId: RankingsController_roundRankingMe
+      parameters:
+        - name: roundId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ranking'
+      tags: *ref_8
+  /rankings/me:
+    get:
+      operationId: RankingsController_latestRankingsMe
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LatestRankingsDto'
+      tags: *ref_8
+  /rankings/global/areas:
+    get:
+      operationId: RankingsController_globalRankingByArea
+      parameters:
+        - name: parentAreaId
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: areaLevel
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AreaRanking'
+      tags: *ref_8
+  /rankings/combinedrounds/{combinedRoundsRankingDefinitionId}:
+    post:
+      operationId: RankingsController_calculateCombinedRoundsRanking
+      parameters:
+        - name: combinedRoundsRankingDefinitionId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags: *ref_8
+    get:
+      operationId: RankingsController_combinedRoundsRanking
+      parameters:
+        - name: combinedRoundsRankingDefinitionId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: areaId
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: areaLevel
+          required: false
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Ranking'
+      tags: *ref_8
+  /rankings/combinedrounds/{combinedRoundsRankingDefinitionId}/areas:
+    get:
+      operationId: RankingsController_combinedRoundsRankingRankingByArea
+      parameters:
+        - name: combinedRoundsRankingDefinitionId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: parentAreaId
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: areaLevel
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AreaRanking'
+      tags: *ref_8
+  /combinedroundsrankingdefinitions:
+    post:
+      operationId: CombinedRoundsRankingDefinitionsController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCombinedRoundsRankingDefinitionDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CombinedRoundsRankingDefinition'
+      tags: &ref_9
+        - combinedroundsrankingdefinitions
+    get:
+      operationId: CombinedRoundsRankingDefinitionsController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CombinedRoundsRankingDefinition'
+      tags: *ref_9
+  /combinedroundsrankingdefinitions/{id}:
+    get:
+      operationId: CombinedRoundsRankingDefinitionsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CombinedRoundsRankingDefinition'
+      tags: *ref_9
+    patch:
+      operationId: CombinedRoundsRankingDefinitionsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCombinedRoundsRankingDefinitionDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CombinedRoundsRankingDefinition'
+      tags: *ref_9
+    delete:
+      operationId: CombinedRoundsRankingDefinitionsController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_9
+  /news:
+    post:
+      operationId: NewsController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNewsDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/News'
+      tags: &ref_10
+        - news
+    get:
+      operationId: NewsController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+      tags: *ref_10
+  /news/all:
+    get:
+      operationId: NewsController_combinedNews
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewsDetails'
+      tags: *ref_10
+  /news/rss/{externalId}:
+    get:
+      operationId: NewsController_findOneRssByExternalid
+      parameters:
+        - name: externalId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: source
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsDetails'
+      tags: *ref_10
+  /news/{id}:
+    get:
+      operationId: NewsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/News'
+      tags: *ref_10
+    patch:
+      operationId: NewsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateNewsDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_10
+    delete:
+      operationId: NewsController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_10
+  /news/rss/feeds/download:
+    get:
+      operationId: NewsController_downloadRssFeeds
+      parameters:
+        - name: ids
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RssFeedDownload'
+      tags: *ref_10
+  /news/rss/feeds/available:
+    get:
+      operationId: NewsController_availableRssFeeds
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvailableRssFeedSource'
+      tags: *ref_10
+  /companies:
+    post:
+      operationId: CompaniesController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCompanyDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags: &ref_11
+        - companies
+    get:
+      operationId: CompaniesController_findAll
+      parameters:
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Company'
+      tags: *ref_11
+  /companies/fonts:
+    get:
+      operationId: CompaniesController_findAvailableFonts
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      tags: *ref_11
+  /companies/resellers:
+    get:
+      operationId: CompaniesController_findAllResellers
+      parameters:
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Company'
+      tags: *ref_11
+  /companies/me:
+    get:
+      operationId: CompaniesController_findMe
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags: *ref_11
+    patch:
+      operationId: CompaniesController_updateMe
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCompanyDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags: *ref_11
+  /companies/me/withAreas:
+    get:
+      operationId: CompaniesController_findMeWithAreas
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags: *ref_11
+  /companies/search:
+    get:
+      operationId: CompaniesController_search
+      parameters:
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: search
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Company'
+      tags: *ref_11
+  /companies/{id}:
+    get:
+      operationId: CompaniesController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags: *ref_11
+    patch:
+      operationId: CompaniesController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCompanyDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_11
+    delete:
+      operationId: CompaniesController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_11
+  /companies/me/tournaments:
+    get:
+      operationId: CompaniesController_myTournaments
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags: *ref_11
+  /companies/{id}/tournaments:
+    get:
+      operationId: CompaniesController_tournaments
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags: *ref_11
+  /files/upload:
+    post:
+      operationId: FilesController_upload
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadResponse'
+      tags: &ref_12
+        - files
+  /files/uploadByUrl:
+    post:
+      operationId: FilesController_uploadByUrl
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadResponse'
+      tags: *ref_12
+  /invitations:
+    post:
+      operationId: InvitationsController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInvitationDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invitation'
+      tags: &ref_13
+        - invitations
+    get:
+      operationId: InvitationsController_findAll
+      parameters:
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invitation'
+      tags: *ref_13
+  /invitations/{companyId}/pending/managers:
+    get:
+      operationId: InvitationsController_findAllPendingManagers
+      parameters:
+        - name: companyId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Invitation'
+      tags: *ref_13
+  /invitations/{id}:
+    get:
+      operationId: InvitationsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invitation'
+      tags: *ref_13
+    patch:
+      operationId: InvitationsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateInvitationDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invitation'
+      tags: *ref_13
+    delete:
+      operationId: InvitationsController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_13
+  /invitations/jwt/{jwt}:
+    get:
+      operationId: InvitationsController_findOneByJwt
+      parameters:
+        - name: jwt
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invitation'
+      tags: *ref_13
+  /invitations/externalId/{externalId}:
+    get:
+      operationId: InvitationsController_findOneByExternalId
+      parameters:
+        - name: externalId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invitation'
+      tags: *ref_13
+  /invitations/multi:
+    delete:
+      operationId: InvitationsController_removeMulti
+      parameters:
+        - name: ids
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_13
+  /invitations/download/csv:
+    post:
+      operationId: InvitationsController_downloadCSV
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_13
+  /translations:
+    post:
+      operationId: TranslationsController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTranslationDto'
+      responses:
+        '201':
+          description: ''
+  /translations/{locale}/company:
+    get:
+      operationId: TranslationsController_findOne
+      parameters:
+        - name: locale
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /translations/{locale}:
+    delete:
+      operationId: TranslationsController_remove
+      parameters:
+        - name: locale
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /emails/send:
+    post:
+      operationId: EmailsController_send
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEmailDto'
+      responses:
+        '201':
+          description: ''
+  /emails/send/external/support:
+    post:
+      operationId: EmailsController_sendExternalSupport
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalSupportEmailDto'
+      responses:
+        '201':
+          description: ''
+  /emails/send/profile/support:
+    post:
+      operationId: EmailsController_sendProfileSupport
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileSupportEmailDto'
+      responses:
+        '201':
+          description: ''
+  /dreamfinalsettings:
+    post:
+      operationId: DreamFinalSettingsController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDreamFinalSettingsDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DreamFinalSettings'
+      tags: &ref_14
+        - dreamfinalsettings
+  /dreamfinalsettings/tournaments/me:
+    get:
+      operationId: DreamFinalSettingsController_me
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TournamentAndDreamFinal'
+      tags: *ref_14
+  /dreamfinalsettings/tournaments/{tournamentId}:
+    get:
+      operationId: DreamFinalSettingsController_settingsByTournament
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DreamFinalSettings'
+      tags: *ref_14
+  /dreamfinalsettings/{id}:
+    get:
+      operationId: DreamFinalSettingsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DreamFinalSettings'
+        '404':
+          description: ''
+      tags: *ref_14
+    patch:
+      operationId: DreamFinalSettingsController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDreamFinalSettingsDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_14
+    delete:
+      operationId: DreamFinalSettingsController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_14
+  /dreamfinalpredictions:
+    post:
+      operationId: DreamFinalPredictionController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDreamFinalPredictionDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DreamFinalPrediction'
+      tags: &ref_15
+        - dreamfinalpredictions
+  /dreamfinalpredictions/tournaments/{tournamentId}:
+    get:
+      operationId: DreamFinalPredictionController_predictionByTournament
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DreamFinalPrediction'
+      tags: *ref_15
+  /dreamfinalpredictions/{id}:
+    get:
+      operationId: DreamFinalPredictionController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DreamFinalPrediction'
+        '404':
+          description: ''
+      tags: *ref_15
+    patch:
+      operationId: DreamFinalPredictionController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDreamFinalPredictionDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_15
+    delete:
+      operationId: DreamFinalPredictionController_remove
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_15
+  /gamerules:
+    post:
+      operationId: GameRulesController_upsert
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGameRulesDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameRules'
+      tags: &ref_16
+        - gamerules
+    get:
+      operationId: GameRulesController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameRules'
+      tags: *ref_16
+  /gamerules/termsandconditions:
+    get:
+      operationId: GameRulesController_termsAndConditions
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TermsAndConditions'
+      tags: *ref_16
+    post:
+      operationId: GameRulesController_upsertTermsAndConditions
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTermsAndConditionsDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TermsAndConditions'
+      tags: *ref_16
+  /gamerules/tournaments/{tournamentId}:
+    get:
+      operationId: GameRulesController_tournamentRules
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameRules'
+        '404':
+          description: ''
+      tags: *ref_16
+  /stats:
+    get:
+      operationId: StatsController_stats
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stats'
+      tags:
+        - stats
+  /globalsettings:
+    post:
+      operationId: GlobalSettingsController_upsert
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGlobalSettingsDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalSettings'
+      tags: &ref_17
+        - globalsettings
+    get:
+      operationId: GlobalSettingsController_findAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalSettings'
+      tags: *ref_17
+  /tournamentcustomsettings/companies/{companyId}:
+    get:
+      operationId: TournamentCustomSettingsController_findAllByCompany
+      parameters:
+        - name: companyId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TournamentCustomSettings'
+      tags: &ref_18
+        - tournamentcustomsettings
+  /tournamentcustomsettings/me:
+    get:
+      operationId: TournamentCustomSettingsController_findAllByMe
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TournamentCustomSettings'
+      tags: *ref_18
+  /tournamentcustomsettings/tournaments/{tournamentId}:
+    get:
+      operationId: TournamentCustomSettingsController_findByTournament
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TournamentCustomSettings'
+      tags: *ref_18
+    post:
+      operationId: TournamentCustomSettingsController_create
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTournamentCustomSettingsDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TournamentCustomSettings'
+      tags: *ref_18
+    delete:
+      operationId: TournamentCustomSettingsController_remove
+      parameters:
+        - name: tournamentId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_18
+  /joblogs:
+    get:
+      operationId: JobLogsController_findAll
+      parameters:
+        - name: skip
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: take
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: type
+          required: false
+          in: query
+          schema:
+            enum:
+              - ranking:generate
+              - tournament:import
+              - match:import-result
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  pagination:
+                    type: object
+                    properties:
+                      skip:
+                        type: number
+                      take:
+                        type: number
+                      count:
+                        type: number
+                      page:
+                        type: number
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/JobLog'
+      tags: &ref_19
+        - joblogs
+  /joblogs/{id}:
+    get:
+      operationId: JobLogsController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobLog'
+      tags: *ref_19
+  /auth/register:
+    post:
+      operationId: AuthController_register
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWithToken'
+      tags: &ref_20
+        - auth
+  /auth/login:
+    post:
+      operationId: AuthController_login
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginUserDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWithToken'
+      tags: *ref_20
+  /auth/google/login:
+    post:
+      operationId: AuthController_googleLogin
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleSignInDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWithToken'
+      tags: *ref_20
+  /auth/verify/{verificationToken}:
+    post:
+      operationId: AuthController_verifyEmail
+      parameters:
+        - name: verificationToken
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags: *ref_20
+  /auth/invitations/{invitationId}/accept:
+    post:
+      operationId: AuthController_acceptInvitation
+      parameters:
+        - name: invitationId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        '201':
+          description: ''
+      tags: *ref_20
+  /auth/invitations/{jwt}/acceptByJwt:
+    post:
+      operationId: AuthController_acceptInvitationByJwt
+      parameters:
+        - name: jwt
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        '201':
+          description: ''
+      tags: *ref_20
+  /auth/email/{userId}/resend:
+    post:
+      operationId: AuthController_sendVerificationEmail
+      parameters:
+        - name: userId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+      tags: *ref_20
+  /auth/init-recover:
+    post:
+      operationId: AuthController_initRecoverPassword
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserDto'
+      responses:
+        '201':
+          description: ''
+      tags: *ref_20
+  /auth/finish-recover:
+    post:
+      operationId: AuthController_finishRecoverPassword
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_20
+info:
+  title: Futbol Prode
+  description: ''
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  securitySchemes:
+    bearer:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+  schemas:
+    CreateCountryDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Argentina
+        flagUrl:
+          type: string
+          example: https://example.com/argentina.png
+        alpha2Code:
+          type: string
+          example: AR
+      required:
+        - name
+        - flagUrl
+        - alpha2Code
+    Country:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        alpha2Code:
+          type: string
+        flagUrl:
+          type: string
+        teams:
+          type: array
+          items:
+            type: string
+        tournaments:
+          type: array
+          items:
+            type: string
+      required:
+        - id
+        - name
+        - teams
+        - tournaments
+    CountriesList:
+      type: object
+      properties:
+        count:
+          type: number
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+      required:
+        - count
+        - data
+    UpdateCountryDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Argentina
+        flagUrl:
+          type: string
+          example: https://example.com/argentina.png
+        alpha2Code:
+          type: string
+          example: AR
+    EntityDto:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 23
+      required:
+        - id
+    CreateMatchDto:
+      type: object
+      properties:
+        date:
+          type: string
+        venue:
+          type: string
+        referee:
+          type: string
+        homeTeam:
+          $ref: '#/components/schemas/EntityDto'
+        awayTeam:
+          $ref: '#/components/schemas/EntityDto'
+        hasPenalties:
+          type: boolean
+        isTwoWaysSecondMatch:
+          type: boolean
+        wasSuspended:
+          type: boolean
+        alreadySentOpenNotification:
+          type: boolean
+        homeTeamGoals:
+          type: number
+        awayTeamGoals:
+          type: number
+        status:
+          type: string
+          enum: &ref_21
+            - FT
+            - AET
+            - PEN
+            - SUSP
+            - INT
+            - PST
+            - CANC
+            - ABD
+            - AWD
+            - WO
+            - 1H
+            - 2H
+            - ET
+            - HT
+            - BT
+            - P
+            - LIVE
+            - TBD
+            - NS
+      required:
+        - date
+        - venue
+        - referee
+        - homeTeam
+        - awayTeam
+        - hasPenalties
+        - isTwoWaysSecondMatch
+        - wasSuspended
+        - alreadySentOpenNotification
+    Team:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        logoUrl:
+          type: string
+        country:
+          $ref: '#/components/schemas/Country'
+        externalId:
+          type: string
+      required:
+        - id
+        - name
+        - country
+    Area:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        company:
+          $ref: '#/components/schemas/Company'
+        parentArea:
+          $ref: '#/components/schemas/Area'
+        childrenAreas:
+          $ref: '#/components/schemas/Area'
+      required:
+        - id
+        - name
+        - company
+        - parentArea
+        - childrenAreas
+    Tournament:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        logoUrl:
+          type: string
+        isActive:
+          type: boolean
+        endDate:
+          format: date-time
+          type: string
+        hasPenalties:
+          type: boolean
+        hasTwoWayMatches:
+          type: boolean
+        importNewMatchesWithPenalties:
+          type: boolean
+        showNoMoreRoundsWarning:
+          type: boolean
+        country:
+          $ref: '#/components/schemas/Country'
+        rounds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Round'
+        season:
+          type: string
+        externalId:
+          type: string
+        defaultRssFeeds:
+          example: &ref_23
+            - bolavip_argentina
+            - direct_tv_sports
+          type: array
+          items:
+            type: string
+      required:
+        - id
+        - name
+        - hasTwoWayMatches
+        - importNewMatchesWithPenalties
+        - showNoMoreRoundsWarning
+        - country
+        - rounds
+    DreamFinalSettings:
+      type: object
+      properties:
+        id:
+          type: number
+        tournament:
+          $ref: '#/components/schemas/Tournament'
+        awardedPositions:
+          type: number
+        awardedPoints:
+          type: number
+        limitRound:
+          $ref: '#/components/schemas/Round'
+        isEnabled:
+          type: boolean
+        company:
+          $ref: '#/components/schemas/Company'
+      required:
+        - id
+        - tournament
+        - awardedPositions
+        - awardedPoints
+        - limitRound
+        - isEnabled
+        - company
+    Banner:
+      type: object
+      properties:
+        desktopImageUrl:
+          type: string
+        mobileImageUrl:
+          type: string
+        link:
+          type: string
+    Company:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        loginStrategy:
+          type: number
+          enum:
+            - 0
+            - 1
+        logoUrl:
+          type: string
+        loginImageUrl:
+          type: string
+        loginText:
+          type: string
+        loginAnnouncementSeverity:
+          type: string
+        loginAnnouncementText:
+          type: string
+        comingSoonModeIsEnabled:
+          type: boolean
+        comingSoonText:
+          type: string
+        isologoUrl:
+          type: string
+        appCustomDomain:
+          type: string
+        appPath:
+          type: string
+        users:
+          type: array
+          items:
+            type: string
+        invitations:
+          type: array
+          items:
+            type: string
+        news:
+          type: array
+          items:
+            type: string
+        areas:
+          type: array
+          items:
+            $ref: '#/components/schemas/Area'
+        tournaments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tournament'
+        dreamFinalsSettings:
+          type: array
+          items:
+            $ref: '#/components/schemas/DreamFinalSettings'
+        combinedRoundsRankingDefinitions:
+          type: array
+          items:
+            type: string
+        requiresEmailVerification:
+          type: boolean
+        isReseller:
+          type: boolean
+        allowUserEmailEdit:
+          type: boolean
+        allowUserNameEdit:
+          type: boolean
+        disableNews:
+          type: boolean
+        disableNewsFromHome:
+          type: boolean
+        disableRegister:
+          type: boolean
+        disableGoogleLogin:
+          type: boolean
+        customFontFamily:
+          type: string
+        superiorBanner:
+          $ref: '#/components/schemas/Banner'
+        middleBanner:
+          $ref: '#/components/schemas/Banner'
+        sideBanner:
+          $ref: '#/components/schemas/Banner'
+        maxUsersAmount:
+          type: number
+        theme:
+          type: object
+        extraFields:
+          type: object
+        managerUsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        deletedAt:
+          format: date-time
+          type: string
+        rssFeeds:
+          example:
+            - bolavip_argentina
+            - direct_tv_sports
+          type: array
+          items:
+            type: string
+      required:
+        - id
+        - name
+        - loginStrategy
+        - users
+        - invitations
+        - news
+        - areas
+        - tournaments
+        - dreamFinalsSettings
+        - combinedRoundsRankingDefinitions
+        - requiresEmailVerification
+        - isReseller
+        - allowUserEmailEdit
+        - allowUserNameEdit
+        - disableNews
+        - disableNewsFromHome
+        - disableRegister
+        - disableGoogleLogin
+        - maxUsersAmount
+        - theme
+        - extraFields
+    User:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        email:
+          type: string
+        externalId:
+          type: string
+        loginProviderId:
+          type: string
+        loginProviderName:
+          type: string
+          enum:
+            - google
+        preferredLanguage:
+          type: string
+        profilePictureUrl:
+          type: string
+        portraitPictureUrl:
+          type: string
+        recoverPasswordToken:
+          type: string
+        emailVerified:
+          type: boolean
+        notificationsEnabled:
+          type: boolean
+        predictions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Prediction'
+        company:
+          $ref: '#/components/schemas/Company'
+        role:
+          type: string
+          enum:
+            - player
+            - admin
+            - reseller
+            - manager
+        managedCompanies:
+          type: array
+          items:
+            type: array
+        areaLevel1:
+          $ref: '#/components/schemas/Area'
+        areaLevel2:
+          $ref: '#/components/schemas/Area'
+        areaLevel3:
+          $ref: '#/components/schemas/Area'
+        deletedAt:
+          format: date-time
+          type: string
+        loginCount:
+          type: number
+        extraFields:
+          type: object
+      required:
+        - id
+        - name
+        - email
+        - externalId
+        - loginProviderId
+        - preferredLanguage
+        - emailVerified
+        - notificationsEnabled
+        - predictions
+        - company
+        - role
+        - areaLevel1
+        - areaLevel2
+        - areaLevel3
+        - extraFields
+    Prediction:
+      type: object
+      properties:
+        id:
+          type: number
+        homeTeamGoals:
+          type: number
+        awayTeamGoals:
+          type: number
+        penaltiesWinner:
+          type: string
+          enum:
+            - home
+            - away
+        status:
+          type: string
+        points:
+          type: number
+        match:
+          $ref: '#/components/schemas/Match'
+        user:
+          $ref: '#/components/schemas/User'
+      required:
+        - id
+        - homeTeamGoals
+        - awayTeamGoals
+        - status
+        - match
+        - user
+    Match:
+      type: object
+      properties:
+        id:
+          type: number
+        date:
+          format: date-time
+          type: string
+        venue:
+          type: string
+        referee:
+          type: string
+        homeTeamGoals:
+          type: number
+        awayTeamGoals:
+          type: number
+        homeTeamPenaltyGoals:
+          type: number
+        awayTeamPenaltyGoals:
+          type: number
+        elapsedTime:
+          type: number
+        status:
+          type: string
+        homeTeam:
+          $ref: '#/components/schemas/Team'
+        awayTeam:
+          $ref: '#/components/schemas/Team'
+        penaltiesWinner:
+          type: string
+          enum:
+            - home
+            - away
+        round:
+          $ref: '#/components/schemas/Round'
+        externalId:
+          type: string
+        alreadySentOpenNotification:
+          type: boolean
+        hasPenalties:
+          type: boolean
+        isTwoWaysSecondMatch:
+          type: boolean
+        wasSuspended:
+          type: boolean
+        predictions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Prediction'
+      required:
+        - id
+        - date
+        - venue
+        - referee
+        - status
+        - homeTeam
+        - awayTeam
+        - round
+        - predictions
+    Round:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        date:
+          format: date-time
+          type: string
+        hasPenalties:
+          type: boolean
+        position:
+          type: number
+        matches:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+        tournament:
+          $ref: '#/components/schemas/Tournament'
+        externalId:
+          type: string
+      required:
+        - id
+        - name
+        - date
+        - hasPenalties
+        - position
+        - matches
+        - tournament
+    MatchDate:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+      required:
+        - id
+        - date
+    MatchDatesList:
+      type: object
+      properties:
+        rounds:
+          type: array
+          items:
+            $ref: '#/components/schemas/MatchDate'
+        currentRound:
+          $ref: '#/components/schemas/MatchDate'
+      required:
+        - rounds
+        - currentRound
+    MatchTeam:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+      required:
+        - id
+        - name
+    MatchTime:
+      type: object
+      properties:
+        elapsed:
+          type: number
+        extra:
+          type: number
+      required:
+        - elapsed
+    MatchPlayer:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+      required:
+        - id
+        - name
+    MatchEvent:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - Goal
+            - Card
+            - subst
+            - var
+        team:
+          $ref: '#/components/schemas/MatchTeam'
+        time:
+          $ref: '#/components/schemas/MatchTime'
+        player:
+          $ref: '#/components/schemas/MatchPlayer'
+        detail:
+          type: string
+        comments:
+          type: string
+      required:
+        - type
+        - team
+        - time
+        - player
+        - detail
+    UpdateMatchDto:
+      type: object
+      properties:
+        date:
+          type: string
+        venue:
+          type: string
+        referee:
+          type: string
+        homeTeam:
+          $ref: '#/components/schemas/EntityDto'
+        awayTeam:
+          $ref: '#/components/schemas/EntityDto'
+        hasPenalties:
+          type: boolean
+        isTwoWaysSecondMatch:
+          type: boolean
+        wasSuspended:
+          type: boolean
+        alreadySentOpenNotification:
+          type: boolean
+        homeTeamGoals:
+          type: number
+        awayTeamGoals:
+          type: number
+        status:
+          type: string
+          enum: *ref_21
+    MatchResult:
+      type: object
+      properties:
+        result:
+          type: string
+        round:
+          $ref: '#/components/schemas/Round'
+      required:
+        - result
+        - round
+    Rule:
+      type: object
+      properties:
+        rule:
+          type: string
+        points:
+          type: number
+        awarded:
+          type: boolean
+      required:
+        - rule
+        - points
+        - awarded
+    Explanation:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        maxPossiblePoints:
+          type: number
+        matchIsNonAwardable:
+          type: boolean
+        points:
+          type: number
+        expectedResult:
+          type: object
+        actualResult:
+          type: object
+      required:
+        - rules
+        - maxPossiblePoints
+        - matchIsNonAwardable
+        - points
+        - expectedResult
+        - actualResult
+    CreatePredictionDto:
+      type: object
+      properties:
+        match:
+          example: &ref_22
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        homeTeamGoals:
+          type: number
+          example: 2
+        awayTeamGoals:
+          type: number
+          example: 0
+        penaltiesWinner:
+          type: string
+          example: away
+      required:
+        - match
+        - homeTeamGoals
+        - awayTeamGoals
+        - penaltiesWinner
+    UpdatePredictionDto:
+      type: object
+      properties:
+        match:
+          example: *ref_22
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        homeTeamGoals:
+          type: number
+          example: 2
+        awayTeamGoals:
+          type: number
+          example: 0
+        penaltiesWinner:
+          type: string
+          example: away
+    CreateRoundDto:
+      type: object
+      properties: {}
+    OrderedRound:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        position:
+          type: number
+        tournamentId:
+          type: number
+        date:
+          format: date-time
+          type: string
+      required:
+        - id
+        - name
+        - position
+        - tournamentId
+        - date
+    OrderedRoundsList:
+      type: object
+      properties:
+        rounds:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderedRound'
+        currentRound:
+          $ref: '#/components/schemas/Round'
+      required:
+        - rounds
+        - currentRound
+    UpdateRoundDto:
+      type: object
+      properties: {}
+    CreateTeamDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: River Plate
+        logoUrl:
+          type: string
+          example: https://example.com/logo.png
+      required:
+        - name
+        - logoUrl
+    TeamsList:
+      type: object
+      properties:
+        count:
+          type: number
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Team'
+      required:
+        - count
+        - data
+    UpdateTeamDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: River Plate
+        logoUrl:
+          type: string
+          example: https://example.com/logo.png
+    TournamentsList:
+      type: object
+      properties:
+        count:
+          type: number
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tournament'
+      required:
+        - count
+        - data
+    CreateTournamentDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: World Cup
+        logoUrl:
+          type: string
+          example: https://example.com/world-cup.png
+        country:
+          $ref: '#/components/schemas/EntityDto'
+        defaultRssFeeds:
+          example: &ref_24
+            - bolavip_argentina
+            - direct_tv_sports
+          type: array
+          items:
+            type: string
+        endDate:
+          type: string
+        hasPenalties:
+          type: boolean
+        hasTwoWayMatches:
+          type: boolean
+        isActive:
+          type: boolean
+        showNoMoreRoundsWarning:
+          type: boolean
+        importNewMatchesWithPenalties:
+          type: boolean
+      required:
+        - name
+        - logoUrl
+        - country
+    TournamentDetails:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        logoUrl:
+          type: string
+        isActive:
+          type: boolean
+        endDate:
+          format: date-time
+          type: string
+        hasPenalties:
+          type: boolean
+        hasTwoWayMatches:
+          type: boolean
+        importNewMatchesWithPenalties:
+          type: boolean
+        showNoMoreRoundsWarning:
+          type: boolean
+        country:
+          $ref: '#/components/schemas/Country'
+        rounds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Round'
+        season:
+          type: string
+        externalId:
+          type: string
+        defaultRssFeeds:
+          example: *ref_23
+          type: array
+          items:
+            type: string
+        currentRound:
+          $ref: '#/components/schemas/Round'
+      required:
+        - id
+        - name
+        - hasTwoWayMatches
+        - importNewMatchesWithPenalties
+        - showNoMoreRoundsWarning
+        - country
+        - rounds
+        - currentRound
+    UpdateTournamentDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: World Cup
+        logoUrl:
+          type: string
+          example: https://example.com/world-cup.png
+        country:
+          $ref: '#/components/schemas/EntityDto'
+        defaultRssFeeds:
+          example: *ref_24
+          type: array
+          items:
+            type: string
+        endDate:
+          type: string
+        hasPenalties:
+          type: boolean
+        hasTwoWayMatches:
+          type: boolean
+        isActive:
+          type: boolean
+        showNoMoreRoundsWarning:
+          type: boolean
+        importNewMatchesWithPenalties:
+          type: boolean
+    ApiSportsSeasonCoverageFixtures:
+      type: object
+      properties:
+        events:
+          type: boolean
+        lineups:
+          type: boolean
+        statistics_fixtures:
+          type: boolean
+        statistics_players:
+          type: boolean
+      required:
+        - events
+        - lineups
+        - statistics_fixtures
+        - statistics_players
+    ApiSportsSeasonCoverage:
+      type: object
+      properties:
+        fixtures:
+          $ref: '#/components/schemas/ApiSportsSeasonCoverageFixtures'
+        standings:
+          type: boolean
+        players:
+          type: boolean
+        top_scorers:
+          type: boolean
+        top_assists:
+          type: boolean
+        top_cards:
+          type: boolean
+        injuries:
+          type: boolean
+        predictions:
+          type: boolean
+        odds:
+          type: boolean
+      required:
+        - fixtures
+        - standings
+        - players
+        - top_scorers
+        - top_assists
+        - top_cards
+        - injuries
+        - predictions
+        - odds
+    ImportableTournament:
+      type: object
+      properties:
+        name:
+          type: string
+        logoUrl:
+          type: string
+        isImported:
+          type: boolean
+        externalId:
+          type: string
+        season:
+          type: string
+        coverage:
+          $ref: '#/components/schemas/ApiSportsSeasonCoverage'
+      required:
+        - name
+        - isImported
+        - externalId
+        - season
+        - coverage
+    MatchResultBody:
+      type: object
+      properties:
+        homeTeamGoals:
+          type: number
+        awayTeamGoals:
+          type: number
+        status:
+          type: string
+          enum: *ref_21
+        hasPenalties:
+          type: boolean
+        isTwoWaysSecondMatch:
+          type: boolean
+    TeamStanding:
+      type: object
+      properties:
+        position:
+          type: number
+        points:
+          type: number
+      required:
+        - position
+        - points
+    CreateUserDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Test User
+        email:
+          type: string
+          example: test_user@gmail.com
+        externalId:
+          type: string
+          example: 123-123
+        preferredLanguage:
+          type: string
+          example: es
+        password:
+          type: string
+          example: m1-secret-p4ss
+        role:
+          type: string
+          example: player
+        notificationsEnabled:
+          type: boolean
+        areaLevel1:
+          example: &ref_25
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel2:
+          example: &ref_26
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel3:
+          example: &ref_27
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        customFields:
+          type: string
+          example: >-
+            [{"name": "Telefono", "value": "234234234"},{"name": "dni", "value":
+            "323223"}]
+        profilePictureUrl:
+          type: string
+        portraitPictureUrl:
+          type: string
+        recoverPasswordToken:
+          type: string
+        loginProviderId:
+          type: string
+        loginProviderName:
+          type: string
+      required:
+        - name
+        - password
+    UpdateUserDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Test User
+        email:
+          type: string
+          example: test_user@gmail.com
+        externalId:
+          type: string
+          example: 123-123
+        preferredLanguage:
+          type: string
+          example: es
+        password:
+          type: string
+          example: m1-secret-p4ss
+        role:
+          type: string
+          example: player
+        notificationsEnabled:
+          type: boolean
+        areaLevel1:
+          example: *ref_25
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel2:
+          example: *ref_26
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel3:
+          example: *ref_27
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        customFields:
+          type: string
+          example: >-
+            [{"name": "Telefono", "value": "234234234"},{"name": "dni", "value":
+            "323223"}]
+        profilePictureUrl:
+          type: string
+        portraitPictureUrl:
+          type: string
+        recoverPasswordToken:
+          type: string
+        loginProviderId:
+          type: string
+        loginProviderName:
+          type: string
+    ImportFromExcelBody:
+      type: object
+      properties:
+        url:
+          type: string
+          example: https://excel.file.com
+      required:
+        - url
+    ImportReport:
+      type: object
+      properties:
+        ignoredRowsCount:
+          type: number
+        createdCount:
+          type: number
+        updatedCount:
+          type: number
+        errorCount:
+          type: number
+        newAreas:
+          type: array
+          items:
+            type: string
+        existingAreas:
+          type: array
+          items:
+            type: string
+      required:
+        - ignoredRowsCount
+        - createdCount
+        - updatedCount
+        - errorCount
+        - newAreas
+        - existingAreas
+    Ranking:
+      type: object
+      properties:
+        id:
+          type: number
+        position:
+          type: number
+        points:
+          type: number
+        dreamFinalPoints:
+          type: number
+        exactMatches:
+          type: number
+        user:
+          $ref: '#/components/schemas/User'
+      required:
+        - id
+        - position
+        - points
+        - dreamFinalPoints
+        - exactMatches
+        - user
+    AreaRanking:
+      type: object
+      properties:
+        areaId:
+          type: number
+        areaName:
+          type: string
+        points:
+          type: number
+        position:
+          type: number
+        userCount:
+          type: number
+      required:
+        - areaId
+        - areaName
+        - points
+        - position
+        - userCount
+    GlobalRanking:
+      type: object
+      properties:
+        id:
+          type: number
+        position:
+          type: number
+        points:
+          type: number
+        dreamFinalPoints:
+          type: number
+        exactMatches:
+          type: number
+        user:
+          $ref: '#/components/schemas/User'
+      required:
+        - id
+        - position
+        - points
+        - dreamFinalPoints
+        - exactMatches
+        - user
+    TournamentRanking:
+      type: object
+      properties:
+        id:
+          type: number
+        position:
+          type: number
+        points:
+          type: number
+        dreamFinalPoints:
+          type: number
+        exactMatches:
+          type: number
+        user:
+          $ref: '#/components/schemas/User'
+        tournament:
+          $ref: '#/components/schemas/Tournament'
+      required:
+        - id
+        - position
+        - points
+        - dreamFinalPoints
+        - exactMatches
+        - user
+        - tournament
+    RoundRanking:
+      type: object
+      properties:
+        id:
+          type: number
+        position:
+          type: number
+        points:
+          type: number
+        dreamFinalPoints:
+          type: number
+        exactMatches:
+          type: number
+        user:
+          $ref: '#/components/schemas/User'
+        round:
+          $ref: '#/components/schemas/Round'
+      required:
+        - id
+        - position
+        - points
+        - dreamFinalPoints
+        - exactMatches
+        - user
+        - round
+    TournamentRoundRanking:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        ranking:
+          $ref: '#/components/schemas/TournamentRanking'
+        currentRound:
+          $ref: '#/components/schemas/RoundRanking'
+      required:
+        - id
+        - name
+        - ranking
+    LatestRankingsDto:
+      type: object
+      properties:
+        global:
+          $ref: '#/components/schemas/GlobalRanking'
+        tournaments:
+          type: array
+          items:
+            $ref: '#/components/schemas/TournamentRoundRanking'
+      required:
+        - global
+        - tournaments
+    CreateCombinedRoundsRankingDefinitionDto:
+      type: object
+      properties:
+        company:
+          example: &ref_28
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        name:
+          type: string
+          example: Ranking de Mayo
+        rounds:
+          type: array
+          items:
+            type: string
+      required:
+        - name
+        - rounds
+    CombinedRoundsRankingDefinition:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        rounds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Round'
+      required:
+        - id
+        - name
+        - rounds
+    UpdateCombinedRoundsRankingDefinitionDto:
+      type: object
+      properties:
+        company:
+          example: *ref_28
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        name:
+          type: string
+          example: Ranking de Mayo
+        rounds:
+          type: array
+          items:
+            type: string
+    CreateNewsDto:
+      type: object
+      properties:
+        title:
+          type: string
+          example: some news title
+        description:
+          type: string
+          example: a long detailed description
+        image:
+          type: string
+          example: https://some.image
+        link:
+          type: string
+          example: https://some.link
+        externalId:
+          type: string
+          example: 0000-0000-00000
+        date:
+          type: string
+          example: '2023-02-24T17:23:02.265Z'
+        fixed:
+          type: boolean
+      required:
+        - title
+        - description
+    News:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: string
+        category:
+          type: string
+        link:
+          type: string
+        externalId:
+          type: string
+        date:
+          format: date-time
+          type: string
+        fixed:
+          type: boolean
+        company:
+          $ref: '#/components/schemas/Company'
+      required:
+        - id
+        - title
+        - description
+        - fixed
+        - company
+    NewsDetails:
+      type: object
+      properties:
+        id:
+          type: number
+        title:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: string
+        category:
+          type: string
+        link:
+          type: string
+        externalId:
+          type: string
+        date:
+          format: date-time
+          type: string
+        fixed:
+          type: boolean
+        company:
+          $ref: '#/components/schemas/Company'
+        source:
+          type: string
+      required:
+        - id
+        - title
+        - description
+        - fixed
+        - company
+    UpdateNewsDto:
+      type: object
+      properties:
+        title:
+          type: string
+          example: some news title
+        description:
+          type: string
+          example: a long detailed description
+        image:
+          type: string
+          example: https://some.image
+        link:
+          type: string
+          example: https://some.link
+        externalId:
+          type: string
+          example: 0000-0000-00000
+        date:
+          type: string
+          example: '2023-02-24T17:23:02.265Z'
+        fixed:
+          type: boolean
+    RssFeedDownload:
+      type: object
+      properties: {}
+    AvailableRssFeedSource:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        country:
+          type: string
+        excludeCategories:
+          type: array
+          items:
+            type: string
+        image:
+          type: string
+        link:
+          type: string
+        title:
+          type: string
+      required:
+        - id
+        - name
+        - url
+        - country
+        - excludeCategories
+        - image
+        - link
+        - title
+    CreateCompanyDto:
+      type: object
+      properties:
+        name:
+          type: string
+        logoUrl:
+          type: string
+          example: https://example.com/company-logo.png
+        isologoUrl:
+          type: string
+          example: https://example.com/company-isologo.png
+        loginImageUrl:
+          type: string
+          example: https://example.com/company-loginimage.png
+        loginText:
+          type: string
+          example: Bienvenido al prode!
+        loginAnnouncementSeverity:
+          type: string
+          example: Bienvenido al prode!
+        loginAnnouncementText:
+          type: string
+          example: Hoy es el último día para activar tu cuenta
+        comingSoonText:
+          type: string
+          example: Muy pronto vas a poder jugar al prode
+        comingSoonModeIsEnabled:
+          type: boolean
+        disableNews:
+          type: boolean
+        disableNewsFromHome:
+          type: boolean
+        disableRegister:
+          type: boolean
+        disableGoogleLogin:
+          type: boolean
+        appCustomDomain:
+          type: string
+          example: mycompany.com
+        appPath:
+          type: string
+          example: my-company
+        loginStrategy:
+          type: number
+        tournaments:
+          example: &ref_29
+            - id: 123
+            - id: 456
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityDto'
+        requiresEmailVerification:
+          type: boolean
+        isReseller:
+          type: boolean
+        allowUserEmailEdit:
+          type: boolean
+        allowUserNameEdit:
+          type: boolean
+        rssFeeds:
+          example: &ref_30
+            - bolavip_argentina
+            - direct_tv_sports
+          type: array
+          items:
+            type: string
+        customTheme:
+          type: string
+          example: JSON for react-mui theme
+        customFontFamily:
+          type: string
+        customFields:
+          type: string
+          example: >-
+            [{"name": "phone", "type": "string", "isRequired": false},{"name":
+            "dni", "type": "string", "isRequired": true}]
+        superiorBannerMobileImageUrl:
+          type: string
+        superiorBannerLink:
+          type: string
+        middleBannerDesktopImageUrl:
+          type: string
+        middleBannerMobileImageUrl:
+          type: string
+        middleBannerLink:
+          type: string
+        sideBannerDesktopImageUrl:
+          type: string
+        sideBannerMobileImageUrl:
+          type: string
+        sideBannerLink:
+          type: string
+        managerUsers:
+          type: array
+          items:
+            type: string
+        maxUsersAmount:
+          type: number
+      required:
+        - name
+    UpdateCompanyDto:
+      type: object
+      properties:
+        name:
+          type: string
+        logoUrl:
+          type: string
+          example: https://example.com/company-logo.png
+        isologoUrl:
+          type: string
+          example: https://example.com/company-isologo.png
+        loginImageUrl:
+          type: string
+          example: https://example.com/company-loginimage.png
+        loginText:
+          type: string
+          example: Bienvenido al prode!
+        loginAnnouncementSeverity:
+          type: string
+          example: Bienvenido al prode!
+        loginAnnouncementText:
+          type: string
+          example: Hoy es el último día para activar tu cuenta
+        comingSoonText:
+          type: string
+          example: Muy pronto vas a poder jugar al prode
+        comingSoonModeIsEnabled:
+          type: boolean
+        disableNews:
+          type: boolean
+        disableNewsFromHome:
+          type: boolean
+        disableRegister:
+          type: boolean
+        disableGoogleLogin:
+          type: boolean
+        appCustomDomain:
+          type: string
+          example: mycompany.com
+        appPath:
+          type: string
+          example: my-company
+        loginStrategy:
+          type: number
+        tournaments:
+          example: *ref_29
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityDto'
+        requiresEmailVerification:
+          type: boolean
+        isReseller:
+          type: boolean
+        allowUserEmailEdit:
+          type: boolean
+        allowUserNameEdit:
+          type: boolean
+        rssFeeds:
+          example: *ref_30
+          type: array
+          items:
+            type: string
+        customTheme:
+          type: string
+          example: JSON for react-mui theme
+        customFontFamily:
+          type: string
+        customFields:
+          type: string
+          example: >-
+            [{"name": "phone", "type": "string", "isRequired": false},{"name":
+            "dni", "type": "string", "isRequired": true}]
+        superiorBannerMobileImageUrl:
+          type: string
+        superiorBannerLink:
+          type: string
+        middleBannerDesktopImageUrl:
+          type: string
+        middleBannerMobileImageUrl:
+          type: string
+        middleBannerLink:
+          type: string
+        sideBannerDesktopImageUrl:
+          type: string
+        sideBannerMobileImageUrl:
+          type: string
+        sideBannerLink:
+          type: string
+        managerUsers:
+          type: array
+          items:
+            type: string
+        maxUsersAmount:
+          type: number
+    FileUploadResponse:
+      type: object
+      properties: {}
+    CreateInvitationDto:
+      type: object
+      properties:
+        externalId:
+          type: string
+          example: 123-123
+        name:
+          type: string
+          example: Test User
+        email:
+          type: string
+          example: test_user@gmail.com
+        company:
+          example: &ref_31
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel1:
+          example: &ref_32
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel2:
+          example: &ref_33
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel3:
+          example: &ref_34
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        role:
+          type: string
+      required:
+        - externalId
+    Invitation:
+      type: object
+      properties:
+        id:
+          type: number
+        externalId:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum:
+            - player
+            - admin
+            - reseller
+            - manager
+        company:
+          $ref: '#/components/schemas/Company'
+        areaLevel1:
+          $ref: '#/components/schemas/Area'
+        areaLevel2:
+          $ref: '#/components/schemas/Area'
+        areaLevel3:
+          $ref: '#/components/schemas/Area'
+      required:
+        - id
+        - externalId
+        - role
+        - company
+        - areaLevel1
+        - areaLevel2
+        - areaLevel3
+    UpdateInvitationDto:
+      type: object
+      properties:
+        externalId:
+          type: string
+          example: 123-123
+        name:
+          type: string
+          example: Test User
+        email:
+          type: string
+          example: test_user@gmail.com
+        company:
+          example: *ref_31
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel1:
+          example: *ref_32
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel2:
+          example: *ref_33
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        areaLevel3:
+          example: *ref_34
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        role:
+          type: string
+    CreateTranslationDto:
+      type: object
+      properties:
+        data:
+          type: string
+          example: '{ "user": { "identifier": "Legajo" } }'
+        locale:
+          type: string
+          example: es_AR
+      required:
+        - data
+        - locale
+    SendEmailDto:
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        subject:
+          type: string
+        body:
+          type: string
+        replyTo:
+          type: string
+      required:
+        - from
+        - to
+        - subject
+        - body
+    ExternalSupportEmailDto:
+      type: object
+      properties: {}
+    ProfileSupportEmailDto:
+      type: object
+      properties:
+        name:
+          type: string
+        userEmail:
+          type: string
+        emailToAnswer:
+          type: string
+        inquiry:
+          type: string
+      required:
+        - name
+        - userEmail
+        - inquiry
+    CreateDreamFinalSettingsDto:
+      type: object
+      properties:
+        company:
+          example: &ref_35
+            id: 1
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        limitRound:
+          $ref: '#/components/schemas/EntityDto'
+        tournament:
+          $ref: '#/components/schemas/EntityDto'
+        awardedPositions:
+          type: number
+        awardedPoints:
+          type: number
+      required:
+        - limitRound
+        - tournament
+        - awardedPositions
+        - awardedPoints
+    TournamentAndDreamFinal:
+      type: object
+      properties:
+        tournament:
+          $ref: '#/components/schemas/Tournament'
+        dreamFinalSettings:
+          $ref: '#/components/schemas/DreamFinalSettings'
+      required:
+        - tournament
+    UpdateDreamFinalSettingsDto:
+      type: object
+      properties:
+        company:
+          example: *ref_35
+          allOf:
+            - $ref: '#/components/schemas/EntityDto'
+        limitRound:
+          $ref: '#/components/schemas/EntityDto'
+        tournament:
+          $ref: '#/components/schemas/EntityDto'
+        awardedPositions:
+          type: number
+        awardedPoints:
+          type: number
+    CreateDreamFinalPredictionDto:
+      type: object
+      properties:
+        tournament:
+          $ref: '#/components/schemas/EntityDto'
+        team1:
+          $ref: '#/components/schemas/EntityDto'
+        team2:
+          $ref: '#/components/schemas/EntityDto'
+        team3:
+          $ref: '#/components/schemas/EntityDto'
+        team4:
+          $ref: '#/components/schemas/EntityDto'
+      required:
+        - tournament
+        - team1
+    DreamFinalPrediction:
+      type: object
+      properties:
+        id:
+          type: number
+        user:
+          $ref: '#/components/schemas/User'
+        tournament:
+          $ref: '#/components/schemas/Tournament'
+        team1:
+          $ref: '#/components/schemas/Team'
+        team2:
+          $ref: '#/components/schemas/Team'
+        team3:
+          $ref: '#/components/schemas/Team'
+        team4:
+          $ref: '#/components/schemas/Team'
+      required:
+        - id
+        - user
+        - tournament
+        - team1
+        - team2
+        - team3
+        - team4
+    UpdateDreamFinalPredictionDto:
+      type: object
+      properties:
+        tournament:
+          $ref: '#/components/schemas/EntityDto'
+        team1:
+          $ref: '#/components/schemas/EntityDto'
+        team2:
+          $ref: '#/components/schemas/EntityDto'
+        team3:
+          $ref: '#/components/schemas/EntityDto'
+        team4:
+          $ref: '#/components/schemas/EntityDto'
+    CreateGameRulesDto:
+      type: object
+      properties:
+        generalRules:
+          type: string
+        penaltiesRules:
+          type: string
+        twoWayPenaltiesRules:
+          type: string
+        dreamFinalRules:
+          type: string
+      required:
+        - generalRules
+        - penaltiesRules
+        - twoWayPenaltiesRules
+        - dreamFinalRules
+    GameRules:
+      type: object
+      properties:
+        id:
+          type: number
+        generalRules:
+          type: string
+        penaltiesRules:
+          type: string
+        twoWayPenaltiesRules:
+          type: string
+        dreamFinalRules:
+          type: string
+      required:
+        - id
+        - generalRules
+        - penaltiesRules
+        - twoWayPenaltiesRules
+        - dreamFinalRules
+    TermsAndConditions:
+      type: object
+      properties:
+        id:
+          type: number
+        termsAndConditions:
+          type: string
+        company:
+          $ref: '#/components/schemas/Company'
+      required:
+        - id
+        - termsAndConditions
+        - company
+    CreateTermsAndConditionsDto:
+      type: object
+      properties:
+        termsAndConditions:
+          type: string
+        company:
+          $ref: '#/components/schemas/EntityDto'
+      required:
+        - termsAndConditions
+    Stats:
+      type: object
+      properties:
+        companiesCount:
+          type: number
+        totalUsersCount:
+          type: number
+        activeUsersCount:
+          type: number
+        pendingUsersCount:
+          type: number
+        todaysNewUsersCount:
+          type: number
+      required:
+        - companiesCount
+        - totalUsersCount
+        - activeUsersCount
+        - pendingUsersCount
+        - todaysNewUsersCount
+    CreateGlobalSettingsDto:
+      type: object
+      properties:
+        impersonationEnabled:
+          type: boolean
+      required:
+        - impersonationEnabled
+    GlobalSettings:
+      type: object
+      properties:
+        id:
+          type: number
+        impersonationEnabled:
+          type: boolean
+      required:
+        - id
+        - impersonationEnabled
+    TournamentCustomSettings:
+      type: object
+      properties:
+        id:
+          type: number
+        company:
+          $ref: '#/components/schemas/Company'
+        tournament:
+          $ref: '#/components/schemas/Tournament'
+        round:
+          $ref: '#/components/schemas/Round'
+      required:
+        - id
+        - company
+        - tournament
+        - round
+    CreateTournamentCustomSettingsDto:
+      type: object
+      properties:
+        company:
+          $ref: '#/components/schemas/EntityDto'
+        tournament:
+          $ref: '#/components/schemas/EntityDto'
+        round:
+          $ref: '#/components/schemas/EntityDto'
+      required:
+        - company
+        - tournament
+        - round
+    JobLog:
+      type: object
+      properties:
+        id:
+          type: number
+        type:
+          type: string
+          enum:
+            - ranking:generate
+            - tournament:import
+            - match:import-result
+        metadata:
+          type: string
+        start:
+          format: date-time
+          type: string
+        end:
+          format: date-time
+          type: string
+      required:
+        - id
+        - type
+        - start
+        - end
+    UserWithToken:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        accessToken:
+          type: string
+      required:
+        - user
+        - accessToken
+    LoginUserDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: test_user@gmail.com
+        externalId:
+          type: string
+          example: 123-123
+        password:
+          type: string
+          example: m1-secret-p4ss
+      required:
+        - password
+    GoogleSignInDto:
+      type: object
+      properties:
+        accessToken:
+          type: string
+      required:
+        - accessToken
+security:
+  - bearer: []

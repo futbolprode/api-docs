@@ -1,0 +1,36 @@
+---
+id: countries-controller-find-one
+title: "CountriesController_findOne"
+description: "CountriesController_findOne"
+sidebar_label: "CountriesController_findOne"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVMGO0zAQ/ZXKJ5AiWlZ76g1VLIILCBZxWFVokkwbL4ntHU8qoij/zkycpi2tkDgl8RuP37z3nN74gARsvftYmrXZ+NYxWYwbL09f10g/d9aVnx2azAQgaJCRolk/9cbJh+yxpUCEL60llB5MLWbGOkECcCVYLCpswKx7w13QHVGOcHszDFvdGIN3EaPid6uVPkqMBdmgrKRaOhTCBh0rBiHUthgZL5+jFvTXB/j8GQtWxqTzsU3thempxrVNjmSGbJrjil1moA4V3G18eRve1bD/TvVNjBGaeIYAEXRCyDJerM9SyBbfklJx/F8bh3Pxn5Ib40RHEpedRXK2XONsdqc9pMn96v6G9iMx2Kvh4sIUDm1yWffv3EhmKq/x2uNoisZibZZzv2Vvy0GDgnRI4drqR9GS5W6MWo5AYpYAwxn0TX1P1h4LpjDoeNNSNr08eGpAImQ+/XhUTZKMFXMYh7Ru50d5J3EeWs59vfhC6v7f48qCEk0fb9+spohCoRHVbsFHbmAM53RLZoUWJ4kWKtEiaXRxwOwy429ehhrkOknXNoUt6XfuR2bW4rsoU8m5CvV9DhElnMOgyy8tUpdkPQBZyHVEkbW0Ud/Fmh3UEa9YzPfOvPo6Zez14iTeJbtjYJ3G9QB1i0mpX9ilv8SwlaoKoRyd7CfgXVFg4LMtVzdcLZ8j9OH9o/j1B8qpm44=
+sidebar_class_name: "get api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>CountriesController_findOne</h1>
+
+<MethodEndpoint method={"get"} path={"/countries/{id}"}></MethodEndpoint>
+
+
+
+CountriesController_findOne
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","required":true,"in":"path","schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"alpha2Code"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"flagUrl"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"teams"} required={true} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={false} name={"tournaments"} required={true} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"name\": \"string\",\n  \"alpha2Code\": \"string\",\n  \"flagUrl\": \"string\",\n  \"teams\": [\n    \"string\"\n  ],\n  \"tournaments\": [\n    \"string\"\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div></div><div></div></TabItem></ApiTabs></div></div>
+      
