@@ -10,7 +10,7 @@ const config = {
   tagline:
     "Integrá todas las funcionalidades del Prode a tu propio sitio o aplicación",
   url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  baseUrl: "/api-docs",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
