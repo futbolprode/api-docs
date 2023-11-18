@@ -133,7 +133,7 @@ const config = {
         id: "openapi",
         docsPluginId: "classic",
         config: {
-          petstore: {
+          futbolprode: {
             specPath: "http://localhost:4000/docs-yaml",
             outputDir: "docs/api",
             downloadUrl:
