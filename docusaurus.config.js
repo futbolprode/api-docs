@@ -55,28 +55,23 @@ const config = {
         },
       },
       navbar: {
-        title: "My Site",
+        title: "Futbol Prode API",
         logo: {
           alt: "My Site Logo",
-          src: "img/logo.svg",
+          src: "img/logo.png",
         },
         items: [
+          // {
+          //   type: "doc",
+          //   docId: "intro",
+          //   position: "left",
+          //   label: "Tutorial",
+          // },
+          // { to: "/blog", label: "Blog", position: "left" },
           {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Tutorial",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            label: "API",
+            label: "Documentación",
             position: "left",
             to: "/docs/category/api",
-          },
-          {
-            label: "Petstore API",
-            position: "left",
-            to: "/docs/category/petstore-api",
           },
         ],
       },
