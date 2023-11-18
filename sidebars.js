@@ -27,7 +27,17 @@ const sidebars = {
         slug: "/category/api",
       },
       // @ts-ignore
-      items: require("./docs/api/sidebar.js"),
+      // items: require("./docs/api/sidebar.js"),
+      items: require("./docs/api/sidebar.js")
+        // Se ignoran controllers con tag private/loquesea
+        .filter(
+          (it) => !(it.type === "category" && it.label?.startsWith("private/"))
+        )
+        // Se ignoran endpoints que contengan [private] en su summary
+        .map((it) => ({
+          ...it,
+          items: it.items?.filter((item) => !item.label?.includes("[private]")),
+        })),
     },
   ],
 
