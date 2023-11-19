@@ -10,7 +10,7 @@
  */
 
 // @ts-check
-const { evolve, reject } = require("ramda");
+const { evolve, reject, last } = require("ramda");
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
@@ -33,10 +33,13 @@ const sidebars = {
         .filter(
           (it) => !(it.type === "category" && it.label?.startsWith("private/"))
         )
-        // Se ignoran endpoints que contengan [private] en su summary
         .map(
           evolve({
+            // Se ignoran endpoints que contengan [private] en su summary
             items: reject((item) => item.label?.includes("[private]")),
+
+            // Se descarta el nombre del controller
+            label: (it) => last(it.split("_")),
           })
         ),
     },
