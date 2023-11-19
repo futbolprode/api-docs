@@ -35,14 +35,13 @@ const sidebars = {
         )
         .map(
           evolve({
-            items: 
-              compose(
-                // Se descarta el nombre del controller
-                map(evolve({ label: (it) => last(it.split("_")) })),
+            items: compose(
+              // Se descarta el nombre del controller
+              map(evolve({ label: (it) => last(it.split("_")) })),
 
-                // Se ignoran endpoints que contengan [private] en su summary
-                reject((item) => item.label?.includes("[private]")),
-              )
+              // Se ignoran endpoints que contengan [private] en su summary
+              reject((item) => item.label?.includes("[private]"))
+            ),
           })
         ),
     },
