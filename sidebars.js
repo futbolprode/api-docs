@@ -10,7 +10,7 @@
  */
 
 // @ts-check
-const { evolve, reject, last, compose } = require("ramda");
+const { evolve, reject, last, compose, map } = require("ramda");
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
