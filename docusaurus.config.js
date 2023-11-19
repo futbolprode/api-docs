@@ -9,8 +9,8 @@ const config = {
   title: "Futbol Prode API",
   tagline:
     "Integra todas las funcionalidades del Prode a tu propio sitio o aplicación",
-  url: "https://futbolprode.github.io/",
-  baseUrl: "/api-docs",
+  url: "https://developers.futbolprode.com/",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
