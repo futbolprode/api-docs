@@ -10,7 +10,7 @@
  */
 
 // @ts-check
-const { evolve, reject, last } = require("ramda");
+const { evolve, reject, last, compose } = require("ramda");
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
@@ -35,11 +35,13 @@ const sidebars = {
         )
         .map(
           evolve({
-            // Se ignoran endpoints que contengan [private] en su summary
-            items: reject((item) => item.label?.includes("[private]")),
+            items: 
+              compose(
+                // Se descarta el nombre del controller
+                map(evolve({ label: (it) => last(it.split("_")) })),
 
-            // Se descarta el nombre del controller
-            label: (it) => last(it.split("_")),
+                // Se ignoran endpoints que contengan [private] en su summary
+                reject((item) => item.label?.includes("[private]")),
           })
         ),
     },
