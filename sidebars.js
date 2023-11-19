@@ -42,6 +42,7 @@ const sidebars = {
 
                 // Se ignoran endpoints que contengan [private] en su summary
                 reject((item) => item.label?.includes("[private]")),
+              )
           })
         ),
     },
