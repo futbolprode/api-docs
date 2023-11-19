@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkapi_docs=self.webpackChunkapi_docs||[]).push([[9746],{67357:s=>{s.exports=JSON.parse('{"label":"docusaurus","permalink":"/api-docs/blog/tags/docusaurus","allTagsPath":"/api-docs/blog/tags","count":4}')}}]);
