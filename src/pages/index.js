@@ -18,7 +18,7 @@ function HomepageHeader() {
             className="button button--secondary button--lg"
             to="/docs/category/api"
           >
-            ¡Empieza a desarrollar!
+            Start developing!
           </Link>
         </div>
       </div>

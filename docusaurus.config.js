@@ -7,8 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Futbol Prode API",
-  tagline:
-    "Integra todas las funcionalidades del Prode a tu propio sitio o aplicación",
+  tagline: "Integrate all our features into your own site or application 🚀",
   url: "https://developers.futbolprode.com/",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -72,7 +71,7 @@ const config = {
           // },
           // { to: "/blog", label: "Blog", position: "left" },
           {
-            label: "Documentación",
+            label: "Documentation",
             position: "left",
             to: "/docs/category/api",
           },
