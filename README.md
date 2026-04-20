@@ -1,40 +1,89 @@
-# Template
+# Futbol Prode API Docs
 
-This template is built for [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Public developer site for the Fútbol Prode API, hosted at
+[developers.futbolprode.com](https://developers.futbolprode.com/).
 
-### Usage
+Built with [Docusaurus 2](https://docusaurus.io/) and
+[`docusaurus-plugin-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs),
+which renders the API reference from the OpenAPI spec exposed by the backend.
 
-```bash
-npx create-docusaurus@2.4.3 my-website --package-manager yarn
-```
+## Requirements
 
-> When prompted to select a template choose `Git repository`.
+- Node.js 18+
+- Yarn
 
-Template Repository URL:
-
-```bash
-https://github.com/PaloAltoNetworks/docusaurus-template-openapi-docs.git
-```
-
-> When asked how the template repo should be cloned choose "copy" (unless you know better).
+## Install
 
 ```bash
-cd my-website
 yarn
 ```
 
-### Local Development
+## Local development
 
 ```bash
 yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Starts a dev server with hot reload. Most changes are reflected live without
+restarting.
 
-### Build
+## Build
 
 ```bash
 yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Generates the static site into `build/`. Serve it locally with `yarn serve`.
+
+## Updating the generated API docs
+
+The API reference under `docs/api/` is **generated** from the OpenAPI spec
+served by the [Futbol Prode API](https://github.com/futbolprode/api). Do not
+edit those files by hand — regenerate them instead.
+
+The flow has two steps:
+
+1. **Fetch and rewrite the spec.** `scripts/fetch-spec.js` pulls the live
+   spec from `http://localhost:4000/docs-yaml` and writes a cleaned-up copy
+   to `openapi/futbolprode.yaml` (gitignored). The rewrite:
+
+   - rewrites the verbose `ControllerName_methodName` operationIds NestJS
+     emits as `tag_methodName` (e.g. `users_addFirebaseToken`), which keeps
+     generated filenames unique across controllers (otherwise common method
+     names like `findAll` collide between `/matches` and `/teams`),
+   - sets each operation's `summary` to its **controller-relative path**
+     (e.g. `/me/firebase-token` instead of `UsersController_addFirebaseToken`)
+     so the sidebar/title stay readable.
+
+2. **Generate the MDX** with `docusaurus-plugin-openapi-docs`, which reads
+   `openapi/futbolprode.yaml` (configured in `docusaurus.config.js` under the
+   id `futbolprode`) and writes to `docs/api/`.
+
+To refresh the docs end-to-end:
+
+1. Start the API locally so the spec is reachable at
+   `http://localhost:4000/docs-yaml` (override with `SPEC_URL=...` if needed).
+2. Run:
+
+   ```bash
+   yarn update-api-docs
+   ```
+
+   which is shorthand for:
+
+   ```bash
+   yarn fetch-spec \
+     && yarn clean-api-docs futbolprode \
+     && yarn gen-api-docs futbolprode
+   ```
+
+3. Review the diff under `docs/api/` and commit.
+
+## Deploy
+
+The site deploys to GitHub Pages (`organizationName: futbolprode`,
+`projectName: api-docs`). With push access configured:
+
+```bash
+yarn deploy
+```

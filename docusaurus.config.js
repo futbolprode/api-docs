@@ -6,9 +6,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Futbol Prode API",
-  tagline:
-    "Integra todas las funcionalidades del Prode a tu propio sitio o aplicación",
+  title: "Fútbol Prode API",
+  tagline: "Integrate all our features into your own site or application 🚀",
   url: "https://developers.futbolprode.com/",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -58,10 +57,10 @@ const config = {
         },
       },
       navbar: {
-        title: "Futbol Prode API",
+        title: "Fútbol Prode API",
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.png",
+          alt: "Fútbol Prode logo",
+          src: "img/fp.png",
         },
         items: [
           // {
@@ -72,9 +71,9 @@ const config = {
           // },
           // { to: "/blog", label: "Blog", position: "left" },
           {
-            label: "Documentación",
+            label: "Documentation",
             position: "left",
-            to: "/docs/category/api",
+            to: "/docs/api/futbol-prode-api",
           },
         ],
       },
@@ -137,7 +136,7 @@ const config = {
         docsPluginId: "classic",
         config: {
           futbolprode: {
-            specPath: "http://localhost:4000/docs-yaml",
+            specPath: "openapi/futbolprode.yaml",
             outputDir: "docs/api",
             downloadUrl:
               "https://raw.githubusercontent.com/futbolprode/api-docs/main/examples/api.yaml",

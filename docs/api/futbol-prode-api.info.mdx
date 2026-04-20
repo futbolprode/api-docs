@@ -1,0 +1,113 @@
+---
+id: futbol-prode-api
+title: "Fútbol Prode API"
+description: "The Fútbol Prode API is multi-tenant: every request is resolved to a single"
+sidebar_label: Getting started
+sidebar_position: 0
+hide_title: true
+custom_edit_url: null
+---
+
+import ApiLogo from "@theme/ApiLogo";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiExplorer/Export";
+
+<span className={"theme-doc-version-badge badge badge--secondary"}>Version: 1.0</span>
+
+<Export url={"https://raw.githubusercontent.com/futbolprode/api-docs/main/examples/api.yaml"} proxy={undefined}></Export>
+
+<h1 className={"openapi__heading"}>Fútbol Prode API</h1>
+
+
+
+The Fútbol Prode API is multi-tenant: every request is resolved to a single
+**company** (tenant) before reaching the controllers. How that company is
+resolved depends on the kind of endpoint you are calling.
+
+## Authenticated endpoints
+
+Most endpoints require a Bearer JWT obtained from the auth flow. The company
+is taken from the user's token, so no extra header is needed.
+
+Endpoints are tagged with the role they require (e.g. `player`, `reseller`).
+
+## Public endpoints
+
+Endpoints tagged as `public` do **not** require a JWT, but they still need
+to know which company is making the request. Send at least **one** of these headers:
+
+- `x-futbolprode-path`: the company's URL slug (e.g. `mycompany`).
+- `x-futbolprode-host`: the company's custom domain (e.g. `customprode.com`).
+
+A small subset of public endpoints is global and does not require either
+header (they are not tagged with the company-resolution parameters).
+
+## Auth strategies
+
+Each company picks how its end users sign up and log in via the
+`loginStrategy` setting. There are two strategies; pick the matching flow
+based on the company you're integrating against.
+
+### `byEmail` — email + password (default)
+
+Users identify themselves with their email address and a password they
+choose. Anyone who knows the company can create an account on their own,
+unless the company sets `disableRegister: true` to lock self-registration
+down.
+
+1. The client calls `POST /auth/register` with the user's data (`email`,
+   `password`, name, etc.). The response already includes a JWT, so the
+   user is effectively logged in.
+2. If the company has `requiresEmailVerification: true`, the user receives
+   a verification email; the client confirms it via
+   `POST /auth/verify/:verificationToken` (or requests a new mail with
+   `POST /auth/email/:userId/resend`).
+3. From then on, the client signs in with `POST /auth/login` (email +
+   password).
+
+This is the strategy to use when integrating a public sign-up form.
+
+### `byExternalId` — invitation-only
+
+Users identify themselves with an `externalId` that the company assigns
+(employee id, member number, etc.). Self sign-up is **not** possible: a
+user can only register if a manager has previously created an invitation
+matching that `externalId`.
+
+1. A user with the `manager` role (or higher) seeds the invitations:
+   - One by one: `POST /invitations` with the invitee's data, target
+     role, and `externalId`.
+   - In bulk from a spreadsheet: `POST /invitations/import/excel`
+     (download a template via `GET /invitations/import/excel`).
+   For invitations to `manager` / `reseller` roles the backend emails the
+   invitee an activation link containing a JWT; for regular players the
+   manager is expected to share the `externalId` through their own
+   channel.
+2. The invitee redeems the invitation:
+   - `POST /auth/invitations/:invitationId/accept` when the client
+     already resolved the invitation id (e.g. via
+     `GET /invitations/externalId/:externalId`).
+   - `POST /auth/invitations/:jwt/acceptByJwt` when the user follows the
+     activation link from the email. This endpoint is fully global and
+     does **not** require the company-resolution headers, because the
+     company is encoded inside the JWT.
+   Both return a JWT, so the user is logged in right away.
+3. From then on, the client signs in with `POST /auth/login` using the
+   user's `externalId` instead of their email.
+
+## Resellers: impersonating a company
+
+Users that belong to a **reseller** company can act on behalf of any of the
+companies they manage. To do so, send the target company id in the
+`x-futbolprode-company` header along with your normal Bearer token:
+
+    Authorization: Bearer <reseller-user-jwt\>
+    x-futbolprode-company: 42
+
+The request is then processed as if it had been issued by that company.
+Non-reseller users that send this header are ignored and keep operating on
+their own company.
+
+<div style={{"marginBottom":"2rem"}}><h2 id={"authentication"} style={{"marginBottom":"1rem"}}>Authentication</h2><SchemaTabs className={"openapi-tabs__security-schemes"}><TabItem label={"HTTP: Bearer Auth"} value={"bearer"}><div><table><tbody><tr><th>Security Scheme Type:</th><td>http</td></tr><tr><th>HTTP Authorization Scheme:</th><td>bearer</td></tr><tr><th>Bearer format:</th><td>JWT</td></tr></tbody></table></div></TabItem></SchemaTabs></div>
+      

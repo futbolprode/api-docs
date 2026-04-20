@@ -2952,7 +2952,7 @@ paths:
           description: ""
       tags: *ref_20
 info:
-  title: Futbol Prode
+  title: Fútbol Prode API
   description: ""
   version: "1.0"
   contact: {}
