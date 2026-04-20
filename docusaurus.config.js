@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Futbol Prode API",
+  title: "Fútbol Prode API",
   tagline: "Integrate all our features into your own site or application 🚀",
   url: "https://developers.futbolprode.com/",
   baseUrl: "/",
@@ -57,7 +57,7 @@ const config = {
         },
       },
       navbar: {
-        title: "Futbol Prode API",
+        title: "Fútbol Prode API",
         logo: {
           alt: "My Site Logo",
           src: "img/logo.png",
@@ -73,7 +73,7 @@ const config = {
           {
             label: "Documentation",
             position: "left",
-            to: "/docs/category/api",
+            to: "/docs/api/futbol-prode-api",
           },
         ],
       },
