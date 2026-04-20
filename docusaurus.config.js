@@ -138,8 +138,6 @@ const config = {
           futbolprode: {
             specPath: "openapi/futbolprode.yaml",
             outputDir: "docs/api",
-            downloadUrl:
-              "https://raw.githubusercontent.com/futbolprode/api-docs/main/examples/api.yaml",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
