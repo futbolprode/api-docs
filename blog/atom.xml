@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://developers.futbolprode.com/blog</id>
-    <title>Futbol Prode API Blog</title>
+    <title>Fútbol Prode API Blog</title>
     <updated>2021-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://developers.futbolprode.com/blog"/>
-    <subtitle>Futbol Prode API Blog</subtitle>
+    <subtitle>Fútbol Prode API Blog</subtitle>
     <icon>https://developers.futbolprode.com/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
