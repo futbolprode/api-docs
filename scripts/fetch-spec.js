@@ -154,21 +154,24 @@ const rewriteSpec = (spec) => {
 
   // Tags referenced by no surviving operation should disappear from the
   // sidebar; the plugin groups by `op.tags[0]`, so it's enough to ensure no
-  // operation references them. We also prune them from the root `tags` list
-  // (when present) to keep the spec consistent.
-  const survivingTags = new Set(
-    R.values(paths).flatMap((item) =>
-      R.values(item)
-        .filter(isOperation)
-        .flatMap((op) => op.tags),
-    ),
-  );
-  const tags = (spec.tags ?? []).filter((t) => survivingTags.has(t.name));
+  // operation references them. We also rebuild the root `tags` list sorted
+  // alphabetically: docusaurus-plugin-openapi-docs renders sidebar categories
+  // in the order tags appear in `spec.tags`.
+  const existingTags = R.indexBy(R.prop("name"), spec.tags ?? []);
+  const tags = R.pipe(
+    R.values,
+    R.chain(R.values),
+    R.filter(isOperation),
+    R.chain(R.prop("tags")),
+    R.uniq,
+    R.sortBy(R.toLower),
+    R.map((name) => existingTags[name] ?? { name }),
+  )(paths);
 
   return breakSchemaCycles({
     ...spec,
     paths,
-    ...(spec.tags ? { tags } : {}),
+    tags,
   });
 };
 
