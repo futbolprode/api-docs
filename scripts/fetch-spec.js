@@ -49,19 +49,30 @@ const relativePath = (fullPath, tag) => {
 const isOperation = (op) =>
   !R.isNil(op) && typeof op === "object" && Array.isArray(op.tags);
 
+// Drop endpoints reserved for internal operators from the public docs.
+const ADMIN_ROLE = "admin";
+const isAdminOnly = (op) => op["x-futbolprode-required-role"] === ADMIN_ROLE;
+
 const rewriteOperation = (fullPath, op) =>
   isOperation(op)
-    ? {
-        ...op,
-        summary: relativePath(fullPath, op.tags[0]),
-        ...(op.operationId
-          ? { operationId: operationIdWithTag(op.operationId, op.tags[0]) }
-          : {}),
-      }
+    ? isAdminOnly(op)
+      ? null
+      : {
+          ...op,
+          summary: relativePath(fullPath, op.tags[0]),
+          ...(op.operationId
+            ? { operationId: operationIdWithTag(op.operationId, op.tags[0]) }
+            : {}),
+        }
     : op;
 
 const rewritePathItem = (fullPath, item) =>
-  R.mapObjIndexed((op) => rewriteOperation(fullPath, op), item);
+  R.reject(
+    R.isNil,
+    R.mapObjIndexed((op) => rewriteOperation(fullPath, op), item),
+  );
+
+const hasAnyOperation = (item) => R.values(item).some(isOperation);
 
 const SCHEMA_REF_PREFIX = "#/components/schemas/";
 
@@ -132,14 +143,34 @@ const breakSchemaCycles = (spec) => {
   return R.assocPath(["components", "schemas"], sanitized, spec);
 };
 
-const rewriteSpec = (spec) =>
-  breakSchemaCycles({
-    ...spec,
-    paths: R.mapObjIndexed(
+const rewriteSpec = (spec) => {
+  const paths = R.reject(
+    R.complement(hasAnyOperation),
+    R.mapObjIndexed(
       (item, fullPath) => rewritePathItem(fullPath, item),
       spec.paths ?? {},
     ),
+  );
+
+  // Tags referenced by no surviving operation should disappear from the
+  // sidebar; the plugin groups by `op.tags[0]`, so it's enough to ensure no
+  // operation references them. We also prune them from the root `tags` list
+  // (when present) to keep the spec consistent.
+  const survivingTags = new Set(
+    R.values(paths).flatMap((item) =>
+      R.values(item)
+        .filter(isOperation)
+        .flatMap((op) => op.tags),
+    ),
+  );
+  const tags = (spec.tags ?? []).filter((t) => survivingTags.has(t.name));
+
+  return breakSchemaCycles({
+    ...spec,
+    paths,
+    ...(spec.tags ? { tags } : {}),
   });
+};
 
 const main = async () => {
   const res = await fetch(SPEC_URL);
