@@ -59,8 +59,8 @@ const config = {
       navbar: {
         title: "Fútbol Prode API",
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.png",
+          alt: "Fútbol Prode logo",
+          src: "img/fp.png",
         },
         items: [
           // {
