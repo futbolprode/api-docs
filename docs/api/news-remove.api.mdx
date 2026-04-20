@@ -5,7 +5,7 @@ description: "/:id"
 sidebar_label: "/:id"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1k02P0zAQhv9KNSeQvE3h6PN2JRAHBIs4VBFyk2ljEX+sPSmNLP93NE66/YCVAIlTEscz7zvPzCRwHoMi7ey7FiRY/BG/BTTugCDAq6AMEoYIcpPAKoMgQbcgIODToAO2ICkMKEBbkOAVdSAgNh0aBTIBjb5EWMI9BshZpOlmh6rFcJVnp/qI4iRyvNsNtHW9D67Fu5cSRwra7kEAHpXxPR+ZsXHGKzv+u1rnIv2hWjNEcqaELRtnIOeaVaJ3NmLk2LerFT9ajE3QnkGDBPYGpPbMtTCHWtxcqWThbJA6x51psUeamkId/+ewKuk2s1UMh1OXhtBzyUQ+yqpSXi8vaismb6XucaeGnhZTFuASIjZD0DSWjFtUAQPITX356zPjmWo8XUgTMwYzH4n55cEFowgkvP/6COIElE0WFNruXAGtqWB9KI4XH9nyL3ZBABc7fbxZrkBA4yyphkAmzuZdJKMsJ5z7O8O8yvPcVsIjVb5X2kIWE740U56bI4DjawFlMuQGUtqqiF9CnzMfPw0YGFUt4KCCVlsuYpOg1ZHfz+N2Y4Bto2Usrz7Nk/l6ccZzbWw+5MlmmX7AicV3HKelzHUWp1H/O/WXJKfUv13FZwO8ZP9HaV7Ds1J9sQ736w/rxzXk/BN915uo
+api: eJx9UsGu0zAQ/JVqTiC5TeHo8+uTQBwQPMShipAbb18sEtvP3pRWkf8dbZJCH5U4xVl7Z2ZnZ0SIlAy74D9YaHj6lX8k6sOJoBBNMj0xpQy9H+FNT9BwFgqJXgaXyEJzGkjBeWhEwy0UctNSb6BH8CVOHZ7pmRJKqaUzx+AzZXnwfruVj6XcJBdFBjRQigKbZ2GdFKFWOK+PAx9CF1OwtL7Sr1PohKE33giD+geq0pNaOjP57IKfB/lJF+j/IiqcTDfcIov0nrgNYpOljnh2iFuhEZXV6GyR8SmdrpYNqYNGyxyzrioT3eaGc9OE/k7xAx3N0PFqRploMzVDcnyZEA9kEiXofX179VUsny29PhjnPcgMS0kth8eQesPQ+Pj9Ceq6JBE5Oe/8MUzLczx5+zgpXn0WyXdyxSlKef55t9lCoQmeTcPQo6DFkLk3XgCX/Cw7eYXzJypMZ65iZ5xHUbN94+LykgUF6a8V2pBZquN4MJm+pa4UKb8MlMSqWnaYnDnIEPsR1mU5W+ij6TLdCRDZ5MWWN1+WLLxd/bXntbClaPzlJipQS7KcRanLTV4edp92TzuU8htubSm+
 sidebar_class_name: "delete api-method"
 info_path: docs/api/futbol-prode
 custom_edit_url: null
@@ -22,7 +22,7 @@ import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
 import TabItem from "@theme/TabItem";
 
-<h1 className={"openapi__heading"}>/:id</h1>
+<h1 className={"openapi__heading"}>/:id <span className={"api-auth-chip api-auth-chip--role api-auth-chip--role-manager"}>manager</span></h1>
 
 <MethodEndpoint method={"delete"} path={"/news/{id}"}></MethodEndpoint>
 
@@ -32,5 +32,5 @@ import TabItem from "@theme/TabItem";
 
 ## Request
 
-<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","required":true,"in":"path","schema":{"type":"integer"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div></div></TabItem></ApiTabs></div></div>
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","required":true,"in":"path","schema":{"type":"integer"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div></div></TabItem></ApiTabs></div></div>
       

@@ -53,6 +53,8 @@ const isOperation = (op) =>
 const ADMIN_ROLE = "admin";
 const isAdminOnly = (op) => op["x-futbolprode-required-role"] === ADMIN_ROLE;
 
+const isPublic = (op) => op["x-futbolprode-public"] === true;
+
 const rewriteOperation = (fullPath, op) =>
   isOperation(op)
     ? isAdminOnly(op)
@@ -63,6 +65,9 @@ const rewriteOperation = (fullPath, op) =>
           ...(op.operationId
             ? { operationId: operationIdWithTag(op.operationId, op.tags[0]) }
             : {}),
+          // Public endpoints opt out of the global `bearer` security so the
+          // API explorer doesn't render an Auth section for them.
+          ...(isPublic(op) ? { security: [] } : {}),
         }
     : op;
 
