@@ -55,6 +55,33 @@ const isAdminOnly = (op) => op["x-futbolprode-required-role"] === ADMIN_ROLE;
 
 const isPublic = (op) => op["x-futbolprode-public"] === true;
 
+// Optional tenant override header. Backend resolves the active company from
+// the bearer token by default, but operators with cross-company access can
+// pin the request to a specific tenant via this header. Only meaningful for
+// authenticated (non-public) endpoints.
+const COMPANY_HEADER_NAME = "x-futbolprode-company";
+const companyHeaderParam = () => ({
+  name: COMPANY_HEADER_NAME,
+  in: "header",
+  required: false,
+  description:
+    "Optional tenant override. When omitted, the company is resolved from the authenticated user.",
+  schema: { type: "string" },
+});
+
+const hasCompanyHeader = (params) =>
+  Array.isArray(params) &&
+  params.some(
+    (p) =>
+      !R.isNil(p) &&
+      p.in === "header" &&
+      typeof p.name === "string" &&
+      p.name.toLowerCase() === COMPANY_HEADER_NAME,
+  );
+
+const withCompanyHeader = (params) =>
+  hasCompanyHeader(params) ? params : [...(params ?? []), companyHeaderParam()];
+
 const rewriteOperation = (fullPath, op) =>
   isOperation(op)
     ? isAdminOnly(op)
@@ -66,8 +93,11 @@ const rewriteOperation = (fullPath, op) =>
             ? { operationId: operationIdWithTag(op.operationId, op.tags[0]) }
             : {}),
           // Public endpoints opt out of the global `bearer` security so the
-          // API explorer doesn't render an Auth section for them.
-          ...(isPublic(op) ? { security: [] } : {}),
+          // API explorer doesn't render an Auth section for them, and skip
+          // the tenant override header (only meaningful when authenticated).
+          ...(isPublic(op)
+            ? { security: [] }
+            : { parameters: withCompanyHeader(op.parameters) }),
         }
     : op;
 

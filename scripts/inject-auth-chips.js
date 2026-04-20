@@ -1,10 +1,13 @@
 /**
- * Post-processes the generated `docs/api/*.api.mdx` files to inject an "auth
- * chip" next to each operation's H1 title, based on the vendor extensions
- * emitted by the backend (`x-futbolprode-public`, `x-futbolprode-required-role`).
+ * Post-processes the generated `docs/api/*.api.mdx` files to:
+ *   1. Inject an "auth chip" next to each operation's H1 title, based on the
+ *      vendor extensions emitted by the backend (`x-futbolprode-public`,
+ *      `x-futbolprode-required-role`).
+ *   2. Rename the auto-generated info page sidebar label (defaults to
+ *      "Introduction") to something friendlier.
  *
- * The sidebar uses `sidebar_label` (the controller-relative path) and is left
- * untouched on purpose.
+ * The operation sidebar uses `sidebar_label` (the controller-relative path)
+ * and is left untouched on purpose.
  */
 
 const fs = require("fs");
@@ -14,6 +17,8 @@ const R = require("ramda");
 
 const SPEC = path.resolve(__dirname, "..", "openapi", "futbolprode.yaml");
 const DOCS_DIR = path.resolve(__dirname, "..", "docs", "api");
+const INFO_FILE = "futbol-prode-api.info.mdx";
+const INFO_SIDEBAR_LABEL = "Getting started";
 
 const kebab = (s) =>
   s
@@ -59,6 +64,23 @@ const withChip = (mdx, chip) =>
     return `<h1 className={"openapi__heading"}>${cleanTitle} ${chip}</h1>`;
   });
 
+const SIDEBAR_LABEL_RE = /^sidebar_label:.*$/m;
+
+const renameInfoSidebarLabel = () => {
+  const filePath = path.join(DOCS_DIR, INFO_FILE);
+  if (!fs.existsSync(filePath)) return false;
+
+  const mdx = fs.readFileSync(filePath, "utf8");
+  const next = mdx.replace(
+    SIDEBAR_LABEL_RE,
+    `sidebar_label: ${INFO_SIDEBAR_LABEL}`,
+  );
+  if (next === mdx) return false;
+
+  fs.writeFileSync(filePath, next);
+  return true;
+};
+
 const main = () => {
   const spec = yaml.load(fs.readFileSync(SPEC, "utf8"));
   const meta = authMetaByFilename(spec);
@@ -82,10 +104,12 @@ const main = () => {
     }
   });
 
+  const renamedInfo = renameInfoSidebarLabel();
+
   console.log(
     `Injected auth chips into ${patched} api docs${
       skipped > 0 ? ` (${skipped} expected files missing)` : ""
-    }.`,
+    }${renamedInfo ? `; renamed info sidebar label to "${INFO_SIDEBAR_LABEL}"` : ""}.`,
   );
 };
 
