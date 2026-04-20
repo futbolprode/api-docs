@@ -14,7 +14,8 @@
     "gen-api-docs": "docusaurus gen-api-docs",
     "clean-api-docs": "docusaurus clean-api-docs",
     "fetch-spec": "node scripts/fetch-spec.js",
-    "update-api-docs": "yarn fetch-spec && yarn clean-api-docs futbolprode && yarn gen-api-docs futbolprode"
+    "inject-auth-chips": "node scripts/inject-auth-chips.js",
+    "update-api-docs": "yarn fetch-spec && yarn clean-api-docs futbolprode && yarn gen-api-docs futbolprode && yarn inject-auth-chips"
   },
   "dependencies": {
     "@docusaurus/core": ">=2.4.1 <=2.4.3",
