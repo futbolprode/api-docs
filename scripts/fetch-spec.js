@@ -41,8 +41,8 @@ const relativePath = (fullPath, tag) => {
     fullPath === base
       ? "/"
       : fullPath.startsWith(`${base}/`)
-        ? fullPath.slice(base.length)
-        : fullPath;
+      ? fullPath.slice(base.length)
+      : fullPath;
   return colonizePath(rel);
 };
 
@@ -64,8 +64,7 @@ const companyHeaderParam = () => ({
   name: COMPANY_HEADER_NAME,
   in: "header",
   required: false,
-  description:
-    "Optional tenant override. When omitted, the company is resolved from the authenticated user.",
+  description: "Optional tenant override - for resellers only.",
   schema: { type: "string" },
 });
 
@@ -76,7 +75,7 @@ const hasCompanyHeader = (params) =>
       !R.isNil(p) &&
       p.in === "header" &&
       typeof p.name === "string" &&
-      p.name.toLowerCase() === COMPANY_HEADER_NAME,
+      p.name.toLowerCase() === COMPANY_HEADER_NAME
   );
 
 const withCompanyHeader = (params) =>
@@ -104,7 +103,7 @@ const rewriteOperation = (fullPath, op) =>
 const rewritePathItem = (fullPath, item) =>
   R.reject(
     R.isNil,
-    R.mapObjIndexed((op) => rewriteOperation(fullPath, op), item),
+    R.mapObjIndexed((op) => rewriteOperation(fullPath, op), item)
   );
 
 const hasAnyOperation = (item) => R.values(item).some(isOperation);
@@ -173,7 +172,7 @@ const breakSchemaCycles = (spec) => {
   reachabilityCache.clear();
   const sanitized = R.mapObjIndexed(
     (schema, name) => breakCyclesIn(schema, name, schemas),
-    schemas,
+    schemas
   );
   return R.assocPath(["components", "schemas"], sanitized, spec);
 };
@@ -183,8 +182,8 @@ const rewriteSpec = (spec) => {
     R.complement(hasAnyOperation),
     R.mapObjIndexed(
       (item, fullPath) => rewritePathItem(fullPath, item),
-      spec.paths ?? {},
-    ),
+      spec.paths ?? {}
+    )
   );
 
   // Tags referenced by no surviving operation should disappear from the
@@ -200,7 +199,7 @@ const rewriteSpec = (spec) => {
     R.chain(R.prop("tags")),
     R.uniq,
     R.sortBy(R.toLower),
-    R.map((name) => existingTags[name] ?? { name }),
+    R.map((name) => existingTags[name] ?? { name })
   )(paths);
 
   return breakSchemaCycles({
@@ -214,7 +213,7 @@ const main = async () => {
   const res = await fetch(SPEC_URL);
   if (!res.ok) {
     throw new Error(
-      `Failed to fetch spec from ${SPEC_URL}: ${res.status} ${res.statusText}`,
+      `Failed to fetch spec from ${SPEC_URL}: ${res.status} ${res.statusText}`
     );
   }
 
