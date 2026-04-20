@@ -47,8 +47,10 @@ The flow has two steps:
    spec from `http://localhost:4000/docs-yaml` and writes a cleaned-up copy
    to `openapi/futbolprode.yaml` (gitignored). The rewrite:
 
-   - replaces the verbose `ControllerName_methodName` operationIds NestJS
-     emits with just `methodName` (cleaner filenames),
+   - rewrites the verbose `ControllerName_methodName` operationIds NestJS
+     emits as `tag_methodName` (e.g. `users_addFirebaseToken`), which keeps
+     generated filenames unique across controllers (otherwise common method
+     names like `findAll` collide between `/matches` and `/teams`),
    - sets each operation's `summary` to its **controller-relative path**
      (e.g. `/me/firebase-token` instead of `UsersController_addFirebaseToken`)
      so the sidebar/title stay readable.

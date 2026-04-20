@@ -1,0 +1,36 @@
+---
+id: gamerules-tournament-rules
+title: "/tournaments/{tournamentId}"
+description: "/tournaments/{tournamentId}"
+sidebar_label: "/tournaments/{tournamentId}"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VE1v2zAM/SsBTxug1tnQk28DthTdqeg69BAEA2MziTrroxLdJTD03wfaTuIkTbsN2MmWRPE98T2yAecpIGtnb0rIYYmGQl1R/MGuDhYNWb6TNSjwGNAQU4iQTxuQQ8hhH3dTgoJAT7UOVELOoSYF2kIOHnkFCmKxIoOQN8AbL3cjB22XkJJqusAVYUnhIM0Cq0hqi7a+WNQ8d5UPrqSLN/IqoDUaX8mW2RTOeLSbf0dbuch/iFbUkZ1pr10WzkBKM0GJ3tlIUe5+HI/lU1IsgvZSf8gBFBTOMlmWM/S+0kWrTfYYJaA5BXfzRyqElg+iJOsuvS4HMbY2cwqQFCzJUsCqU/RUBwWeLFaS5HwI/3IPuLl9O7AMhGai7Xm8NCz9VEgfUTwhdAb+FGymgDW3YlyjoW4zJYG8Gl+9UHo5YVyKt/ddIGkO47K932PWDM2fQIEhXrm2j6jVRPyZQ7bL9/rtSOF52111qMShzD7mWYZeXw6s2HrqmNlnWmBd8ajLAuK4SEUdNG/ajHPCQAHy6Wx49E0M1YmzDehdJqXrt1T/M3HBIEMOXx/uRYpOTSHZlk/bhWtV7gs/aRmPboXyCV1QII/tFh8ux733sRDvSzbvIhtsXd+34+vVO0i/sxrTmjNfobZiybaqTa/LUGc1mGOyyg/G2kxB2/z5FJpmjpG+hyol2X6qKUh5ZwqeMWicy8OnDZQ6yv9+ohyx27U5vLvrO+D9aF/SQ9b9pgwvgalq6ur3kzbHAzjNktrOtb/jcQ68A3lx7u6oyET9P0j9zD1A6uI+FQX54dnJuBSb7xry+ss9pPQb+QtoJA==
+sidebar_class_name: "get api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/tournaments/{tournamentId}</h1>
+
+<MethodEndpoint method={"get"} path={"/gamerules/tournaments/{tournamentId}"}></MethodEndpoint>
+
+
+
+/tournaments/{tournamentId}
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"tournamentId","required":true,"in":"path","schema":{"type":"string"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"generalRules"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"penaltiesRules"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"twoWayPenaltiesRules"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"dreamFinalRules"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"generalRules\": \"string\",\n  \"penaltiesRules\": \"string\",\n  \"twoWayPenaltiesRules\": \"string\",\n  \"dreamFinalRules\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div></div><div></div></TabItem></ApiTabs></div></div>
+      

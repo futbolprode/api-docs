@@ -1,0 +1,36 @@
+---
+id: internalrankings-add-internal-ranking-member
+title: "/{id}/members"
+description: "/{id}/members"
+sidebar_label: "/{id}/members"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vclu2zAQ/RVjTi2gxFluurVZgBQoGmRBD45QjKWxzUQiGZJKogr892JIybIVp2gDxBfb5Myb7b1hC0qTQSeUvCggBSEdGYmlQfkg5NL+wqK46M6u4tl3quZkIAGNBityZCyksxYkVsQIBSRg6LEWhgpInakpASEhBY1uBQnYfEUVQtqCazR1MZdkwPukjZYrwiKEGHAWWFpK+iAve4vazVWpjSpo7y1g64yQS0iAXrDSJR9VTa4qjbJ5f7SVsu4fo+W1daoKbvu5qsD7LEYh676qomHvcatyJR1Jx1eodSnyMJzpvVWSz16FVfN7yjkhbXiUTpDlW1Fs2Mi6G9k6taNj7zcLnrFDloATLmR+Jp1wzalT4H20tFpJG7GPDg75qyCbG6E5PUgBPjR1z+hxcDv8tzOZnQiT1yWaiaEFGZI5TZyanET/jLHUsyTzbqRbSybARH6MGeC5IPF7900V1GM37tAYbCAB4aiy785pp0gz8DvGPLSyb0RXSZ/3kOUGI0YBAi98Ag6XNuCOFge7bic+bUXhpz0yx3ArxTtHR0EFFacwHSON/SyZp37n1KZkATunbTqdohb7G0oNkhtncUoLrEs3iSjAgrSU10a4JiDOCQ1TY5ZtXl0zdSM7e4OOz9ya7ijpfpwrU6GDFL79vIGkHycnyUsHWA5Xww446yUZiX907HldLlRgQtf781DU5JKrelURJMD9iH8O9w86IWLOQuSA3N8KgwS7hTZu6RbgmoCOXtxUlygkEze0uu2mtGPeCaSBWxvUCZsynUHbztHSrSm95+PHmgw3O0vgCY3AOdc4a6EQln8P63eU1nq9wKerjtGfJ0ODt9PtxRVY/oRlTbFVD9TER8pnPulX//9FfytkhN75NK0T4EfnYyJ1z9JWpGh3EvH2bhhqsHi1ogePL3lO2v3VNtsQ8OWPayb6vHvRKmZpCgaf+U3FZ0jhDu64GBVqDDIK5y2UKJc1Ltk+4vLnDw2x9DM=
+sidebar_class_name: "post api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/{id}/members</h1>
+
+<MethodEndpoint method={"post"} path={"/internalrankings/{id}/members"}></MethodEndpoint>
+
+
+
+/{id}/members
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","required":true,"in":"path","schema":{"type":"integer"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number","example":23}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs><TabItem label={"201"} value={"201"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"company"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to Company]"}}></SchemaItem><SchemaItem collapsible={false} name={"owner"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to User]"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"prize"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"members"} required={true} schemaName={"object[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"object","description":"[Circular reference to InternalRankingMember]"}}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"company\": {},\n  \"owner\": {},\n  \"name\": \"string\",\n  \"prize\": \"string\",\n  \"members\": [\n    {}\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

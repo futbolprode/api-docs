@@ -1,0 +1,36 @@
+---
+id: files-upload
+title: "/upload"
+description: "/upload"
+sidebar_label: "/upload"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1k01rGzEQhv9KeM+KN+1Rt0IJtJeGJqYHsxRZO84q1a4USWtsFv33Mtr1V9xAKdQX25rvZ94Z4TwFlYzrvzSQ2BhL8efgrVMNBLwKqqNEIUKuRpgeEi2phgIEAr0OJlADuVE2kkCvOoLE7nYzpLWzPriGbr1KLQSibqlTkCPS3rNXTMH0zxCgneq85adur13nVb9HzuLfqrUupr+spoeYXFfCFtp1yLnmKtG7PlLk2I93d/zVUNTBeGYECQho1yfqE9uU99bowq96iewwXhd36xfS3JYPTDuZKf0Q7HWHWUA3/fKPpnxOYVXij961QDKpDHZvLC3LBr/P0yDzRyCpZ17ktGUOuRytOu69o9Q61oOfeJYlSlQl8OQWKWwP2ijToE3JR1lVypvF2V4K4LflPtNGDTbdTFnA+CPpIZi0LxnXpAIFyFV9bnpkuhPAg8OMnGefn8T8496FTiVIfP3xBHHgyU0WmqbfuML5QK50fPPALV+1CwEedvrzYXE3C0FpFgJnY1adKhKYtXkidZHquNhEu1R5q0zPe5/1MLE+LElgzlELFHHLFcZxrSItg82Zn18HCkysFtiqYNSaZ1nVWRyOh2E2JrLhdD5vOjpqGidOl+39ov17x71VduAA8Nn+n0rzYV9Umvw+aU3+3HZ1kyyfo6Ifvj0+IeffJOmzuw==
+sidebar_class_name: "post api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/upload</h1>
+
+<MethodEndpoint method={"post"} path={"/files/upload"}></MethodEndpoint>
+
+
+
+/upload
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"url"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"cdnUrl"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"url\": \"string\",\n  \"cdnUrl\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

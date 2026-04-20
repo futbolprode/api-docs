@@ -1,0 +1,36 @@
+---
+id: internalrankings-settings-by-tournament
+title: "/"
+description: "/"
+sidebar_label: "/"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VF1v2zAM/CsBn9Wm26Pftm4dOmDAsLXYQxAMjM0kam1JpeiunqH/PlB2vjugK7CnOJJ4dzod2YMPxCjWu+sKCrBOiB3WjO7eulX8GUlEP953N75lhw05AQMBGRsS4gjFrAfroIA1YUUMBpgeWstUQbHEOpIBLYMCns6WrSx8HdhXdBZQ1mAglmtqEIoepAt6KgpbtwID9IRNqHWp6UrfBHQdpGRex7b2UV7IVrZRfJPLzkvfQEpzZYnBu0hRa99eXOhPRbFkG9Q8KAAMlN6J+lP0gCHUtszGTu+iHuhPyZEZOzBghZq4t+4Xd1Rmm1mfR+xAa6u9M65tFsSQlHXw5pn6Q4WzS8tlWyNPmJbE5EqaiJ9cDvVzxfK/HPGrkW4jcYYZnuDY5KQXsr+f32lI7xP/xZ0XaboeE/1tSPSXTDOHlNJ+dGZq7s7KjRHjTTa6dyrnBsRKjssRgSJncMFVzMBHLaW1h8qnGVjWXjtwRUN/yVp3TooNROLHTd+1XGsriIRYTKcY7Ple5nN4j7k+0BLbWiYDCmi0I5UtW+ky4oKQNQGz+f7Wd03uEMLNgTHO6sC4ZMaPK88NChTw+ccNmM2rqUhtX7Bu6fNrjv5dZcWTryr5RC4Y0MsOf96cX4xNhqU2maIFH6XB3F5j30+PQbbBEXqSaajROg1c9q4fnX7+mfLQKGbQ9wuMdMt1Srr80BKrW3MDj8gWF3qP2TyZzVBSIysbdWM3lo40bWcF7Dw6FHhP3d+G5iPWrRaAjsP/wzQOzAOm4dy7sqSwv3cy6zQ620B/+ngDKf0BgSE2fg==
+sidebar_class_name: "get api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/</h1>
+
+<MethodEndpoint method={"get"} path={"/internalrankings"}></MethodEndpoint>
+
+
+
+/
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"company"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to Company]"}}></SchemaItem><SchemaItem collapsible={false} name={"owner"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to User]"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"prize"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"members"} required={true} schemaName={"object[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"object","description":"[Circular reference to InternalRankingMember]"}}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"[\n  {\n    \"id\": 0,\n    \"company\": {},\n    \"owner\": {},\n    \"name\": \"string\",\n    \"prize\": \"string\",\n    \"members\": [\n      {}\n    ]\n  }\n]"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

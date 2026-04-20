@@ -1,0 +1,36 @@
+---
+id: invitations-remove-multi
+title: "/multi"
+description: "/multi"
+sidebar_label: "/multi"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VE2L2zAQ/SthTi1ok7RH3wrZhZYulO2WHkIoijzZaKuvlUYhxvi/l5GdrL0pS1uoL7almfdG782oBR8wStLefayhAu0Omspv+hHR+gPeZkMaBAQZpUXCmKBat+CkRY6vEwiI+JR1xBoqihkFaAcVPGWMDQhIao9WQtUCNYFzEkXtHqDrRNtH7lHWGCc4O2kSihPL8WqXaetNiL7GqyBp/wquADxKGwwv2UZ5G6Rr/p1t7xP9IZvKibwtaXPlLXTdhllS8C5h4tz3yyW/akwq6sAyQwUgQHlH6Ij3ZAhGq2LB4jFxQHtJ7rePqLisENk/0j288rkHGcJctluMfPbRYddD2EYAaSqFr9Ag4a10zR2mbAg6fgSQfGC3x13BadPyF3boEIu099xEdYErPUN7jhjln6MTxsOpmXI0bAxRSNViIYOejxwoUr4kXeFOZkOzHgVY6IQqR01NQdyijBihWm/GW19Zx16qU8AgLqswLInh48ZHKwkq+PT9HsRJUi6yCKrdzhepBw1vSsWzL1zyRbkggA/b/7ybLwfLpWK3GC34RFYWs4cuPAs1QTpbS3ikRTBSO+hEL2A76D31S0APtBFQWrlaQ9tuZcJv0XQdL/eDyqrVOsmtGU3EC+5zm8Kbu6Gf3s6etZnW9BOb8wVxkCZzRDHqIKNmmuKOOM3j3/G/Tvrb++K5BvG/mIa7YsLUx31QCsN472LMWZnzBK2uP1/fX0PX/QKVGu5M
+sidebar_class_name: "delete api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/multi</h1>
+
+<MethodEndpoint method={"delete"} path={"/invitations/multi"}></MethodEndpoint>
+
+
+
+/multi
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"ids","required":true,"in":"query","schema":{"type":"string"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"count"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"count\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

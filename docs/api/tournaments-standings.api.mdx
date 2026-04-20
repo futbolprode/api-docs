@@ -1,0 +1,36 @@
+---
+id: tournaments-standings
+title: "/{id}/standings/teams/{teamId}"
+description: "/{id}/standings/teams/{teamId}"
+sidebar_label: "/{id}/standings/teams/{teamId}"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VE1v2zAM/SsBTxug1t2Oug3YOnSnYc2wQxAMis0k6qyPSnSRwNB/HygrrtO0yLoB88W2RL1H8j2xB+cxKNLO3jQggVwXrDJoKf6MpGyj7SaCAK+CMkgYIshFDxwCEnQDAgLedzpgA5JChwK0BQle0RYExHqLRoHsgfaeT0QK2m4gJTGCECpz809AOXCLqsFwBLNWbURx4NldrDtaudYH1+DFGVwBuFPGt7xk9rUzXtn937NtXaQ/ZKu7SM7kY5e1M5DSklmidzZi5LPvr6741WCsg/YsHUgAAbWzhJZ4T3nf6jrLWt1FDuhPyd3qDmtOywc2AekB3ruoB9Ax0nZmhQGSAO+0pfjMVpq2YvEIMh5ZCiBNucQ5KnNbzAWJHwGkNmytqQH5yHGRVa+bVI2+rNg6seoHByUQYJC2jn28wVwYiyyhmoCehYgYHg4270LLWhP5KKtKeX05ETWr8zTDj7hWXUuzAQVYu4h1FzTtM+IKVcAAcrGcbt2yNEP3DwFFL25XWRLl49oFowgkfPkxB3HQgZPMKmi7dlmf0uzrnPHsK6d8ki4I4GKHn3eXV8VFqmYXpax3JKOyF4qxzzbwiGH0CeGOKt8qbdlGubF90edYdAEyj5Xp9MkcvFNmxVJAvlFyAX2/UhG/hzYlXr7vMHCnlwIeVNBqxT1Y9NDoyN+P1/RJluPdgTffio3fzh67e5x9WeSJwDRth0Mrf+F+GIo8Jv4jY+lKWiZxGEyvq/kl2gH+2cE5JvG6Wl/DVIbmEdMQ96Gu0U/3TuYd365xGHz+NIeUfgPuI19G
+sidebar_class_name: "get api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/{id}/standings/teams/{teamId}</h1>
+
+<MethodEndpoint method={"get"} path={"/tournaments/{id}/standings/teams/{teamId}"}></MethodEndpoint>
+
+
+
+/{id}/standings/teams/{teamId}
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","required":true,"in":"path","schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"teamId","required":true,"in":"path","schema":{"type":"string"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"position"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"points"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"position\": 0,\n  \"points\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

@@ -1,0 +1,36 @@
+---
+id: countries-find-all
+title: "/"
+description: "/"
+sidebar_label: "/"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VE1v2zAM/SsFz2rd9ehb0a3Dhh0GrMUOQTAwMhOr01clOogR+L8PlJ00Hy32AewUR9Qjnx4fuYUQKSGb4D81UIMOnedkKP9YGt/cWgsKIiZ0xJQy1LMtGA81tIQNJVCQ6LkziRqol2gzKfDoCGrYXC47XgQbU2joMiK3oCDrlhxCvQXuo9zKnIxfgQLaoItWjlyvg4voexgG9W/V2pD5D6vpLnNwBXalg4NhmEuVHIPPlAV7c30tPw1lnUwUoaAGUKCDZ/IsMYzRGl1ErJ6yXNieFw+LJ9JCKyaRnM2Yvgh+cM13bkEJBgUN8iEeU8IeFBgml3+f1zSvJh31OlVkUIA2tnhzF5rXw0uLq8dkX40x4RGjt5juEAIJXRIqnv8KOBw6YCZvnF60I3Gcea6ADZc+3xVf9+c5Rv0ntc8AhvIXk1lghTau8h4kQUEcO6MCBY64DTJNKyqNEfPXUL2gFGRK691AdaIrtMwx11WF0VwdmLm48rTIe1piZ/lizALi2Uy6S4b7knFBmChBPZsfhr6JJUd37C5MPpUHT0dq+rgPySFDDZ+/P4isYyeEZGmg8ctQOjTJdV8YX3wVymd0QYE8dvzz7up6mh7UYnzJFkNmh2VupoGuTpPszcC04SpaNF68142eHCU+aUxZA/UMttsFZnpMdhjk+LmjJDLNFawxGVzIA2bzQe3WjCjYmCyBl0VzQmY//fAizjGzn9S/tQbXaDsBgCy4/1NpWoFHlcZ7t1pTPIydbS/xzN7CHz88wDD8AmP+Gk0=
+sidebar_class_name: "get api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/</h1>
+
+<MethodEndpoint method={"get"} path={"/countries"}></MethodEndpoint>
+
+
+
+/
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"count"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>data</strong><span className={"openapi-schema__name"}> object[]</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"alpha2Code"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"flagUrl"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"teams"} required={true} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={false} name={"tournaments"} required={true} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"count\": 0,\n  \"data\": [\n    {\n      \"id\": 0,\n      \"name\": \"string\",\n      \"alpha2Code\": \"string\",\n      \"flagUrl\": \"string\",\n      \"teams\": [\n        \"string\"\n      ],\n      \"tournaments\": [\n        \"string\"\n      ]\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

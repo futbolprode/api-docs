@@ -1,0 +1,36 @@
+---
+id: rounds-create
+title: "/"
+description: "/"
+sidebar_label: "/"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1lN1u2zAMhV9l4LWSuGlXDLpcf4DtZkXbYcDSYJBtJlFnS6pEtw0Mv/tAyWkcBxuGActNEoniOSI/sQXr0CvS1nwqQYK3jSnDj8KjIgQBTnlVI6EPIBctaAMSNqhK9CDA41OjPZYgV6oKKMCoGkHC62TVUG4r522JE6doAwJCscFagWyBto6jAnlt1iAAX1XtKl6qt4WtnTJb6Drxb2obG+gv1YomkK3jsWlha+i6ZVLBQB9tueXTe1HyDQoorCE0xFvKuUoXsXSzx2ANrx3J2vwRCzbkPBeaNAbeTdbH5joBJZddtrCyvlYEMi5MSNfcjKNoso3nVMnQnyV1OYgxTZ3Hor5VY37adcMaL/jAUgBpisW6MqRpe0mWdZ0Nmu99nLETsFHhBo2qdsJ9QG5thcrAWCaWor/4wY0GMqOkA1sXEdRbpjZ661L64KwJSX6enfBXiaHw2iXXEF2QWjPVPfOc9TBoBgJqpI3lh+ESVxFmCbP+jICA/nn3OhpfMbBELsjZTDk9HZAZERtLXOJKNRW9S1mAAQxYNF7TNmbMUXn0IBfL4dYdU5Zutwvo0YuFTkui/3G9I+nzt/s9Q2wyFoHJvd0zf7XjYcfo/uEkNGGezc8n2dlknt1nZ/Lkg5yfT0+z999hjCMDNz89oCUb08GPqhOgzcpGVPquXseyvbvhuh3VDARwxdOfk2kG6VWqglW7pEe1MoM7zMZJ3qgkfKWZq5Q2jG5sYNs3eQhGnCpyAW2bq4BffdV1vPzUoOdGLQU8K69Vzu4XS34EaWpxD0sdeGM/t0ZO3kYK7NtzaOsnbn83VZ9V1WAEWvwvpX6iHiiluIuUb3LPqfYRR4OR2X17SDdf7pjDvB+wNbdYglcvPOLVC0h4gAc2aKPvSHlcb6FSZt2oNcenvPz5BfbsTBM=
+sidebar_class_name: "post api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/</h1>
+
+<MethodEndpoint method={"post"} path={"/rounds"}></MethodEndpoint>
+
+
+
+/
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"name"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"date"} required={true} schemaName={"date-time"} qualifierMessage={undefined} schema={{"format":"date-time","type":"string"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>tournament</strong><span className={"openapi-schema__name"}> object</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number","example":23}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"position"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"hasPenalties"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs><TabItem label={"201"} value={"201"}><div></div><div></div></TabItem></ApiTabs></div></div>
+      

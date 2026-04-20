@@ -16,10 +16,18 @@ const R = require("ramda");
 const SPEC_URL = process.env.SPEC_URL ?? "http://localhost:4000/docs-yaml";
 const OUT = path.resolve(__dirname, "..", "openapi", "futbolprode.yaml");
 
-const stripControllerPrefix = (operationId) =>
+const methodName = (operationId) =>
   operationId?.includes("_")
     ? operationId.split("_").slice(1).join("_")
     : operationId;
+
+// Replace the NestJS `ControllerName_methodName` operationId with
+// `tag_methodName` so the generated file slug stays unique per tag (e.g.
+// `matches_findAll` and `teams_findAll` won't collide as just `find-all`).
+const operationIdWithTag = (operationId, tag) => {
+  const method = methodName(operationId);
+  return method ? `${tag}_${method}` : operationId;
+};
 
 const relativePath = (fullPath, tag) => {
   const base = `/${tag}`;
@@ -39,7 +47,7 @@ const rewriteOperation = (fullPath, op) =>
         ...op,
         summary: relativePath(fullPath, op.tags[0]),
         ...(op.operationId
-          ? { operationId: stripControllerPrefix(op.operationId) }
+          ? { operationId: operationIdWithTag(op.operationId, op.tags[0]) }
           : {}),
       }
     : op;

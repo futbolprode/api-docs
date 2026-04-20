@@ -1,0 +1,36 @@
+---
+id: dreamfinalsettings-settings-by-tournament
+title: "/tournaments/{tournamentId}"
+description: "/tournaments/{tournamentId}"
+sidebar_label: "/tournaments/{tournamentId}"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vclu2zAQ/RVjTi3AxGmPurVZivQUJCl6MISCosY2U3EJOUpjCPr3YijZlmwlbQNUF0nkLI8z7w0bcB6DJO3sdQkZlAGlWWorq4hE2q7ij+3H5829q4OVBi2BAC+DNEgYImSLBngdMqCdyXUJAgI+1jpgCRmFGgVoCxl4SWsQENUajYSsAdp49o0UtF1B24qmM1yjLDGMwiwZmNhmez5Z1lS4ygdX4skf4grAZ2l8xUtmo5zx0m7enm3tIv1lNlVHcia5nSpnoG1zzhK9sxEj+348O+NXiVEF7bkbkAEIUM4SlztrQHpfaZU6NX+IbNAcJ3fFA6rUncB9Jd2F1+XAxtamwACtGDRrKsQYzOJcB1VXMswCLjGgVTgjN9tTIueI8pcMJZY3Lmr2i5Npd0ba0rRFpY2mW1fb8s3AknfCpOOllUWFw1iFcxVKy9tbIrw10XnnnzOTBtRZcNFHJZ6ozmEtRicfIt/DzAWQpkSrC9bqFWv1rpcotPwIILliVU6omf3Hx5rvIcZ5M9RvCwIM0trxYFhhJ3pas89x4NfDRAxP20lRh4rVRuRjNp9Lr08Hskr6OIR4gUtZVzTrogCrJ6Kqg6ZNiligDBggW+TDrTsWR8f/rUGvmMSAbkn0H1cuGEmQwdfv99y2jgkMMvVV26VLDOlLf5UQz24Y8hFcEMCH7X4+nJ71OpaKZcbRvItkZFJwP1per94o/I6mhM8095XUicapqk3foMnOD8nIf9loVucC0kTLFtA0hYz4LVRty8uPNQaucy7gSQbNhExVL3XsZdWPyQOYu9kF7257Wbyf7Ws7ht8vMsM5TVVjV8ifuDm8Vdq8Fdth/W84XkreJZm8THZQ+Jr4P5n6i2SUqbP7pBT64d7RHcB830n0y+U9tO1v8Q+7kA==
+sidebar_class_name: "get api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/tournaments/{tournamentId}</h1>
+
+<MethodEndpoint method={"get"} path={"/dreamfinalsettings/tournaments/{tournamentId}"}></MethodEndpoint>
+
+
+
+/tournaments/{tournamentId}
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"tournamentId","required":true,"in":"path","schema":{"type":"string"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"tournament"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to Tournament]"}}></SchemaItem><SchemaItem collapsible={false} name={"awardedPositions"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"awardedPoints"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"limitRound"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to Round]"}}></SchemaItem><SchemaItem collapsible={false} name={"isEnabled"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"company"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to Company]"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"tournament\": {},\n  \"awardedPositions\": 0,\n  \"awardedPoints\": 0,\n  \"limitRound\": {},\n  \"isEnabled\": true,\n  \"company\": {}\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

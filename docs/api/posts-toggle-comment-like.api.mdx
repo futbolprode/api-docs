@@ -1,0 +1,40 @@
+---
+id: posts-toggle-comment-like
+title: "/{postId}/comments/{commentId}/likes"
+description: "/{postId}/comments/{commentId}/likes"
+sidebar_label: "/{postId}/comments/{commentId}/likes"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VE2L2zAQ/StmTi1o47RHXVsWthS67Kb0EExR7EksYkleabwkGP33MrKdr3YhaaEnS2PpvZn3ZtSDa9Er0s4+VCChdYHCT3KbTYOfnDFo6aveIgholVcGCX0AuezBKoMgoRzOPFQgwONLpz1WIMl3KEBbBlRUg4BQ1mgUyB5o3/JFbQk36CFGcQBj8n9ESidrVBX6M5y1agKKiWh3t+5o5ZrWuwrv3gIO5LXdgADcKdM2HDL70plW2f3fs9Uu0JVsZRfImXRtVjoDMRbMElpnAwa++3E+50+FofS6ZRdBwiK5lzV6i7PsCanzNmR92lcyWznXoLJZ5BKA1Ib9HHyHQlxA5f3gScxHo0PeHyyPOUMGEGCQaje1T+oVqvl2Qr0SI6B/nZqr8w0LS9QGmeeq1bMTBZMUl4l+xrXqGsoGFGChApad17RPiCtUHj3IZXH665lNGJScDvSDMyz/GBLj4t55owgkfPmxADHZxkkmJbVdu2SnpmTefco4e+SUf0sXBHCxw+bDbA4CSmdJlQSyZzSWzCjLgGMXXSnjGc+huQh3lLeN0haiGOTtR5cm7wXIw/xNDBw8nfCBpBCQmlguoe9XKuB338TI4ZcOPetdCHhVXqsVK7HsodKB18fJuMiSa0fL2r57GofofXbU+Dz7MchDyDRNh4OgW9yfPUg8oP+ReBQvFlFMT8Jtpb9FO8D/8ck6JHFbrbcwjc/Vkak4GffHb88LiPEX0IYm4g==
+sidebar_class_name: "post api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/{postId}/comments/{commentId}/likes</h1>
+
+<MethodEndpoint method={"post"} path={"/posts/{postId}/comments/{commentId}/likes"}></MethodEndpoint>
+
+
+
+/{postId}/comments/{commentId}/likes
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"commentId","required":true,"in":"path","schema":{"type":"integer"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"postId","required":true,"in":"path","schema":{"type":"integer"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Toggle like. Returns { liked: boolean }
+
+</div><div></div></TabItem></ApiTabs></div></div>
+      
