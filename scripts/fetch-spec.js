@@ -29,13 +29,21 @@ const operationIdWithTag = (operationId, tag) => {
   return method ? `${tag}_${method}` : operationId;
 };
 
+// Convert OpenAPI path-param syntax (`{id}`) to colon-style (`:id`).
+// Required because the generated MDX inlines the summary as JSX children
+// (`<h1>{summary}</h1>`), where `{id}` would be evaluated as a JS expression
+// and crash the page with `id is not defined`.
+const colonizePath = (p) => p.replace(/\{([^}]+)\}/g, ":$1");
+
 const relativePath = (fullPath, tag) => {
   const base = `/${tag}`;
-  return fullPath === base
-    ? "/"
-    : fullPath.startsWith(`${base}/`)
-      ? fullPath.slice(base.length)
-      : fullPath;
+  const rel =
+    fullPath === base
+      ? "/"
+      : fullPath.startsWith(`${base}/`)
+        ? fullPath.slice(base.length)
+        : fullPath;
+  return colonizePath(rel);
 };
 
 const isOperation = (op) =>
