@@ -137,7 +137,7 @@ const config = {
         docsPluginId: "classic",
         config: {
           futbolprode: {
-            specPath: "http://localhost:4000/docs-yaml",
+            specPath: "openapi/futbolprode.yaml",
             outputDir: "docs/api",
             downloadUrl:
               "https://raw.githubusercontent.com/futbolprode/api-docs/main/examples/api.yaml",

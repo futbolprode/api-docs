@@ -41,37 +41,41 @@ The API reference under `docs/api/` is **generated** from the OpenAPI spec
 served by the [Futbol Prode API](https://github.com/futbolprode/api). Do not
 edit those files by hand — regenerate them instead.
 
-The plugin is configured in `docusaurus.config.js` under the id `futbolprode`,
-pointing at:
+The flow has two steps:
 
-```
-specPath: http://localhost:4000/docs-yaml
-outputDir: docs/api
-```
+1. **Fetch and rewrite the spec.** `scripts/fetch-spec.js` pulls the live
+   spec from `http://localhost:4000/docs-yaml` and writes a cleaned-up copy
+   to `openapi/futbolprode.yaml` (gitignored). The rewrite:
 
-So to refresh the docs:
+   - replaces the verbose `ControllerName_methodName` operationIds NestJS
+     emits with just `methodName` (cleaner filenames),
+   - sets each operation's `summary` to its **controller-relative path**
+     (e.g. `/me/firebase-token` instead of `UsersController_addFirebaseToken`)
+     so the sidebar/title stay readable.
+
+2. **Generate the MDX** with `docusaurus-plugin-openapi-docs`, which reads
+   `openapi/futbolprode.yaml` (configured in `docusaurus.config.js` under the
+   id `futbolprode`) and writes to `docs/api/`.
+
+To refresh the docs end-to-end:
 
 1. Start the API locally so the spec is reachable at
-   `http://localhost:4000/docs-yaml`.
-2. Wipe the previously generated files:
+   `http://localhost:4000/docs-yaml` (override with `SPEC_URL=...` if needed).
+2. Run:
 
    ```bash
-   yarn clean-api-docs futbolprode
+   yarn update-api-docs
    ```
 
-3. Regenerate them from the live spec:
+   which is shorthand for:
 
    ```bash
-   yarn gen-api-docs futbolprode
+   yarn fetch-spec \
+     && yarn clean-api-docs futbolprode \
+     && yarn gen-api-docs futbolprode
    ```
 
-4. Review the diff under `docs/api/` and commit.
-
-To regenerate everything in one go (all configured specs):
-
-```bash
-yarn clean-api-docs all && yarn gen-api-docs all
-```
+3. Review the diff under `docs/api/` and commit.
 
 ## Deploy
 

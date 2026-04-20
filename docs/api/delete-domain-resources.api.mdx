@@ -1,0 +1,44 @@
+---
+id: delete-domain-resources
+title: "/resources/{domainName}"
+description: "/resources/{domainName}"
+sidebar_label: "/resources/{domainName}"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VE2L2zAQ/StmTi1ok7TsybdCstBSStlu6SH4oNiTtagsaaXREmP038v4I06yG/oBPdmWNe89vTejDqxDL0lZ87GCHCrUSLi2jVTmHoONvsQAApz0skFCHyDfdmBkg7y73/eFPwR4fIrKYwU5+YgClIEcnKQaBISyxkZC3gG1jisDeWUeISXRDRtrlBX6M5i91AHFxHW42UfaWe28rfDmN7gC8CAbp3mpaUvbOGnaf2erbaA/ZCtjINv0ZYvSNpBSwSzBWRMwcO371YofFYbSK8fOQw4ftM4GNzM/2Z4NYVRZiGWJIeyj1i0kAber25cIQ2aZsZTtbTQVnxZIPnJgY1ABCnFRtTyyLbs5zQQCGqTazi3R9wDVXDKCXS8N6J+nToles99ELuTLpXRqcWJs79ClpDXuZdSUDSjA/gUso1fU9og7lB495Nvi9Nc3zmYweNrQDYFxKuOSGF/urG8kQQ6ffjyAmNJkkb1ryuxtn7KiPtO7XnH2lSW/kAsC+LDDx7vFCgSU1pAsCfKO0ZwN1EjDgGNzXXfuDPrYZoQHWjotleH0e0e7MY052r7LjvOan4xmIaBv4HwLXbeTAb97nRIvP0X0bGoh4Fl6JXd83G0HlQr8Pk/FhS4+IBo28M39OEBvs9nIc73jIg8g0+iIg2s/sT2/QlKRxDSZf6fiGvVA8erNcRTCd8L/YRpvjZmpOJmq9ebz5mEDKf0CGpXlMQ==
+sidebar_class_name: "delete api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/resources/{domainName}</h1>
+
+<MethodEndpoint method={"delete"} path={"/domains/resources/{domainName}"}></MethodEndpoint>
+
+
+
+/resources/{domainName}
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"domainName","required":true,"in":"path","schema":{"type":"string"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+All domain resources deleted successfully
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Domain not found
+
+</div><div></div></TabItem></ApiTabs></div></div>
+      

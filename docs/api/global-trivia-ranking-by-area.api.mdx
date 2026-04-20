@@ -1,0 +1,36 @@
+---
+id: global-trivia-ranking-by-area
+title: "/global/areas"
+description: "/global/areas"
+sidebar_label: "/global/areas"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v2zAM/SsFz2rd7ehb99GhwzAMW4cdghxom0nU2JIqyUENw/99oOSkduy22ZBcHIvk4zP5RLagDVn0Uqu7AlJYlzrD8t7KncSfqLZSrT80N5YQBBi0WJEn6yBdtKCwIkj5lJRnl7sCBFh6rKWlAtIVlo4ESAUpPNZkGxDg8g1VCGkLvjEcreoqIwtdJw6AaAm/0Y7Ks6C5rTRnAfK4pfMwIrT55t+hnLdSrSNU8NwQFmTngPpMT5er2me6NFYXdGnQb17BFUBPWJmSj6om15VB1fx/to12/sRsee28rkLYVa4r6LolZ3FGK0eOY99fX/OjIJdbaViskAIIyLXypDzb0JhS5kHIyYNjh3aQ3FiWuZcRzuBaKowwB2I6e6CcKY99g36m/RRRD3OGXNeR0sRicD0X0nUCCvTDKqG1yCKQnir3NkmMt28uJ5u+hwZNhCTAaKm8m+eqnTyq0LOxdmQ/vvCZ3VAhiz21AZFD2kGSIeRSgJc+KIOnymgWcbHCj+u/5jkEfmh3HD2WSRJHWsL5OWdFfqPDqKNQSL4VKSRjmOMgR3a3n3u1Lfk6eG9cmiRo5NVA90HAxxQ+0Qrr0l9EFGB5O8prK30TEDNCSxbSxXJo+sXqjf3dO/SS5tL0R6L/c6tthR5S+PrnHsS+J0wydESqlQ696gt7Gxhf/GDKE7oggD82vry7uu4vGubc7i5qw1cYpNHf/eN6jQAPEvH05BNTolRBRFzHtm/ApI+iX0W9ckJjw0xJF9C2GTr6bcuu4+M4MbmQhXSYlYPRtKVmuqJ2WNZMB3i2vRAyXEKn+Pdr5hTXfpGchLpfFc/OS36xkr2DYMR+MM9+/1EfDvMSnjUybkrMO7s4Xid8lkz90hhlin43eU5maJvMe67M4W5/+XwPXfcXomAFrA==
+sidebar_class_name: "get api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/global/areas</h1>
+
+<MethodEndpoint method={"get"} path={"/triviaRankings/global/areas"}></MethodEndpoint>
+
+
+
+/global/areas
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"parentAreaId","required":false,"in":"query","schema":{"type":"number"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"areaLevel","required":false,"in":"query","schema":{"type":"number"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"skip","required":false,"in":"query","schema":{"type":"number"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"take","required":false,"in":"query","schema":{"type":"number"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"search","required":false,"in":"query","schema":{"type":"string"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>pagination</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"skip"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"take"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"count"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"page"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>data</strong><span className={"openapi-schema__name"}> object[]</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"areaId"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"areaName"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"points"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"position"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"userCount"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"pagination\": {\n    \"skip\": 0,\n    \"take\": 0,\n    \"count\": 0,\n    \"page\": 0\n  },\n  \"data\": [\n    {\n      \"areaId\": 0,\n      \"areaName\": \"string\",\n      \"points\": 0,\n      \"position\": 0,\n      \"userCount\": 0\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

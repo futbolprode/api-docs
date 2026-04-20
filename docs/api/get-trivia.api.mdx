@@ -1,0 +1,36 @@
+---
+id: get-trivia
+title: "/{id}"
+description: "/{id}"
+sidebar_label: "/{id}"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P2zYQ/SvGnFqAu972qNvWSYoUPWySDXowfBhJY5uJ+LHk0FlD0H8vhpJseW0vkgDxxTY5H49v3sy04DwFZO3s+xoK2BA/Br3TCAo8BjTEFCIUyxYsGoICdA0KAj0lHaiGgkMiBdpCAR55CwpitSWDULTAe589LNOGAnSdanvLLWFN4STOGptIakzyfLNOXLrGB1fTzbXAkYO2G1BAz2h8I0dmXznj0e5/PtvWRf7ObFWK7Ex2u62cga5bSZbonY0UxffPuzv5qilWQXuhGQoABZWzTJblDr1vdJVLMP8SxaA9T+7KL1QJLB+kYKz78Lqe2NhkSqFZAWsWfC+hdwpiKl+5ZAwc7zOqtQsGGQqokemGtSFQ5x5rbXXc0g/5VG5H4b3BDX0OzUUc3mnL8a/9woVAFd/b+I3CxYcGtLUzn6ihSvhbuNRzemb4lCiKRZzcYgi4BwWaycRLXJ9WbbnQoUoNhlmgNQWyFc3Yzfp2+TDEX4nuYNTgz8Zc9P4rQW7w+VEbeqAw5rj4wMjIKV6Uq00GiiXUAddZQalspGh1bvEUqYZVpwCbxn37SL7BKe7SuYbQDlx/1XazwEYQC5AHsrXkeM38X4w8ulD9/Trppu267KdOr9yJTk8E+FJZ13R0RTVTjRwreJH/A9unrL1G0XU+Vod2hWHydvJRwLiRwQucT6MYnopn3uq6E4TEWzcM71xT3srt4DdaRQq7cZQnaTzYMvtYzOfo9e1kAOZJ9jLXG1pjanjWRwGZc5GqFDTvc8SSMEiPLlfTq08yxvpJNRoMsy2LpT9Sw493oyr++e/xqAcBmdWg7dplpQ1kvcuIZw8C+QwuKJDH9n/+uL0bJi5Wor8uj5jIBnMrDUtg5Okk0EHYTM889w3qrO3UD66e6WOFFBS6ljrlFVIsoW1LjCLGrpPjp0RB6Fop2GHQWMpDli3UOsrv4156geGwLOC3j0NP/D47UnSKbRxuWbw7bBL1fHylfb+9O+n2YSf+WPZrKfvQF3f2AYBs41+TadjXJ5l6u/uqIj+9O1u1ItZD+/z99hG67n+DDSJZ
+sidebar_class_name: "get api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/{id}</h1>
+
+<MethodEndpoint method={"get"} path={"/trivias/{id}"}></MethodEndpoint>
+
+
+
+/{id}
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","required":true,"in":"path","schema":{"type":"integer"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"title"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"subtitle"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"startsAt"} required={true} schemaName={"date-time"} qualifierMessage={undefined} schema={{"format":"date-time","type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"finishesAt"} required={true} schemaName={"date-time"} qualifierMessage={undefined} schema={{"format":"date-time","type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"coverImageUrl"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"pointsByCorrectAnswer"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"randomSelectionCount"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"questions"} required={true} schemaName={"object[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"object","description":"[Circular reference to TriviaQuestion]"}}}></SchemaItem><SchemaItem collapsible={false} name={"company"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to Company]"}}></SchemaItem><SchemaItem collapsible={false} name={"maxTimePerQuestion"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"status"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** [`draft`, `published`, `paused`]"} schema={{"type":"string","enum":["draft","published","paused"]}}></SchemaItem><SchemaItem collapsible={false} name={"allowReplay"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"rankingCalculationPending"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"rankingLastCalculatedAt"} required={true} schemaName={"date-time"} qualifierMessage={undefined} schema={{"format":"date-time","type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"title\": \"string\",\n  \"subtitle\": \"string\",\n  \"startsAt\": \"2026-04-20T04:04:17.539Z\",\n  \"finishesAt\": \"2026-04-20T04:04:17.539Z\",\n  \"coverImageUrl\": \"string\",\n  \"pointsByCorrectAnswer\": 0,\n  \"randomSelectionCount\": 0,\n  \"questions\": [\n    {}\n  ],\n  \"company\": {},\n  \"maxTimePerQuestion\": 0,\n  \"status\": \"draft\",\n  \"allowReplay\": true,\n  \"rankingCalculationPending\": true,\n  \"rankingLastCalculatedAt\": \"2026-04-20T04:04:17.539Z\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

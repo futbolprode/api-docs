@@ -1,0 +1,36 @@
+---
+id: delete-trivia-solution
+title: "/trivias/{triviaId}/solutions/{id}"
+description: "/trivias/{triviaId}/solutions/{id}"
+sidebar_label: "/trivias/{triviaId}/solutions/{id}"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vctu2zAQ/BVjTy3AREmPugV5ACl6aBsHPRg+0NQ6YiqJDLlKYwj892JJSZbtBMij6MkyHzO7szvLDoxFJ0mb5rqAHAqskHDu9KOWN6ZqeQMEWOlkjYTOQ77ooJE1Qg66AAEOH1rtsICcXIsCdAM5WEklCPCqxFpC3gFtbLzREN6hgxDEiEKR7PpjWPFkibJAt4OzlpVHMVA9Ha1bWpnKOlPg0UvAnpxu7kAAPsnaVrxUb5SprWw272crjadXsqnWk6njtWNlaghhySzemsaj57tfTk75p0CvnLaxSDmAAGUawoZ4T1pbaRUrm917PtAdkpvVPSoOyzruA9IJXheTM01br1hmAQ8t+sR1CLAbyuJcO9VW0s0crtFho3BGZpb66kcPs2RMVRqP/wrxvDRaYcT1Q/N+DHnwQMTESlqPxVxzeZ/Rp/Xo3s1369ElRRxKwuIsVnFtXC2JjSkJj4iZxV7nhDBtwUVy5ViqiRK7CfThTvmWAkhTbMGU/Vnj/0SHBSYhecf27w07KOP52m6GWTrhs27wdsiGKHzW6SKAgBqpNNuRE4cMla+97dE9DtOodRXbkcj6PMuk1ccT30UD7Qd4gWvZVjRLKMD28qhap2kTEVcoHZdysZxu3bB7kkGGA72lWLF+SfQfV0Phvv6ab0vGQcaC6WZtYqv0el/FiGffOeSDcEEAJ5v+nB6f9EaXiluE0azxVMvY6/3seZWIOyxj2xI+UWYrqZvY0yxu19dmqL0HwSN6nNsjMq/rgjsijrt8AV23kh5vXRUCLz+06FjjpYBH6bRccfaLDgrt+Xs7Q/diGwcbfPrZ9/rn2VbX3Zj7RR7XTFO1mET8jZv0avEM/4+Mo1JhGcTwbrwt65eIE8Gz79oYxtuyfQtT/6btMKVzZ0qhne4dPEfsrHEGXFx+u5xfQgh/AXzL9NA=
+sidebar_class_name: "delete api-method"
+info_path: docs/api/futbol-prode
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>/trivias/{triviaId}/solutions/{id}</h1>
+
+<MethodEndpoint method={"delete"} path={"/trivias/{triviaId}/solutions/{id}"}></MethodEndpoint>
+
+
+
+/trivias/{triviaId}/solutions/{id}
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","required":true,"in":"path","schema":{"type":"integer"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"triviaId","required":true,"in":"path","schema":{"type":"integer"}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-path","schema":{"type":"string","example":"mycompany"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"header","required":false,"name":"x-futbolprode-host","schema":{"type":"string","example":"customprode.com"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"201"} value={"201"}><div></div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"question"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to TriviaQuestion]"}}></SchemaItem><SchemaItem collapsible={false} name={"chosen"} required={false} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to TriviaQuestionChoice]"}}></SchemaItem><SchemaItem collapsible={false} name={"solution"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to TriviaSolution]"}}></SchemaItem><SchemaItem collapsible={false} name={"elapsedTime"} required={true} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number"}}></SchemaItem><SchemaItem collapsible={false} name={"user"} required={true} schemaName={"object"} qualifierMessage={undefined} schema={{"type":"object","description":"[Circular reference to User]"}}></SchemaItem><SchemaItem collapsible={false} name={"createdAt"} required={true} schemaName={"date-time"} qualifierMessage={undefined} schema={{"format":"date-time","type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"question\": {},\n  \"chosen\": {},\n  \"solution\": {},\n  \"elapsedTime\": 0,\n  \"user\": {},\n  \"createdAt\": \"2026-04-20T04:04:17.542Z\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      
