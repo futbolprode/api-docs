@@ -1,0 +1,51 @@
+name: Sync and deploy from api
+
+on:
+  repository_dispatch:
+    types:
+      - sync-api-docs-deploy
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Sync from api and deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download latest OpenAPI spec from api
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          repo: futbolprode/api
+          workflow: test-and-deploy.yml
+          workflow_conclusion: success
+          branch: main
+          name: openapi-spec
+          path: api-spec
+          github_token: ${{ secrets.API_REPO_READ_TOKEN }}
+
+      - name: Setup api-docs node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install api-docs dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Refresh generated API docs
+        env:
+          SPEC_PATH: api-spec/futbolprode.yaml
+        run: yarn update-api-docs
+
+      - name: Build website
+        run: yarn build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
