@@ -95,6 +95,7 @@ yarn deploy
 ```
 
 Production syncs from the `api` repository automatically after successful
-deploys there. The sync workflow downloads the latest `openapi-spec`
-artifact uploaded by the `api` repo's CI, refreshes `docs/api`, and
-publishes the site.
+deploys there. The `Sync from api` workflow downloads the latest
+`openapi-spec` artifact uploaded by the `api` repo's CI, regenerates
+`docs/api/`, commits the result to `main`, and dispatches the
+`Deploy to GitHub Pages` workflow which builds and publishes the site.

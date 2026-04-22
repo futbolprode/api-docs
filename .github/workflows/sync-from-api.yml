@@ -1,4 +1,4 @@
-name: Sync and deploy from api
+name: Sync from api
 
 on:
   repository_dispatch:
@@ -8,10 +8,11 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
-  deploy:
-    name: Sync from api and deploy to GitHub Pages
+  sync:
+    name: Regenerate API docs from latest api spec
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,25 +28,29 @@ jobs:
           path: api-spec
           github_token: ${{ secrets.API_REPO_READ_TOKEN }}
 
-      - name: Setup api-docs node version
+      - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: yarn
 
-      - name: Install api-docs dependencies
+      - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Refresh generated API docs
+      - name: Regenerate API docs
         env:
           SPEC_PATH: api-spec/futbolprode.yaml
         run: yarn update-api-docs
 
-      - name: Build website
-        run: yarn build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Commit regenerated docs to main
+        id: commit
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          commit_message: 'chore: sync API docs from api'
+          file_pattern: 'docs/api/**'
+
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.changes_detected == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run build.yml --ref main
