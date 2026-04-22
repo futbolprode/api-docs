@@ -28,6 +28,16 @@ jobs:
           path: api-spec
           github_token: ${{ secrets.API_REPO_READ_TOKEN }}
 
+      - name: Resolve api commit SHA
+        id: api_sha
+        env:
+          GH_TOKEN: ${{ secrets.API_REPO_READ_TOKEN }}
+        run: |
+          sha=$(gh api repos/futbolprode/api/actions/artifacts \
+            --jq 'first(.artifacts[] | select(.name == "openapi-spec" and .expired == false) | .workflow_run.head_sha)')
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "Resolved api SHA: $sha"
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
@@ -46,7 +56,7 @@ jobs:
         id: commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: sync API docs from api'
+          commit_message: 'chore: sync API docs from api@${{ steps.api_sha.outputs.sha }}'
           file_pattern: 'docs/api/**'
 
       - name: Trigger deploy workflow
