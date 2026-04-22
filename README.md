@@ -43,9 +43,14 @@ edit those files by hand — regenerate them instead.
 
 The flow has two steps:
 
-1. **Fetch and rewrite the spec.** `scripts/fetch-spec.js` pulls the live
-   spec from `http://localhost:4000/docs-yaml` and writes a cleaned-up copy
-   to `openapi/futbolprode.yaml` (gitignored). The rewrite:
+1. **Fetch and rewrite the spec.** `scripts/fetch-spec.js` reads the spec
+   from either:
+
+   - `SPEC_PATH=/path/to/futbolprode.yaml`, or
+   - `SPEC_URL=http://localhost:4000/docs-yaml` (default)
+
+   and writes a cleaned-up copy to `openapi/futbolprode.yaml` (gitignored).
+   The rewrite:
 
    - rewrites the verbose `ControllerName_methodName` operationIds NestJS
      emits as `tag_methodName` (e.g. `users_addFirebaseToken`), which keeps
@@ -61,18 +66,19 @@ The flow has two steps:
 
 To refresh the docs end-to-end:
 
-1. Start the API locally so the spec is reachable at
-   `http://localhost:4000/docs-yaml` (override with `SPEC_URL=...` if needed).
+1. Generate the spec in the `api` repo and point `SPEC_PATH` at it, or start
+   the API locally so the spec is reachable at `http://localhost:4000/docs-yaml`
+   (override with `SPEC_URL=...` if needed).
 2. Run:
 
    ```bash
-   yarn update-api-docs
+   SPEC_PATH=../api/openapi/futbolprode.yaml yarn update-api-docs
    ```
 
    which is shorthand for:
 
    ```bash
-   yarn fetch-spec \
+   SPEC_PATH=../api/openapi/futbolprode.yaml yarn fetch-spec \
      && yarn clean-api-docs futbolprode \
      && yarn gen-api-docs futbolprode
    ```
@@ -87,3 +93,9 @@ The site deploys to GitHub Pages (`organizationName: futbolprode`,
 ```bash
 yarn deploy
 ```
+
+Production syncs from the `api` repository automatically after successful
+deploys there. The `Sync from api` workflow downloads the latest
+`openapi-spec` artifact uploaded by the `api` repo's CI, regenerates
+`docs/api/`, commits the result to `main`, and dispatches the
+`Deploy to GitHub Pages` workflow which builds and publishes the site.

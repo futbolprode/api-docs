@@ -1,0 +1,66 @@
+name: Sync from api
+
+on:
+  repository_dispatch:
+    types:
+      - sync-api-docs-deploy
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  sync:
+    name: Regenerate API docs from latest api spec
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download latest OpenAPI spec from api
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          repo: futbolprode/api
+          workflow: test-and-deploy.yml
+          workflow_conclusion: success
+          branch: main
+          name: openapi-spec
+          path: api-spec
+          github_token: ${{ secrets.API_REPO_READ_TOKEN }}
+
+      - name: Resolve api commit SHA
+        id: api_sha
+        env:
+          GH_TOKEN: ${{ secrets.API_REPO_READ_TOKEN }}
+        run: |
+          sha=$(gh api repos/futbolprode/api/actions/artifacts \
+            --jq 'first(.artifacts[] | select(.name == "openapi-spec" and .expired == false) | .workflow_run.head_sha)')
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "Resolved api SHA: $sha"
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Regenerate API docs
+        env:
+          SPEC_PATH: api-spec/futbolprode.yaml
+        run: yarn update-api-docs
+
+      - name: Commit regenerated docs to main
+        id: commit
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: sync API docs from api@${{ steps.api_sha.outputs.sha }}'
+          file_pattern: 'docs/api/**'
+
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.changes_detected == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run build.yml --ref main

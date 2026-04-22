@@ -13,6 +13,7 @@ const path = require("path");
 const yaml = require("js-yaml");
 const R = require("ramda");
 
+const SPEC_PATH = process.env.SPEC_PATH;
 const SPEC_URL = process.env.SPEC_URL ?? "http://localhost:4000/docs-yaml";
 const OUT = path.resolve(__dirname, "..", "openapi", "futbolprode.yaml");
 
@@ -210,20 +211,28 @@ const rewriteSpec = (spec) => {
 };
 
 const main = async () => {
-  const res = await fetch(SPEC_URL);
-  if (!res.ok) {
-    throw new Error(
-      `Failed to fetch spec from ${SPEC_URL}: ${res.status} ${res.statusText}`
-    );
-  }
+  const source = SPEC_PATH
+    ? fs.readFileSync(path.resolve(process.cwd(), SPEC_PATH), "utf8")
+    : await (async () => {
+        const res = await fetch(SPEC_URL);
+        if (!res.ok) {
+          throw new Error(
+            `Failed to fetch spec from ${SPEC_URL}: ${res.status} ${res.statusText}`
+          );
+        }
 
-  const spec = yaml.load(await res.text());
+        return await res.text();
+      })();
+
+  const spec = yaml.load(source);
   const out = rewriteSpec(spec);
 
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, yaml.dump(out, { noRefs: true, lineWidth: 1000 }));
 
-  console.log(`Wrote ${path.relative(process.cwd(), OUT)}`);
+  console.log(
+    `Wrote ${path.relative(process.cwd(), OUT)} from ${SPEC_PATH ?? SPEC_URL}`
+  );
 };
 
 main().catch((err) => {
