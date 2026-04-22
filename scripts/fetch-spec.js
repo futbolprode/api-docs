@@ -178,6 +178,36 @@ const breakSchemaCycles = (spec) => {
   return R.assocPath(["components", "schemas"], sanitized, spec);
 };
 
+const sortObjectKeys = (obj) =>
+  Object.fromEntries(
+    Object.entries(obj).sort(([a], [b]) => a.localeCompare(b))
+  );
+
+const sortParameters = (params) =>
+  [...params].sort((a, b) =>
+    `${a?.name ?? ""}:${a?.in ?? ""}`.localeCompare(
+      `${b?.name ?? ""}:${b?.in ?? ""}`
+    )
+  );
+
+const canonicalize = (node, key) => {
+  if (Array.isArray(node)) {
+    const items = node.map((child) => canonicalize(child));
+    if (key === "parameters") return sortParameters(items);
+    if (key === "required") return [...items].sort((a, b) => a.localeCompare(b));
+    return items;
+  }
+
+  if (R.isNil(node) || typeof node !== "object") return node;
+
+  return Object.fromEntries(
+    Object.entries(sortObjectKeys(node)).map(([childKey, value]) => [
+      childKey,
+      canonicalize(value, childKey),
+    ])
+  );
+};
+
 const rewriteSpec = (spec) => {
   const paths = R.reject(
     R.complement(hasAnyOperation),
@@ -203,11 +233,13 @@ const rewriteSpec = (spec) => {
     R.map((name) => existingTags[name] ?? { name })
   )(paths);
 
-  return breakSchemaCycles({
-    ...spec,
-    paths,
-    tags,
-  });
+  return canonicalize(
+    breakSchemaCycles({
+      ...spec,
+      paths,
+      tags,
+    })
+  );
 };
 
 const main = async () => {
