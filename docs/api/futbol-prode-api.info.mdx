@@ -37,6 +37,8 @@ to know which company is making the request. Send at least **one** of these head
 
 - `x-futbolprode-path`: the company's URL slug (e.g. `mycompany`).
 - `x-futbolprode-host`: the company's custom domain (e.g. `customprode.com`).
+- `x-futbolprode-client`: `juego` or `admin` for auth endpoints. Missing
+  values default to `juego`.
 
 A small subset of public endpoints is global and does not require either
 header (they are not tagged with the company-resolution parameters).
