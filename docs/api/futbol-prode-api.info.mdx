@@ -85,9 +85,9 @@ matching that `externalId`.
    manager is expected to share the `externalId` through their own
    channel.
 2. The invitee redeems the invitation:
-   - `POST /auth/invitations/:invitationId/accept` when the client
-     already resolved the invitation id (e.g. via
-     `GET /invitations/externalId/:externalId`).
+   - `POST /auth/invitations/accept` with the user's `externalId` in
+     the request body. The backend resolves the invitation from that
+     `externalId` and the request company.
    - `POST /auth/invitations/:jwt/acceptByJwt` when the user follows the
      activation link from the email. This endpoint is fully global and
      does **not** require the company-resolution headers, because the
