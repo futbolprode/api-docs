@@ -2311,19 +2311,6 @@ paths:
       responses:
         "200":
           description: ""
-  /emails/send:
-    post:
-      operationId: EmailsController_send
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/SendEmailDto"
-      responses:
-        "201":
-          description: ""
   /emails/send/external/support:
     post:
       operationId: EmailsController_sendExternalSupport
@@ -4785,24 +4772,6 @@ components:
       required:
         - data
         - locale
-    SendEmailDto:
-      type: object
-      properties:
-        from:
-          type: string
-        to:
-          type: string
-        subject:
-          type: string
-        body:
-          type: string
-        replyTo:
-          type: string
-      required:
-        - from
-        - to
-        - subject
-        - body
     ExternalSupportEmailDto:
       type: object
       properties: {}
