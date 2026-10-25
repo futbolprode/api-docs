@@ -12,6 +12,10 @@ permissions:
 
 jobs:
   sync:
+    # Temporary coming-soon mode: the OpenAPI plugin is disabled, so this job
+    # must stay paused until the docs configuration is restored. Remove this
+    # condition when re-enabling the plugin and the generated API routes.
+    if: ${{ false }}
     name: Regenerate API docs from latest api spec
     runs-on: ubuntu-latest
     steps:

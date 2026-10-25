@@ -1,11 +1,9 @@
 import React from "react";
 import clsx from "clsx";
 import Layout from "@theme/Layout";
-import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./index.module.css";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -17,16 +15,10 @@ function HomepageHeader() {
           alt="Fútbol Prode logo"
           className={styles.heroLogo}
         />
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/api/futbol-prode-api"
-          >
-            Start developing!
-          </Link>
-        </div>
+        <h1 className="hero__title">Coming soon</h1>
+        <p className="hero__subtitle">
+          {siteConfig.title} documentation is being updated.
+        </p>
       </div>
     </header>
   );
@@ -40,9 +32,6 @@ export default function Home() {
       description={siteConfig.tagline}
     >
       <HomepageHeader />
-      {/* <main>
-        <HomepageFeatures />
-      </main> */}
     </Layout>
   );
 }
