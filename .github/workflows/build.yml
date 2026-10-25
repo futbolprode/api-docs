@@ -28,3 +28,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+          # Remove stale documentation/blog files from the Pages branch while
+          # the site is in coming-soon mode. This is the action default, kept
+          # explicit so the temporary behavior is clear.
+          keep_files: false

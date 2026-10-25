@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Fútbol Prode API",
-  tagline: "Integrate all our features into your own site or application 🚀",
+  tagline: "Documentation is being updated.",
   url: "https://developers.futbolprode.com/",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -24,19 +24,13 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/futbolprode/apidocs/",
-          docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/futbolprode/apidocs/",
+        // Temporary coming-soon mode. The docs, tutorial and blog sources are
+        // intentionally kept in the repository so they can be restored later.
+        docs: false,
+        blog: false,
+        // Keep the sample Markdown source but don't generate its route.
+        pages: {
+          include: ["**/*.{js,jsx,ts,tsx}"],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -51,31 +45,12 @@ const config = {
       colorMode: {
         respectPrefersColorScheme: true,
       },
-      docs: {
-        sidebar: {
-          hideable: true,
-        },
-      },
       navbar: {
         title: "Fútbol Prode API",
         logo: {
           alt: "Fútbol Prode logo",
           src: "img/fp.png",
         },
-        items: [
-          // {
-          //   type: "doc",
-          //   docId: "intro",
-          //   position: "left",
-          //   label: "Tutorial",
-          // },
-          // { to: "/blog", label: "Blog", position: "left" },
-          {
-            label: "Documentation",
-            position: "left",
-            to: "/docs/api/futbol-prode-api",
-          },
-        ],
       },
       footer: {
         style: "dark",
@@ -128,27 +103,8 @@ const config = {
       },
     }),
 
-  plugins: [
-    [
-      "docusaurus-plugin-openapi-docs",
-      {
-        id: "openapi",
-        docsPluginId: "classic",
-        config: {
-          futbolprode: {
-            specPath: "openapi/futbolprode.yaml",
-            outputDir: "docs/api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag",
-            },
-          },
-        },
-      },
-    ],
-  ],
-
-  themes: ["docusaurus-theme-openapi-docs"],
+  // The OpenAPI plugin and theme are intentionally disabled while the site is
+  // in coming-soon mode. See COMING_SOON.md for the restoration checklist.
 };
 
 module.exports = config;
